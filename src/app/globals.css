@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette */
+  --color-ink: #14172b;
+  --color-ink-700: #232744;
+  --color-ink-500: #3a3f63;
+  --color-gold: #b68c2d;
+  --color-gold-600: #9a7625;
+  --color-gold-300: #e3c98a;
+  --color-cream: #fbf8f1;
+  --color-cream-200: #f3ecdd;
+  --color-blush: #f6ede4;
+
+  /* Type */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+
+  /* Soft, layered shadows */
+  --shadow-soft: 0 1px 2px rgba(20, 23, 43, 0.04), 0 4px 12px rgba(20, 23, 43, 0.05);
+  --shadow-lift: 0 2px 4px rgba(20, 23, 43, 0.04), 0 12px 32px rgba(20, 23, 43, 0.09);
+  --shadow-glow: 0 20px 60px -20px rgba(182, 140, 45, 0.45);
+}
+
+:root {
+  --ink: #14172b;
+  --gold: #b68c2d;
+  --cream: #fbf8f1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display type helper */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  font-optical-sizing: auto;
+}
+
+/* Gradient text */
+.text-gradient-gold {
+  background: linear-gradient(120deg, #b68c2d 0%, #e3c98a 55%, #b68c2d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Decorative soft glow blob */
+.glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle hairline that fades at the ends */
+.rule-fade {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(20, 23, 43, 0.12), transparent);
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- Keyframe accents ---------- */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes float-slower {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+.animate-float-slower {
+  animation: float-slower 8s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(182, 140, 45, 0.45); }
+  70% { box-shadow: 0 0 0 12px rgba(182, 140, 45, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(182, 140, 45, 0); }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+@keyframes equalize {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+/* Thin scrollbar inside app surfaces */
+.scrollbar-slim::-webkit-scrollbar { width: 8px; height: 8px; }
+.scrollbar-slim::-webkit-scrollbar-thumb {
+  background: rgba(20, 23, 43, 0.15);
+  border-radius: 9999px;
+}
