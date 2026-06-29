@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Reveal } from '@/components/ui/reveal'
 import { HeroShowcase } from '@/components/marketing/hero-showcase'
 import { PROGRAMS, SCHEDULE_SLOTS } from '@/types'
-import { CheckCircle2, Mic2, Globe2, ShieldCheck, Star, Users, BookOpen, Award, ArrowRight, Quote } from 'lucide-react'
+import { CheckCircle2, Mic2, Globe2, ShieldCheck, Star, Users, BookOpen, Award, ArrowRight } from 'lucide-react'
 
 const POPULAR_SLUG = PROGRAMS[1]?.slug
 
@@ -22,66 +22,56 @@ export default function HomePage() {
       <Navbar />
 
       {/* ===== Hero ===== */}
-      <section className="relative pt-28 sm:pt-36 pb-20 px-5 overflow-hidden">
+      <section className="relative pt-20 sm:pt-28 pb-16 px-5 overflow-hidden">
         <div className="glow" style={{ background: '#e3c98a', width: 480, height: 480, top: -120, left: -100, opacity: 0.4 }} />
         <div className="relative max-w-6xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
-          {/* copy */}
+          {/* copy — no Reveal here: above fold must be instant */}
           <div className="text-center lg:text-left">
-            <Reveal>
-              <span className="inline-flex items-center gap-2 bg-white/70 backdrop-blur ring-1 ring-ink/[0.07] text-ink-500 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 shadow-[var(--shadow-soft)]">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                Free 2-week pilot · No credit card
-              </span>
-            </Reveal>
-            <Reveal delay={60}>
-              <h1 className="font-display text-[2.7rem] leading-[1.05] sm:text-6xl font-semibold text-ink mb-6">
-                Your child has something to say.
-                <span className="block italic text-gradient-gold">Let&rsquo;s help them say it.</span>
-              </h1>
-            </Reveal>
-            <Reveal delay={120}>
-              <p className="text-lg text-ink-500 max-w-xl mx-auto lg:mx-0 mb-9 leading-relaxed">
-                Live, online public speaking for ages 6&ndash;18. In six weeks, your child goes from holding back
-                to standing up &mdash; and delivers a speech live to you on the final day.
-              </p>
-            </Reveal>
-            <Reveal delay={180}>
-              <div className="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
-                <Button size="lg" variant="secondary" asChild>
-                  <Link href="/signup">Start Free Pilot <ArrowRight size={18} /></Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/#how-it-works">See How It Works</Link>
-                </Button>
+            <span className="inline-flex items-center gap-2 bg-white/70 backdrop-blur ring-1 ring-ink/[0.07] text-ink-500 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 shadow-[var(--shadow-soft)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              Free 2-week pilot · No credit card
+            </span>
+            <h1 className="font-display text-[2.7rem] leading-[1.05] sm:text-6xl font-semibold text-ink mb-6">
+              Your child has something to say.
+              <span className="block italic text-gradient-gold">Let&rsquo;s help them say it.</span>
+            </h1>
+            <p className="text-lg text-ink-500 max-w-xl mx-auto lg:mx-0 mb-9 leading-relaxed">
+              Live, online public speaking for ages 6&ndash;18. In six weeks, your child goes from holding back
+              to standing up &mdash; and delivers a speech live to you on the final day.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
+              <Button size="lg" variant="secondary" asChild>
+                <Link href="/signup">Start Free Pilot <ArrowRight size={18} /></Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/#how-it-works">See How It Works</Link>
+              </Button>
+            </div>
+            <div className="mt-9 flex items-center gap-4 justify-center lg:justify-start">
+              <div className="flex -space-x-2.5">
+                {AVATARS.map(a => (
+                  <span
+                    key={a.i}
+                    className="flex h-9 w-9 items-center justify-center rounded-full ring-2 ring-cream text-white text-xs font-bold"
+                    style={{ background: `linear-gradient(135deg, ${a.from}, ${a.to})` }}
+                  >
+                    {a.i}
+                  </span>
+                ))}
               </div>
-            </Reveal>
-            <Reveal delay={240}>
-              <div className="mt-9 flex items-center gap-4 justify-center lg:justify-start">
-                <div className="flex -space-x-2.5">
-                  {AVATARS.map(a => (
-                    <span
-                      key={a.i}
-                      className="flex h-9 w-9 items-center justify-center rounded-full ring-2 ring-cream text-white text-xs font-bold"
-                      style={{ background: `linear-gradient(135deg, ${a.from}, ${a.to})` }}
-                    >
-                      {a.i}
-                    </span>
-                  ))}
+              <div className="text-left">
+                <div className="flex items-center gap-0.5">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#B68C2D" className="text-gold" />)}
                 </div>
-                <div className="text-left">
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#B68C2D" className="text-gold" />)}
-                  </div>
-                  <p className="text-xs text-ink-500 mt-0.5">Loved by parents in 8+ countries</p>
-                </div>
+                <p className="text-xs text-ink-500 mt-0.5">Loved by parents in 8+ countries</p>
               </div>
-            </Reveal>
+            </div>
           </div>
 
           {/* visual */}
-          <Reveal delay={120} className="hidden sm:block">
+          <div className="hidden sm:block">
             <HeroShowcase />
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -104,7 +94,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== The problem ===== */}
-      <section className="py-24 px-5">
+      <section className="py-16 px-5">
         <div className="max-w-3xl mx-auto text-center">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-4">The quiet kid</p>
@@ -124,7 +114,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== Programs ===== */}
-      <section id="programs" className="py-24 px-5 bg-white border-y border-ink/[0.05]">
+      <section id="programs" className="py-16 px-5 bg-white border-y border-ink/[0.05]">
         <div className="max-w-6xl mx-auto">
           <Reveal className="text-center mb-14">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-3">Find their level</p>
@@ -173,7 +163,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== How it works ===== */}
-      <section id="how-it-works" className="relative py-28 px-5 bg-ink overflow-hidden">
+      <section id="how-it-works" className="relative py-20 px-5 bg-ink overflow-hidden">
         <div className="glow" style={{ background: '#b68c2d', width: 420, height: 420, top: -100, right: -120, opacity: 0.22 }} />
         <div className="relative max-w-6xl mx-auto">
           <Reveal className="text-center mb-16">
@@ -204,7 +194,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== The Showcase ===== */}
-      <section className="py-28 px-5">
+      <section className="py-20 px-5">
         <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-4">Session 6</p>
@@ -243,20 +233,27 @@ export default function HomePage() {
       </section>
 
       {/* ===== Meet Nida ===== */}
-      <section className="py-24 px-5 bg-white border-y border-ink/[0.05]">
+      <section className="py-16 px-5 bg-white border-y border-ink/[0.05]">
         <div className="max-w-4xl mx-auto">
           <div className="grid sm:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
             <Reveal className="flex justify-center sm:justify-start">
               <div className="relative">
-                <div className="absolute inset-0 rounded-[2rem] bg-gold/20 blur-2xl" />
+                <div className="absolute inset-0 rounded-[2.5rem] bg-gold/15 blur-2xl scale-110" />
                 <div
-                  className="relative w-52 h-52 rounded-[2rem] flex items-center justify-center text-white text-6xl font-display font-semibold shadow-[var(--shadow-lift)]"
-                  style={{ background: 'linear-gradient(140deg, #14172B 0%, #3a3f63 45%, #B68C2D 120%)' }}
+                  className="relative w-56 h-64 rounded-[2.5rem] flex flex-col items-center justify-end pb-7 shadow-[var(--shadow-lift)] overflow-hidden"
+                  style={{ background: 'linear-gradient(160deg, #1c2140 0%, #2d3258 40%, #8a6820 100%)' }}
                 >
-                  N
+                  {/* decorative circles to suggest a person silhouette */}
+                  <div className="absolute top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-white/10" />
+                  <div className="absolute top-28 left-1/2 -translate-x-1/2 w-32 h-24 rounded-t-full bg-white/8" />
+                  <span className="relative text-white/90 font-display text-3xl font-semibold tracking-tight">Nida</span>
+                  <span className="relative text-white/40 text-[10px] font-semibold uppercase tracking-widest mt-1">Founder &amp; Coach</span>
                 </div>
                 <div className="absolute -bottom-3 -right-3 rounded-2xl bg-white px-3 py-2 shadow-[var(--shadow-lift)]">
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-gold">Founder &amp; Lead Coach</p>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={11} fill="#B68C2D" className="text-gold" />)}
+                  </div>
+                  <p className="text-[9px] font-semibold text-ink-500 mt-0.5">Top-rated coach</p>
                 </div>
               </div>
             </Reveal>
@@ -290,7 +287,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== Schedule ===== */}
-      <section id="schedule" className="py-24 px-5">
+      <section id="schedule" className="py-16 px-5">
         <div className="max-w-5xl mx-auto">
           <Reveal className="text-center mb-14">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-3">Wherever you are</p>
@@ -323,9 +320,9 @@ export default function HomePage() {
       </section>
 
       {/* ===== Testimonials ===== */}
-      <section className="py-24 px-5 bg-white border-y border-ink/[0.05]">
+      <section className="py-16 px-5 bg-white border-y border-ink/[0.05]">
         <div className="max-w-6xl mx-auto">
-          <Reveal className="text-center mb-14">
+          <Reveal className="text-center mb-12">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-3">Parent stories</p>
             <h2 className="font-display text-4xl font-semibold text-ink">Quiet kids. Loud results.</h2>
           </Reveal>
@@ -337,10 +334,12 @@ export default function HomePage() {
             ].map((t, i) => (
               <Reveal key={t.name} delay={i * 80}>
                 <figure className="h-full bg-cream rounded-2xl p-7 border border-ink/[0.05] flex flex-col">
-                  <Quote size={26} className="text-gold/40 mb-4" />
-                  <blockquote className="text-ink-500 leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</blockquote>
+                  <div className="flex gap-0.5 mb-4">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#B68C2D" className="text-gold" />)}
+                  </div>
+                  <blockquote className="text-ink-500 leading-relaxed flex-1 text-[0.95rem]">&ldquo;{t.quote}&rdquo;</blockquote>
                   <figcaption className="flex items-center gap-3 mt-6 pt-5 border-t border-ink/[0.06]">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full text-white text-sm font-bold" style={{ background: `linear-gradient(135deg, ${t.from}, ${t.to})` }}>
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full text-white text-sm font-bold shrink-0" style={{ background: `linear-gradient(135deg, ${t.from}, ${t.to})` }}>
                       {t.name[0]}
                     </span>
                     <div>
@@ -356,7 +355,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== Trust / safety ===== */}
-      <section className="py-24 px-5">
+      <section className="py-16 px-5">
         <div className="max-w-4xl mx-auto grid sm:grid-cols-3 gap-10 text-center">
           {[
             { icon: ShieldCheck, title: 'COPPA & PIPEDA compliant', body: 'Parental consent required for all under-13 students. Your data is never sold.' },
