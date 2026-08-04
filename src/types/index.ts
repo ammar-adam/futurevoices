@@ -24,7 +24,9 @@ export interface Program {
   description: string
   age_min: number
   age_max: number
-  price_monthly: number
+  price_monthly: number | null  // null = "Contact us for pricing"
+  billing_model: 'monthly' | 'package'
+  package_sessions?: number     // only when billing_model is 'package'
   capacity: number
   duration_weeks: number
   color: string
@@ -92,52 +94,44 @@ export interface Consent {
 
 export const PROGRAMS: Program[] = [
   {
-    id: 'little-voices',
-    name: 'Little Voices',
-    slug: 'little',
-    description: 'Foundational public speaking for young learners. Build confidence, learn to tell stories, and find your voice.',
+    id: 'speaking-group',
+    name: 'Public Speaking — Group',
+    slug: 'speaking-group',
+    description: 'Live group coaching for kids and adults building confident public speaking. Starts with a free 4-week pilot, continues as an ongoing cohort.',
     age_min: 6,
-    age_max: 9,
-    price_monthly: 79,
+    age_max: 99,
+    price_monthly: null,
+    billing_model: 'monthly',
     capacity: 8,
-    duration_weeks: 12,
+    duration_weeks: 4,
     color: '#4F9BF7',
   },
   {
-    id: 'rising-speakers',
-    name: 'Rising Speakers',
-    slug: 'rising',
-    description: 'Speech architecture and storytelling for pre-teens. Structure ideas, persuade audiences, perform with confidence.',
-    age_min: 10,
-    age_max: 13,
-    price_monthly: 109,
-    capacity: 8,
-    duration_weeks: 12,
+    id: 'speaking-private',
+    name: 'Public Speaking — 1:1',
+    slug: 'speaking-private',
+    description: 'Private, individual public speaking coaching. Same core curriculum as the group program, one-on-one pacing.',
+    age_min: 6,
+    age_max: 99,
+    price_monthly: null,
+    billing_model: 'monthly',
+    capacity: 1,
+    duration_weeks: 4,
     color: '#7C5CFC',
   },
   {
-    id: 'champion-speakers',
-    name: 'Champion Speakers',
-    slug: 'champion',
-    description: 'Rhetoric, debate, and delivery mastery for teens. Compete, lead, and communicate at the highest level.',
-    age_min: 14,
-    age_max: 18,
-    price_monthly: 109,
-    capacity: 8,
-    duration_weeks: 12,
-    color: '#B68C2D',
-  },
-  {
-    id: 'elite-1on1',
-    name: 'Elite 1-on-1',
-    slug: 'elite',
-    description: 'Private coaching tailored to your child\'s exact goals. Competition prep, school speeches, interviews, or general excellence.',
-    age_min: 6,
-    age_max: 18,
-    price_monthly: 149,
+    id: 'fv-pro',
+    name: 'Future Voices Pro',
+    slug: 'pro',
+    description: 'DECA, Model UN, and university essay/interview coaching. 1:1 only, built around your deadline, not an open-ended subscription.',
+    age_min: 13,
+    age_max: 19,
+    price_monthly: null,
+    billing_model: 'package',
+    package_sessions: 4,
     capacity: 1,
-    duration_weeks: 12,
-    color: '#14172B',
+    duration_weeks: 4,
+    color: '#1F6B5C',
   },
 ]
 

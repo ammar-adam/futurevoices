@@ -35,25 +35,32 @@ create trigger on_auth_user_created
 
 -- ─── Programs ─────────────────────────────────────────────────
 create table if not exists public.programs (
-  id              text primary key, -- 'little-voices', etc.
-  name            text not null,
-  slug            text not null,
-  description     text,
-  age_min         int not null,
-  age_max         int not null,
-  price_monthly   int not null, -- dollars
-  capacity        int not null default 8,
-  duration_weeks  int not null default 12,
-  color           text not null default '#14172B',
-  is_active       boolean not null default true
+  id               text primary key,
+  name             text not null,
+  slug             text not null,
+  description      text,
+  age_min          int not null,
+  age_max          int not null,
+  price_monthly    int,            -- null = contact for pricing
+  billing_model    text not null check (billing_model in ('monthly','package')) default 'monthly',
+  package_sessions int,            -- set when billing_model = 'package'
+  capacity         int not null default 8,
+  duration_weeks   int not null default 4,
+  color            text not null default '#14172B',
+  is_active        boolean not null default true
 );
 
 -- Seed programs
-insert into public.programs values
-  ('little-voices',    'Little Voices',     'little',   'Foundational public speaking for young learners.',        6,  9,  79,  8, 12, '#4F9BF7', true),
-  ('rising-speakers',  'Rising Speakers',   'rising',   'Speech architecture and storytelling for pre-teens.',     10, 13, 109, 8, 12, '#7C5CFC', true),
-  ('champion-speakers','Champion Speakers', 'champion', 'Rhetoric, debate, and delivery mastery for teens.',       14, 18, 109, 8, 12, '#B68C2D', true),
-  ('elite-1on1',       'Elite 1-on-1',      'elite',    'Private coaching tailored to your child''s exact goals.', 6,  18, 149, 1, 12, '#14172B', true)
+insert into public.programs (id, name, slug, description, age_min, age_max, price_monthly, billing_model, package_sessions, capacity, duration_weeks, color, is_active) values
+  ('speaking-group',   'Public Speaking — Group', 'speaking-group',
+   'Live group coaching for kids and adults building confident public speaking. Starts with a free 4-week pilot.',
+   6, 99, null, 'monthly', null, 8, 4, '#4F9BF7', true),
+  ('speaking-private', 'Public Speaking — 1:1',   'speaking-private',
+   'Private, individual public speaking coaching. Same core curriculum as the group program, one-on-one pacing.',
+   6, 99, null, 'monthly', null, 1, 4, '#7C5CFC', true),
+  ('fv-pro',           'Future Voices Pro',        'pro',
+   'DECA, Model UN, and university essay/interview coaching. 1:1 only, built around your deadline.',
+   13, 19, null, 'package', 4,  1, 4, '#1F6B5C', true)
 on conflict (id) do nothing;
 
 -- ─── Children ─────────────────────────────────────────────────

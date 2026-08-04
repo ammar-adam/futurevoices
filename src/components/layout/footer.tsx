@@ -1,22 +1,22 @@
 import Link from 'next/link'
-import { Mic2 } from 'lucide-react'
+import Image from 'next/image'
 
 const COLUMNS = [
   {
     title: 'Program',
     links: [
-      { href: '/#programs', label: 'Programs' },
+      { href: '/#programs', label: 'Group Coaching' },
+      { href: '/#programs', label: 'Private 1:1' },
+      { href: '/pro', label: 'Future Voices Pro' },
       { href: '/curriculum', label: 'Curriculum' },
-      { href: '/#how-it-works', label: 'How It Works' },
-      { href: '/#schedule', label: 'Schedule' },
     ],
   },
   {
     title: 'Get Started',
     links: [
-      { href: '/signup', label: 'Start Free Pilot' },
-      { href: '/login', label: 'Parent Sign In' },
-      { href: '/#programs', label: 'Pricing' },
+      { href: '/#contact', label: 'Book an Intro Call' },
+      { href: 'mailto:hello@futurevoices.co', label: 'hello@futurevoices.co' },
+      { href: '/login', label: 'Parent Portal' },
     ],
   },
   {
@@ -31,30 +31,26 @@ const COLUMNS = [
 
 export function Footer() {
   return (
-    <footer className="relative bg-ink text-white overflow-hidden">
-      <div className="glow" style={{ background: '#b68c2d', width: 380, height: 380, bottom: -180, left: -120, opacity: 0.18 }} />
-      <div className="relative max-w-6xl mx-auto px-6 pt-16 pb-10">
+    <footer className="bg-ink text-white">
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-gold">
-                <Mic2 size={18} />
-              </span>
-              <span className="text-lg font-bold tracking-tight font-display">Future Voices</span>
+            <Link href="/" className="inline-block mb-5">
+              <Image src="/brand/fv-wordmark-white.png" alt="Future Voices" width={190} height={70} />
             </Link>
             <p className="text-sm text-white/55 leading-relaxed max-w-xs">
-              Live, online public speaking for ages 6–18. We turn quiet kids into confident speakers — in six weeks.
+              Live, online public speaking coaching for kids, teens, and adults.
             </p>
             <p className="mt-5 text-sm text-white/40">Toronto, Canada · Live on Zoom worldwide</p>
           </div>
 
           {COLUMNS.map(col => (
             <div key={col.title}>
-              <p className="text-xs font-semibold uppercase tracking-wider text-gold/80 mb-4">{col.title}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/45 mb-4">{col.title}</p>
               <ul className="flex flex-col gap-3">
                 {col.links.map(l => (
                   <li key={l.label}>
-                    <Link href={l.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                    <Link href={l.href} className="text-sm text-white/65 hover:text-white transition-colors">
                       {l.label}
                     </Link>
                   </li>
@@ -66,7 +62,7 @@ export function Footer() {
 
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/40">© {new Date().getFullYear()} Future Voices. All rights reserved.</p>
-          <p className="text-xs text-white/40">Made with care for young speakers everywhere.</p>
+          <p className="text-xs text-white/40">Toronto-built, taught live worldwide.</p>
         </div>
       </div>
     </footer>

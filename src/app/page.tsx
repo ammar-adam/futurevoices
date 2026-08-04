@@ -1,391 +1,312 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
-import { Reveal } from '@/components/ui/reveal'
-import { HeroShowcase } from '@/components/marketing/hero-showcase'
-import { PROGRAMS, SCHEDULE_SLOTS } from '@/types'
-import { CheckCircle2, Mic2, Globe2, ShieldCheck, Star, Users, BookOpen, Award, ArrowRight } from 'lucide-react'
+import { ContactForm } from '@/components/marketing/contact-form'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 
-const POPULAR_SLUG = PROGRAMS[1]?.slug
+const STATS = [
+  ['Max 8', 'students per cohort'],
+  ['60 min', 'live session, weekly'],
+  ['Week 4', 'showcase for parents'],
+  ['Toronto', 'taught live worldwide'],
+]
 
-const AVATARS = [
-  { i: 'S', from: '#4F9BF7', to: '#7C5CFC' },
-  { i: 'J', from: '#34B27B', to: '#7BD6A8' },
-  { i: 'P', from: '#B68C2D', to: '#E3C98A' },
-  { i: 'M', from: '#F7857A', to: '#FBB6AE' },
+const PROGRAMS = [
+  {
+    name: 'Group Coaching',
+    ages: 'Ages 6+',
+    price: '$149/month',
+    priceNote: 'after your free first month',
+    body: 'A weekly cohort of at most eight students. Everyone speaks in every session — participation is the curriculum, not an option.',
+    points: ['Weekly 60-minute live class', 'Structured speaking drills', 'Peer audience every week'],
+  },
+  {
+    name: 'Private 1:1',
+    ages: 'Ages 6+',
+    price: 'From $65/session',
+    priceNote: 'free first month applies',
+    body: 'The full curriculum, taught one-on-one. Suited to students who need a gentler start or want to move faster.',
+    points: ['Personalised pacing', 'Session recaps for parents', 'Flexible scheduling'],
+  },
+  {
+    name: 'Future Voices Pro',
+    ages: 'Ages 13–19',
+    price: 'Package pricing',
+    priceNote: 'quoted on application',
+    body: 'Competitive preparation for secondary students: DECA, Model UN, and university admissions essays and interviews.',
+    points: ['1:1 only', 'Built around your deadline', 'Package-based engagements'],
+  },
+]
+
+const WEEKS = [
+  { n: '1', title: 'Finding your voice', body: 'Understanding nerves, posture and breathing — and a first short talk, delivered on day one.' },
+  { n: '2', title: 'Crafting your message', body: 'Structuring an idea: strong openings, one clear point, an ending people remember.' },
+  { n: '3', title: 'Speaking with power', body: 'Pacing, pausing and eye contact — and recovering when your mind goes blank.' },
+  { n: '4', title: 'The final presentation', body: 'A prepared talk delivered live to the cohort and to parents. You see the progress yourself.' },
+]
+
+const FAQ = [
+  {
+    q: 'My child is shy — is this right for them?',
+    a: 'Especially for them. Sessions are structured so the quietest student speaks early, in low-stakes ways, well before anything feels like a performance. Confidence is built through repetition, not pep talks.',
+  },
+  {
+    q: 'How does the free first month work?',
+    a: 'The first four-week cycle is free, with no payment details required. After the Week 4 showcase, you decide whether to continue into the ongoing paid program.',
+  },
+  {
+    q: 'What does it cost after the free month?',
+    a: 'Group coaching is $149 CAD per month for weekly live sessions. Private 1:1 starts at $65 CAD per session. Pro engagements are quoted as a package once we understand the deadline and scope. There are no registration fees and you can stop any month.',
+  },
+  {
+    q: 'What is the weekly time commitment?',
+    a: 'One 60-minute live session on Zoom, plus roughly 10–15 minutes of independent practice between sessions.',
+  },
+  {
+    q: 'Can adults enrol?',
+    a: 'Yes. Group and private coaching are open to all ages; adult participants are placed in their own cohort.',
+  },
+  {
+    q: 'What happens if we miss a session?',
+    a: 'You receive a written recap of what was covered and what to practise, so no one falls behind.',
+  },
+  {
+    q: 'How do we get started?',
+    a: 'Request an intro call below. We speak for fifteen minutes about your child, and if the fit is right, they join the next available cohort.',
+  },
 ]
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen overflow-x-clip">
-      <Navbar />
+    <div className="flex flex-col min-h-screen overflow-x-clip bg-cream">
+      <Navbar overHero />
 
-      {/* ===== Hero ===== */}
-      <section className="relative pt-20 sm:pt-28 pb-16 px-5 overflow-hidden">
-        <div className="glow" style={{ background: '#e3c98a', width: 480, height: 480, top: -120, left: -100, opacity: 0.4 }} />
-        <div className="relative max-w-6xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
-          {/* copy — no Reveal here: above fold must be instant */}
-          <div className="text-center lg:text-left">
-            <span className="inline-flex items-center gap-2 bg-white/70 backdrop-blur ring-1 ring-ink/[0.07] text-ink-500 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 shadow-[var(--shadow-soft)]">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              Free 2-week pilot · No credit card
-            </span>
-            <h1 className="font-display text-[2.7rem] leading-[1.05] sm:text-6xl font-semibold text-ink mb-6">
-              Your child has something to say.
-              <span className="block italic text-gradient-gold">Let&rsquo;s help them say it.</span>
-            </h1>
-            <p className="text-lg text-ink-500 max-w-xl mx-auto lg:mx-0 mb-9 leading-relaxed">
-              Live, online public speaking for ages 6&ndash;18. In six weeks, your child goes from holding back
-              to standing up &mdash; and delivers a speech live to you on the final day.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
-              <Button size="lg" variant="secondary" asChild>
-                <Link href="/signup">Start Free Pilot <ArrowRight size={18} /></Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/#how-it-works">See How It Works</Link>
-              </Button>
-            </div>
-            <div className="mt-9 flex items-center gap-4 justify-center lg:justify-start">
-              <div className="flex -space-x-2.5">
-                {AVATARS.map(a => (
-                  <span
-                    key={a.i}
-                    className="flex h-9 w-9 items-center justify-center rounded-full ring-2 ring-cream text-white text-xs font-bold"
-                    style={{ background: `linear-gradient(135deg, ${a.from}, ${a.to})` }}
-                  >
-                    {a.i}
-                  </span>
-                ))}
-              </div>
-              <div className="text-left">
-                <div className="flex items-center gap-0.5">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#B68C2D" className="text-gold" />)}
-                </div>
-                <p className="text-xs text-ink-500 mt-0.5">Loved by parents in 8+ countries</p>
-              </div>
-            </div>
-          </div>
-
-          {/* visual */}
-          <div className="hidden sm:block">
-            <HeroShowcase />
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Trust bar ===== */}
-      <section className="relative border-y border-ink/[0.07] bg-white/60 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-5 py-7 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-ink-500 font-medium">
-          {[
-            'Every child speaks, every session',
-            'Final showcase — live, to you',
-            'Small groups, max 8',
-            'Live on Zoom · Toronto-based',
-            '30-day money-back guarantee',
-          ].map(t => (
-            <span key={t} className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-gold" />
-              {t}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* ===== The problem ===== */}
-      <section className="py-16 px-5">
-        <div className="max-w-3xl mx-auto text-center">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-4">The quiet kid</p>
-            <h2 className="font-display text-3xl sm:text-[2.6rem] font-semibold text-ink mb-7 leading-tight">You&rsquo;ve seen it.</h2>
-          </Reveal>
-          <Reveal delay={80}>
-            <p className="text-lg text-ink-500 leading-relaxed">
-              The clever idea they won&rsquo;t raise their hand to share. The mumble when a grown-up asks a question.
-              The bright kid who shrinks the moment all eyes are on them.
-            </p>
-            <p className="text-lg text-ink-500 leading-relaxed mt-5">
-              It&rsquo;s not a flaw &mdash; it&rsquo;s a skill they haven&rsquo;t been taught yet. Confident speaking is
-              learnable. And the earlier a child learns it, the further it carries them.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ===== Programs ===== */}
-      <section id="programs" className="py-16 px-5 bg-white border-y border-ink/[0.05]">
-        <div className="max-w-6xl mx-auto">
-          <Reveal className="text-center mb-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-3">Find their level</p>
-            <h2 className="font-display text-4xl font-semibold text-ink mb-4">Four tracks. One mission.</h2>
-            <p className="text-lg text-ink-500">Every program runs in cohorts of up to 8 students, matched by age and timezone.</p>
-          </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PROGRAMS.map((p, idx) => {
-              const popular = p.slug === POPULAR_SLUG
-              return (
-                <Reveal key={p.id} delay={idx * 70}>
-                  <div
-                    className={
-                      'relative h-full rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 ' +
-                      (popular
-                        ? 'bg-ink text-white shadow-[var(--shadow-lift)] ring-1 ring-gold/30'
-                        : 'bg-cream border border-ink/[0.07] shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)]')
-                    }
-                  >
-                    {popular && (
-                      <span className="absolute top-4 right-4 rounded-full bg-gold px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
-                        Most popular
-                      </span>
-                    )}
-                    <div className="h-1.5" style={{ background: p.color }} />
-                    <div className="p-6 flex flex-col h-[calc(100%-0.375rem)]">
-                      <p className={'text-xs font-semibold uppercase tracking-wider mb-1 ' + (popular ? 'text-white/50' : 'text-ink-500/70')}>
-                        Ages {p.age_min}&ndash;{p.age_max}
-                      </p>
-                      <h3 className={'font-display text-xl font-semibold mb-3 ' + (popular ? 'text-white' : 'text-ink')}>{p.name}</h3>
-                      <p className={'text-sm mb-5 leading-relaxed flex-1 ' + (popular ? 'text-white/65' : 'text-ink-500')}>{p.description}</p>
-                      <div className="flex items-baseline gap-1 mb-5">
-                        <span className={'text-2xl font-bold ' + (popular ? 'text-white' : 'text-ink')}>${p.price_monthly}</span>
-                        <span className={popular ? 'text-sm text-white/50' : 'text-sm text-ink-500/70'}>/month</span>
-                      </div>
-                      <Button size="sm" variant={popular ? 'secondary' : 'primary'} className="w-full" asChild>
-                        <Link href={`/signup?track=${p.slug}`}>Start Free Pilot</Link>
-                      </Button>
-                    </div>
-                  </div>
-                </Reveal>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== How it works ===== */}
-      <section id="how-it-works" className="relative py-20 px-5 bg-ink overflow-hidden">
-        <div className="glow" style={{ background: '#b68c2d', width: 420, height: 420, top: -100, right: -120, opacity: 0.22 }} />
-        <div className="relative max-w-6xl mx-auto">
-          <Reveal className="text-center mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-3">The journey</p>
-            <h2 className="font-display text-4xl font-semibold text-white mb-4">From holding back to standing up</h2>
-            <p className="text-lg text-white/55">Four steps. Six weeks. One unforgettable final day.</p>
-          </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-12">
-            {[
-              { n: '01', title: 'Sign up free', body: 'Create a parent account, add your child, and pick a track. No credit card needed for the pilot.' },
-              { n: '02', title: 'Join your cohort', body: 'We place your child in a small group of up to 8 students at the right level and timezone.' },
-              { n: '03', title: 'Speak every week', body: 'Weekly 60-minute Zoom sessions with an expert coach. Every child speaks every single time — no one hides.' },
-              { n: '04', title: 'Take the stage', body: 'In the final session your child delivers their speech live — to you. Not a certificate. Proof.' },
-            ].map((s, i) => (
-              <Reveal key={s.n} delay={i * 80} className="relative flex flex-col gap-3">
-                <span className="font-display text-5xl font-semibold text-gold/35">{s.n}</span>
-                <h3 className="text-xl font-semibold text-white">{s.title}</h3>
-                <p className="text-white/55 text-sm leading-relaxed">{s.body}</p>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="text-center">
-            <Link href="/curriculum" className="inline-flex items-center gap-1.5 text-gold text-sm font-semibold hover:gap-2.5 transition-all">
-              See the full 6-session curriculum <ArrowRight size={16} />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ===== The Showcase ===== */}
-      <section className="py-20 px-5">
-        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-4">Session 6</p>
-            <h2 className="font-display text-4xl font-semibold text-ink mb-5 leading-tight">The program ends with a moment you&rsquo;ll remember.</h2>
-            <p className="text-lg text-ink-500 leading-relaxed mb-4">
-              In the final session, your child stands up and delivers their speech &mdash; to you. You&rsquo;ll watch the
-              kid who used to look away hold the room.
-            </p>
-            <p className="text-lg text-ink-500 leading-relaxed">
-              That&rsquo;s not a workbook or a certificate. That&rsquo;s the proof.
-            </p>
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="relative rounded-2xl bg-ink p-8 shadow-[var(--shadow-lift)]">
-              <div className="absolute -top-5 -left-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold text-white shadow-[var(--shadow-glow)]">
-                <Mic2 size={24} />
-              </div>
-              <p className="text-white/45 text-xs font-semibold uppercase tracking-wider mb-5 mt-2">What the showcase looks like</p>
-              <ul className="flex flex-col gap-3.5">
-                {[
-                  'Nida welcomes parents and sets the tone: this is a celebration',
-                  'Each child delivers their 2–3 minute speech — parents on, cameras on',
-                  'Applause after every single one',
-                  'Nida names one specific strength for each child, by name',
-                  '“Future Voices Founding Speaker” recognition',
-                ].map(item => (
-                  <li key={item} className="flex items-start gap-3 text-white/75 text-sm leading-relaxed">
-                    <CheckCircle2 size={16} className="text-gold mt-0.5 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ===== Meet Nida ===== */}
-      <section className="py-16 px-5 bg-white border-y border-ink/[0.05]">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid sm:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
-            <Reveal className="flex justify-center sm:justify-start">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-[2.5rem] bg-gold/15 blur-2xl scale-110" />
-                <div
-                  className="relative w-56 h-64 rounded-[2.5rem] flex flex-col items-center justify-end pb-7 shadow-[var(--shadow-lift)] overflow-hidden"
-                  style={{ background: 'linear-gradient(160deg, #1c2140 0%, #2d3258 40%, #8a6820 100%)' }}
-                >
-                  {/* decorative circles to suggest a person silhouette */}
-                  <div className="absolute top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-white/10" />
-                  <div className="absolute top-28 left-1/2 -translate-x-1/2 w-32 h-24 rounded-t-full bg-white/8" />
-                  <span className="relative text-white/90 font-display text-3xl font-semibold tracking-tight">Nida</span>
-                  <span className="relative text-white/40 text-[10px] font-semibold uppercase tracking-widest mt-1">Founder &amp; Coach</span>
-                </div>
-                <div className="absolute -bottom-3 -right-3 rounded-2xl bg-white px-3 py-2 shadow-[var(--shadow-lift)]">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={11} fill="#B68C2D" className="text-gold" />)}
-                  </div>
-                  <p className="text-[9px] font-semibold text-ink-500 mt-0.5">Top-rated coach</p>
-                </div>
-              </div>
-            </Reveal>
-            <Reveal delay={80}>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-2">Meet your instructor</p>
-              <h2 className="font-display text-3xl font-semibold text-ink mb-4">Nida</h2>
-              <p className="text-ink-500 leading-relaxed mb-4">
-                Nida built Future Voices because she believes every child already has something powerful to say &mdash;
-                they just need someone to teach them how. Her approach is warm, structured, and relentlessly encouraging.
-              </p>
-              <p className="text-ink-500 leading-relaxed mb-6">
-                Kids leave her sessions braver than they arrived &mdash; every single week.
-              </p>
-              <div className="flex flex-col gap-2.5">
-                {[
-                  { icon: Users, text: 'Small groups only — max 8 students per cohort' },
-                  { icon: BookOpen, text: 'Every child speaks in every session, no exceptions' },
-                  { icon: Award, text: 'One specific win named for every child, every week' },
-                ].map(({ icon: Icon, text }) => (
-                  <div key={text} className="flex items-center gap-3 text-sm text-ink-500">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gold/10 text-gold shrink-0">
-                      <Icon size={15} />
-                    </span>
-                    {text}
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Schedule ===== */}
-      <section id="schedule" className="py-16 px-5">
-        <div className="max-w-5xl mx-auto">
-          <Reveal className="text-center mb-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-3">Wherever you are</p>
-            <h2 className="font-display text-4xl font-semibold text-ink mb-4">Classes in your timezone</h2>
-            <p className="text-lg text-ink-500">We run cohorts across three regions every week.</p>
-          </Reveal>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {SCHEDULE_SLOTS.map((region, i) => (
-              <Reveal key={region.region} delay={i * 80}>
-                <div className="h-full bg-white rounded-2xl border border-ink/[0.07] shadow-[var(--shadow-soft)] p-6 transition-all hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <div className="flex items-center gap-2.5 mb-5">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold/10 text-gold">
-                      <Globe2 size={17} />
-                    </span>
-                    <h3 className="font-semibold text-ink">{region.region}</h3>
-                  </div>
-                  <ul className="flex flex-col gap-2.5">
-                    {region.slots.map(s => (
-                      <li key={s} className="text-sm text-ink-500 flex items-center gap-2.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold inline-block" />
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Testimonials ===== */}
-      <section className="py-16 px-5 bg-white border-y border-ink/[0.05]">
-        <div className="max-w-6xl mx-auto">
-          <Reveal className="text-center mb-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-3">Parent stories</p>
-            <h2 className="font-display text-4xl font-semibold text-ink">Quiet kids. Loud results.</h2>
-          </Reveal>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {[
-              { quote: 'My 8-year-old used to hide behind me at parties. After one term she was presenting to her whole class.', name: 'Sarah M.', location: 'Toronto, CA', from: '#4F9BF7', to: '#7C5CFC' },
-              { quote: 'The coach notes after every session are incredible. I know exactly what we are working on and why.', name: 'James T.', location: 'London, UK', from: '#34B27B', to: '#7BD6A8' },
-              { quote: 'Worth every penny. My son made the school debate team in month two. The small cohort makes the difference.', name: 'Priya K.', location: 'Singapore', from: '#B68C2D', to: '#E3C98A' },
-            ].map((t, i) => (
-              <Reveal key={t.name} delay={i * 80}>
-                <figure className="h-full bg-cream rounded-2xl p-7 border border-ink/[0.05] flex flex-col">
-                  <div className="flex gap-0.5 mb-4">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#B68C2D" className="text-gold" />)}
-                  </div>
-                  <blockquote className="text-ink-500 leading-relaxed flex-1 text-[0.95rem]">&ldquo;{t.quote}&rdquo;</blockquote>
-                  <figcaption className="flex items-center gap-3 mt-6 pt-5 border-t border-ink/[0.06]">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full text-white text-sm font-bold shrink-0" style={{ background: `linear-gradient(135deg, ${t.from}, ${t.to})` }}>
-                      {t.name[0]}
-                    </span>
-                    <div>
-                      <p className="font-semibold text-ink text-sm">{t.name}</p>
-                      <p className="text-xs text-ink-500/70">{t.location}</p>
-                    </div>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Trust / safety ===== */}
-      <section className="py-16 px-5">
-        <div className="max-w-4xl mx-auto grid sm:grid-cols-3 gap-10 text-center">
-          {[
-            { icon: ShieldCheck, title: 'COPPA & PIPEDA compliant', body: 'Parental consent required for all under-13 students. Your data is never sold.' },
-            { icon: Mic2, title: 'Expert coaches only', body: 'Every coach is vetted, trained in our curriculum, and background-checked.' },
-            { icon: CheckCircle2, title: '30-day money back', body: 'If your child does not love the first paid month, we refund — no questions asked.' },
-          ].map(({ icon: Icon, title, body }, i) => (
-            <Reveal key={title} delay={i * 80} className="flex flex-col items-center gap-3">
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10 text-gold">
-                <Icon size={24} />
-              </span>
-              <h3 className="font-semibold text-ink">{title}</h3>
-              <p className="text-sm text-ink-500 leading-relaxed">{body}</p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* ===== Final CTA ===== */}
-      <section className="px-5 pb-24">
-        <div className="relative max-w-5xl mx-auto rounded-[2rem] bg-ink overflow-hidden px-8 py-16 sm:py-20 text-center shadow-[var(--shadow-lift)]">
-          <div className="glow" style={{ background: '#b68c2d', width: 420, height: 420, top: -120, left: '50%', transform: 'translateX(-50%)', opacity: 0.3 }} />
-          <Reveal className="relative">
-            <h2 className="font-display text-3xl sm:text-[2.7rem] font-semibold text-white mb-5 leading-tight">
-              Six weeks from now, your child<br className="hidden sm:block" /> could be standing tall.
-            </h2>
-            <p className="text-white/60 mb-9 text-lg max-w-xl mx-auto">Start with a free 2-week pilot. No credit card, no commitment.</p>
+      {/* ── Hero — full-bleed image ─────────────── */}
+      <section className="relative min-h-[92vh] flex items-end">
+        <Image
+          src="/images/hero-class.jpg"
+          alt="A student presenting to her class while a classmate raises a hand"
+          fill
+          priority
+          className="object-cover object-[65%_35%]"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25" />
+        <div className="relative w-full max-w-6xl mx-auto px-6 pb-20 pt-44">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-5">
+            Public speaking coaching · Live online
+          </p>
+          <h1 className="font-display text-[2.6rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-3xl mb-6">
+            Confidence is a skill.
+            <span className="block">We teach it, week by week.</span>
+          </h1>
+          <p className="text-lg text-white/75 leading-relaxed max-w-xl mb-9">
+            Future Voices coaches children, teens and adults to speak clearly and stand
+            tall — in small live cohorts, taught by one dedicated coach.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/signup">Start Free Pilot <ArrowRight size={18} /></Link>
+              <Link href="/#contact">Book an intro call <ArrowRight size={18} /></Link>
             </Button>
-          </Reveal>
+            <Button size="lg" asChild className="border border-white/30 bg-white/5 text-white hover:bg-white/15 rounded-full px-8 backdrop-blur-sm">
+              <Link href="/curriculum">View the curriculum</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Stat strip ───────────────────────────── */}
+      <section className="bg-white border-b border-ink/[0.08]">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4">
+          {STATS.map(([big, small], i) => (
+            <div key={big} className={`py-8 px-2 text-center ${i > 0 ? 'lg:border-l border-ink/[0.08]' : ''}`}>
+              <p className="font-display text-3xl font-medium text-ink">{big}</p>
+              <p className="text-[0.8rem] text-ink-500 mt-1">{small}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Intro statement ──────────────────────── */}
+      <section className="py-20 sm:py-24">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-5">Our approach</p>
+          <h2 className="font-display text-3xl sm:text-[2.6rem] leading-tight font-medium text-ink mb-6">
+            Nobody becomes a confident speaker by being told to be confident.
+          </h2>
+          <p className="text-lg text-ink-500 leading-relaxed">
+            They become one by speaking — often, in a room where it is safe to get it wrong.
+            Every Future Voices program is built on that principle: small groups, live coaching,
+            and a real audience from the very first session.
+          </p>
+        </div>
+      </section>
+
+      {/* ── Programs ─────────────────────────────── */}
+      <section id="programs" className="pb-20 sm:pb-24 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="border-b border-ink/10 pb-5 mb-10 flex flex-wrap items-baseline justify-between gap-4">
+            <h2 className="font-display text-3xl font-medium text-ink">Programs</h2>
+            <p className="text-sm text-ink-500">All prices in CAD. Every program starts with a free four-week cycle.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {PROGRAMS.map(p => (
+              <div key={p.name} className="bg-white border border-ink/[0.08] rounded-lg p-8 flex flex-col shadow-[var(--shadow-soft)]">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold mb-3">{p.ages}</p>
+                <h3 className="font-display text-[1.55rem] font-medium text-ink mb-2">{p.name}</h3>
+                <p className="text-ink font-semibold">{p.price}
+                  <span className="text-ink-500 font-normal text-sm"> · {p.priceNote}</span>
+                </p>
+                <p className="text-[0.95rem] text-ink-500 leading-relaxed mt-3 mb-6">{p.body}</p>
+                <ul className="mt-auto flex flex-col gap-2 border-t border-ink/[0.08] pt-5">
+                  {p.points.map(pt => (
+                    <li key={pt} className="text-sm text-ink flex items-start gap-2.5">
+                      <span className="h-1 w-1 rounded-full bg-gold mt-2 shrink-0" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Four weeks + image ───────────────────── */}
+      <section id="how-it-works" className="bg-white border-y border-ink/[0.08] py-20 sm:py-24 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">The first month</p>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-10">
+              Four weeks, one visible result.
+            </h2>
+            <div className="flex flex-col">
+              {WEEKS.map((w, i) => (
+                <div key={w.n} className={`flex gap-6 py-6 ${i > 0 ? 'border-t border-ink/[0.08]' : 'pt-0'}`}>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink text-cream text-sm font-semibold shrink-0">
+                    {w.n}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-ink mb-1">{w.title}</h3>
+                    <p className="text-sm text-ink-500 leading-relaxed">{w.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-sm font-semibold text-ink mt-4">
+              The first four-week cycle is free — no payment details required.
+            </p>
+          </div>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
+            <Image
+              src="/images/girl-laptop.jpg"
+              alt="A young student with headphones attending a live online class"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 45vw, 100vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Coach ────────────────────────────────── */}
+      <section className="py-20 sm:py-24">
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.4fr_0.6fr] gap-12">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">Leadership</p>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink">
+              One coach.<br />Every session.
+            </h2>
+          </div>
+          <div className="text-ink-500 leading-relaxed flex flex-col gap-5 text-[1.02rem]">
+            <p>
+              Future Voices is led and taught by Nida. There is no rotating roster of instructors
+              and no pre-recorded content: she teaches every cohort and every private session
+              herself, and knows exactly where each student started and how far they have come.
+            </p>
+            <p>
+              That is a deliberate constraint. It keeps the program small, the standard consistent,
+              and the relationship between coach, student and parent direct.
+            </p>
+            <div className="pt-2">
+              <Button asChild>
+                <Link href="/#contact">Speak with Nida <ArrowRight size={16} /></Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Pro band ─────────────────────────────── */}
+      <section className="relative py-24 sm:py-32">
+        <Image
+          src="/images/pro-podium.jpg"
+          alt="A secondary student speaking from a podium"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-ink/80" />
+        <div className="relative max-w-6xl mx-auto px-6">
+          <div className="max-w-xl">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-4">Future Voices Pro</p>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-5">
+              For teens with a date on the calendar.
+            </h2>
+            <p className="text-white/70 leading-relaxed mb-8">
+              DECA provincials. A Model UN conference. University interviews. Pro is private,
+              deadline-first coaching that works backwards from the day it matters.
+            </p>
+            <Button size="lg" variant="secondary" asChild>
+              <Link href="/pro">Explore Pro <ArrowRight size={17} /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ──────────────────────────────────── */}
+      <section id="faq" className="py-20 sm:py-24 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.35fr_0.65fr] gap-12">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">FAQ</p>
+            <h2 className="font-display text-3xl font-medium text-ink mb-4">Common questions</h2>
+            <p className="text-sm text-ink-500 leading-relaxed">
+              Anything else? Write to{' '}
+              <a href="mailto:hello@futurevoices.co" className="text-ink font-medium underline underline-offset-4 decoration-gold">
+                hello@futurevoices.co
+              </a>
+            </p>
+          </div>
+          <div className="flex flex-col">
+            {FAQ.map(f => (
+              <details key={f.q} className="group border-b border-ink/10 last:border-0">
+                <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                  <span className="font-semibold text-ink text-[0.95rem] leading-snug">{f.q}</span>
+                  <ChevronDown size={18} className="text-ink-500 shrink-0 transition-transform duration-200 group-open:rotate-180" />
+                </summary>
+                <p className="text-sm text-ink-500 leading-relaxed pb-5 max-w-xl">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Contact ──────────────────────────────── */}
+      <section id="contact" className="bg-ink py-20 sm:py-24 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.4fr_0.6fr] gap-12">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-4">Admissions</p>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-5">
+              Start with a conversation.
+            </h2>
+            <p className="text-white/60 leading-relaxed">
+              Tell us about your child and what you are hoping for. We respond within one
+              business day to arrange a fifteen-minute intro call.
+            </p>
+          </div>
+          <ContactForm />
         </div>
       </section>
 

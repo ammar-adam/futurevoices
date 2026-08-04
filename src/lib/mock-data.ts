@@ -19,33 +19,36 @@ export const MOCK_COACH: Profile = {
 export const MOCK_ADMIN: Profile = {
   id: 'admin-1',
   email: 'admin@futurevoices.co',
-  full_name: 'Farhan Ahmed',
+  full_name: 'Admin',
   role: 'admin',
   created_at: '2026-05-01T00:00:00Z',
 }
 
+const GROUP_PROGRAM = PROGRAMS.find(p => p.id === 'speaking-group')!
+const PRIVATE_PROGRAM = PROGRAMS.find(p => p.id === 'speaking-private')!
+
 export const MOCK_COHORTS: Cohort[] = [
   {
     id: 'cohort-1',
-    program_id: 'little-voices',
-    program: PROGRAMS[0],
+    program_id: 'speaking-group',
+    program: GROUP_PROGRAM,
     timezone: 'ET',
     day_of_week: 2,
     time_local: '5:00 PM',
     starts_at: '2026-07-01',
-    ends_at: '2026-09-23',
+    ends_at: '2026-07-29',
     zoom_link: 'https://zoom.us/j/demo',
     is_active: true,
   },
   {
     id: 'cohort-2',
-    program_id: 'rising-speakers',
-    program: PROGRAMS[1],
+    program_id: 'speaking-private',
+    program: PRIVATE_PROGRAM,
     timezone: 'ET',
     day_of_week: 3,
     time_local: '6:00 PM',
     starts_at: '2026-07-02',
-    ends_at: '2026-09-24',
+    ends_at: '2026-07-30',
     zoom_link: 'https://zoom.us/j/demo2',
     is_active: true,
   },
