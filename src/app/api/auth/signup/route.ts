@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { readDoc, writeDoc, USERS_DOC, LEADS_DOC, type PortalUser, type Lead } from '@/lib/db'
+import { getUserByEmail, saveUser, saveLead, type PortalUser, type Lead } from '@/lib/db'
 import { hashPassword, createSessionToken, sessionCookie } from '@/lib/auth'
 import { randomUUID } from 'crypto'
 
@@ -15,8 +15,7 @@ export async function POST(req: Request) {
   }
 
   const normEmail = String(email).trim().toLowerCase()
-  const users = await readDoc<PortalUser[]>(USERS_DOC, [])
-  if (users.some(u => u.email === normEmail)) {
+  if (await getUserByEmail(normEmail)) {
     return NextResponse.json({ error: 'An account with this email already exists. Try signing in.' }, { status: 409 })
   }
 
@@ -26,13 +25,15 @@ export async function POST(req: Request) {
     full_name: String(full_name).trim(),
     password_hash: hashPassword(String(password)),
     created_at: new Date().toISOString(),
-    children: [{ name: String(child_name).trim(), age: String(child_age ?? '').trim(), program: String(program ?? '').trim() }],
+    children: [{
+      name: String(child_name).trim(),
+      age: String(child_age ?? '').trim(),
+      program: String(program ?? '').trim(),
+    }],
   }
-  users.push(user)
-  await writeDoc(USERS_DOC, users)
+  await saveUser(user)
 
-  const leads = await readDoc<Lead[]>(LEADS_DOC, [])
-  leads.push({
+  const lead: Lead = {
     id: randomUUID(),
     kind: 'signup',
     created_at: user.created_at,
@@ -40,9 +41,9 @@ export async function POST(req: Request) {
     email: user.email,
     student: user.children[0].name,
     program: user.children[0].program,
-    message: `New portal signup — student age: ${user.children[0].age || 'n/a'}`,
-  })
-  await writeDoc(LEADS_DOC, leads)
+    message: `New portal signup. Student age: ${user.children[0].age || 'n/a'}`,
+  }
+  await saveLead(lead)
 
   const res = NextResponse.json({ ok: true })
   res.cookies.set(sessionCookie.name, createSessionToken(normEmail), sessionCookie.options)

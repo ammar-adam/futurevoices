@@ -24,9 +24,9 @@ export interface Program {
   description: string
   age_min: number
   age_max: number
-  price_monthly: number | null  // null = "Contact us for pricing"
-  billing_model: 'monthly' | 'package'
-  package_sessions?: number     // only when billing_model is 'package'
+  price_monthly: number | null  // null when the program is billed per session
+  price_session?: number        // set when billing_model is 'session'
+  billing_model: 'monthly' | 'session'
   capacity: number
   duration_weeks: number
   color: string
@@ -95,48 +95,105 @@ export interface Consent {
 export const PROGRAMS: Program[] = [
   {
     id: 'speaking-group',
-    name: 'Public Speaking — Group',
+    name: 'Group Coaching',
     slug: 'speaking-group',
-    description: 'Live group coaching for kids and adults building confident public speaking. Starts with a free 4-week pilot, continues as an ongoing cohort.',
+    description: 'A weekly 60-minute live class, capped at eight students, working through the six-level path together. Every student speaks in every session.',
     age_min: 6,
     age_max: 99,
-    price_monthly: null,
+    price_monthly: 120,
     billing_model: 'monthly',
     capacity: 8,
-    duration_weeks: 4,
+    duration_weeks: 8,
     color: '#4F9BF7',
   },
   {
     id: 'speaking-private',
-    name: 'Public Speaking — 1:1',
+    name: 'Private 1:1 Coaching',
     slug: 'speaking-private',
-    description: 'Private, individual public speaking coaching. Same core curriculum as the group program, one-on-one pacing.',
+    description: 'The same level curriculum, taught one-on-one. Suited to shy starters, students preparing for a specific moment, or kids who want to move faster.',
     age_min: 6,
     age_max: 99,
+    price_session: 50,
     price_monthly: null,
-    billing_model: 'monthly',
+    billing_model: 'session',
     capacity: 1,
-    duration_weeks: 4,
+    duration_weeks: 8,
     color: '#7C5CFC',
   },
   {
-    id: 'fv-pro',
-    name: 'Future Voices Pro',
-    slug: 'pro',
-    description: 'DECA, Model UN, and university essay/interview coaching. 1:1 only, built around your deadline, not an open-ended subscription.',
+    id: 'prep',
+    name: 'Competitive Prep',
+    slug: 'prep',
+    description: 'Deadline-first 1:1 coaching for DECA, Model UN, and university applications. Pay per session, built backward from your competition or application date.',
     age_min: 13,
     age_max: 19,
+    price_session: 45,
     price_monthly: null,
-    billing_model: 'package',
-    package_sessions: 4,
+    billing_model: 'session',
     capacity: 1,
-    duration_weeks: 4,
+    duration_weeks: 8,
     color: '#1F6B5C',
   },
 ]
 
-export const SCHEDULE_SLOTS = [
-  { region: 'Americas', slots: ['Tue 5:00 PM ET', 'Wed 6:00 PM ET', 'Thu 7:30 PM ET'] },
-  { region: 'Europe / MEA', slots: ['Mon 4:30 PM GMT', 'Tue 5:30 PM GMT', 'Sat 11:00 AM GMT'] },
-  { region: 'Asia-Pacific', slots: ['Sat 10:00 AM SGT', 'Sat 4:00 PM SGT', 'Sun 4:00 PM SGT'] },
+/** The six-level path. Used by the homepage and the curriculum page. */
+export const LEVELS = [
+  { n: 1, name: 'Confidence', line: 'Overcoming fear, voice, posture, and eye contact. Standing up and being heard.' },
+  { n: 2, name: 'Clarity', line: 'Organizing ideas, cutting filler words, and explaining complicated things simply.' },
+  { n: 3, name: 'Storytelling', line: 'Narrative, emotion, memorable openings, and humor. Speeches people remember.' },
+  { n: 4, name: 'Persuasion', line: 'Argument, rhetoric, reading an audience, and calls to action. Speaking to change minds.' },
+  { n: 5, name: 'Performance', line: 'Stage presence, vocal dynamics, physicality, and handling difficult rooms.' },
+  { n: 6, name: 'Mastery', line: 'Keynotes, impromptu speaking, debate, and interviews. High-stakes speaking, handled.' },
+]
+
+/** Level 1 week-by-week. Short form on the homepage, full detail on /curriculum. */
+export const LEVEL_ONE_WEEKS = [
+  {
+    n: 1,
+    title: 'First Words',
+    short: 'what nerves actually are, and a recorded 30-second introduction on day one',
+    full: 'Why speaking feels scary and what nerves actually are. Every student delivers a 30-second introduction on day one, recorded. This becomes the "before" tape.',
+  },
+  {
+    n: 2,
+    title: 'The Body Speaks First',
+    short: 'posture, stillness, eye contact',
+    full: 'Posture, stillness, eye contact. Students deliver the same two lines three different ways and feel the difference.',
+  },
+  {
+    n: 3,
+    title: 'The Voice',
+    short: 'volume, pace, and the pause as a tool',
+    full: 'Volume, pace, and the pause. Learning that silence is a tool, not a failure.',
+  },
+  {
+    n: 4,
+    title: 'Shape of a Talk',
+    short: 'an opening, one clear point, an ending',
+    full: 'An opening, one clear point, an ending. Every student builds a one-minute talk on that skeleton.',
+  },
+  {
+    n: 5,
+    title: 'Handling the Wobble',
+    short: 'recovering when your mind goes blank, practiced on purpose',
+    full: 'What to do when your mind goes blank. Recovery is practiced deliberately, not just discussed.',
+  },
+  {
+    n: 6,
+    title: 'Making It Yours',
+    short: 'each student picks and drafts a final talk about something they care about',
+    full: 'Each student picks their final performance topic, something they genuinely care about, and drafts it with coaching.',
+  },
+  {
+    n: 7,
+    title: 'Dress Rehearsal',
+    short: 'full run-throughs with structured peer feedback',
+    full: 'Full run-throughs with structured peer feedback: two things done well, one thing to try.',
+  },
+  {
+    n: 8,
+    title: 'The Showcase',
+    short: 'the talk, delivered live to the cohort and parents, recorded, certificates presented',
+    full: 'Each student delivers their talk live to the cohort and parents, recorded. Certificates presented, and families watch week 1 beside week 8.',
+  },
 ]

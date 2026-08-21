@@ -1,4 +1,4 @@
-import { readDoc, LEADS_DOC, USERS_DOC, type Lead, type PortalUser } from '@/lib/db'
+import { listLeads, listUsers } from '@/lib/db'
 
 export const dynamic = 'force-dynamic'
 
@@ -16,11 +16,7 @@ export default async function AdminLeadsPage({
     )
   }
 
-  const [leads, users] = await Promise.all([
-    readDoc<Lead[]>(LEADS_DOC, []),
-    readDoc<PortalUser[]>(USERS_DOC, []),
-  ])
-  leads.sort((a, b) => b.created_at.localeCompare(a.created_at))
+  const [leads, users] = await Promise.all([listLeads(), listUsers()])
 
   return (
     <div className="min-h-screen bg-cream">

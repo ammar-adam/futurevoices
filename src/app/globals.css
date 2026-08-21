@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — charcoal + warm cream, from the FV identity */
+  /* Brand palette: charcoal + warm cream, from the FV identity */
   --color-ink: #24272e;
   --color-ink-700: #33373e;
   --color-ink-500: #565b64;

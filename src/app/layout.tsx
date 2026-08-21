@@ -17,9 +17,18 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Future Voices — Public Speaking Coaching for Kids & Teens",
+  metadataBase: new URL("https://futurevoices.co"),
+  title: "Future Voices | Public Speaking School for Kids and Teens, Live Online",
   description:
-    "Live, online public speaking coaching from Toronto. Small groups, private 1:1, and competitive prep for teens. The first 4-week cycle is free.",
+    "A six-level public speaking school for kids and teens. Live online classes of eight, taught by the founder. Next cohort starts September 12, first class free.",
+  openGraph: {
+    title: "Future Voices | Public Speaking School for Kids and Teens, Live Online",
+    description:
+      "A six-level public speaking school for kids and teens. Live online classes of eight, taught by the founder. Next cohort starts September 12, first class free.",
+    siteName: "Future Voices",
+    locale: "en_CA",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

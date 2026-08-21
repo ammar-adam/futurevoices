@@ -4,15 +4,16 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
 const TRACKS = [
-  { value: 'deca', label: 'DECA / Competitive Case Prep' },
+  { value: 'deca', label: 'DECA / Case Prep' },
   { value: 'mun', label: 'Model UN Prep' },
-  { value: 'essays', label: 'University Essay & Interview Prep' },
-  { value: 'unsure', label: 'Not sure yet — I\'d like guidance' },
+  { value: 'essays', label: 'University Essay Coaching' },
+  { value: 'interviews', label: 'Interview Prep' },
+  { value: 'unsure', label: 'Not sure yet, I would like guidance' },
 ]
 
 const EXPERIENCE_LEVELS = [
   { value: 'beginner', label: 'Beginner', sub: 'Little to no prior experience' },
-  { value: 'some', label: 'Some experience', sub: 'I\'ve done this before but want to improve' },
+  { value: 'some', label: 'Some experience', sub: 'I have done this before but want to improve' },
   { value: 'competitive', label: 'Competitive already', sub: 'I compete / apply actively and want an edge' },
 ]
 
@@ -51,7 +52,7 @@ export function ProApplyForm() {
         email: data.get('email'),
         phone: data.get('phone'),
         student: data.get('student_name'),
-        program: `Pro — ${trackLabel}`,
+        program: `Competitive Prep: ${trackLabel}`,
         message,
       }),
     }).catch(() => null)
@@ -66,7 +67,7 @@ export function ProApplyForm() {
         </div>
         <h2 className="font-display text-3xl font-semibold text-[#14172B] mb-3">Application received</h2>
         <p className="text-gray-500 max-w-md mx-auto leading-relaxed">
-          We&rsquo;ll review what you sent and reply within 1–2 business days to set up the first session.
+          We will review what you sent and reply within one to two business days to set up the first session.
           If anything is urgent, email{' '}
           <a href="mailto:hello@futurevoices.co" className="font-medium text-[#1F6B5C] underline">hello@futurevoices.co</a>.
         </p>
@@ -104,7 +105,7 @@ export function ProApplyForm() {
           </label>
         </div>
 
-        {/* Parent / guardian — shown if minor */}
+        {/* Parent / guardian: shown if minor */}
         <div className="flex flex-col gap-2">
           <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Is the student under 18?</span>
           <div className="flex gap-3">
@@ -141,7 +142,7 @@ export function ProApplyForm() {
             <label className="flex items-start gap-3 cursor-pointer">
               <input required type="checkbox" className="mt-0.5 h-4 w-4 rounded accent-[#1F6B5C]" />
               <span className="text-sm text-gray-500 leading-relaxed">
-                I am the parent or legal guardian of the student named above and consent to their participation in Future Voices Pro coaching sessions.
+                I am the parent or legal guardian of the student named above and consent to their participation in Future Voices Competitive Prep coaching sessions.
               </span>
             </label>
           </div>
@@ -204,7 +205,7 @@ export function ProApplyForm() {
           required
           name="target_date"
           type="text"
-          placeholder="e.g. DECA provincials — March 14, 2027"
+          placeholder="e.g. DECA provincials, March 14, 2027"
           className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-[#14172B] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1F6B5C]/40"
         />
       </label>

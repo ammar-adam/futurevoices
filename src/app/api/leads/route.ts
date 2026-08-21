@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { readDoc, writeDoc, LEADS_DOC, type Lead } from '@/lib/db'
+import { saveLead, type Lead } from '@/lib/db'
 import { randomUUID } from 'crypto'
 
 export async function POST(req: Request) {
@@ -9,8 +9,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Name and email are required.' }, { status: 400 })
   }
 
-  const leads = await readDoc<Lead[]>(LEADS_DOC, [])
-  leads.push({
+  const lead: Lead = {
     id: randomUUID(),
     kind: kind === 'pro' ? 'pro' : 'intro-call',
     created_at: new Date().toISOString(),
@@ -20,7 +19,12 @@ export async function POST(req: Request) {
     student: student ? String(student).trim().slice(0, 200) : undefined,
     program: program ? String(program).trim().slice(0, 200) : undefined,
     message: message ? String(message).trim().slice(0, 2000) : undefined,
-  })
-  await writeDoc(LEADS_DOC, leads)
+  }
+
+  try {
+    await saveLead(lead)
+  } catch {
+    return NextResponse.json({ error: 'Could not save your enquiry.' }, { status: 500 })
+  }
   return NextResponse.json({ ok: true })
 }

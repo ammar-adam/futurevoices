@@ -1,21 +1,22 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { NIDA_BOOKING_URL, CONTACT_EMAIL } from '@/lib/links'
 
 const COLUMNS = [
   {
-    title: 'Program',
+    title: 'Programs',
     links: [
       { href: '/#programs', label: 'Group Coaching' },
       { href: '/#programs', label: 'Private 1:1' },
-      { href: '/pro', label: 'Future Voices Pro' },
+      { href: '/prep', label: 'Competitive Prep' },
       { href: '/curriculum', label: 'Curriculum' },
     ],
   },
   {
     title: 'Get Started',
     links: [
-      { href: '/#contact', label: 'Book an Intro Call' },
-      { href: 'mailto:hello@futurevoices.co', label: 'hello@futurevoices.co' },
+      { href: NIDA_BOOKING_URL, label: 'Book an Intro Call' },
+      { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL },
       { href: '/login', label: 'Parent Portal' },
     ],
   },
@@ -39,9 +40,8 @@ export function Footer() {
               <Image src="/brand/fv-wordmark-white.png" alt="Future Voices" width={190} height={70} />
             </Link>
             <p className="text-sm text-white/55 leading-relaxed max-w-xs">
-              Live, online public speaking coaching for kids, teens, and adults.
+              A school for young communicators. Live online, taught from Toronto.
             </p>
-            <p className="mt-5 text-sm text-white/40">Toronto, Canada · Live on Zoom worldwide</p>
           </div>
 
           {COLUMNS.map(col => (
@@ -61,8 +61,9 @@ export function Footer() {
         </div>
 
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/40">© {new Date().getFullYear()} Future Voices. All rights reserved.</p>
-          <p className="text-xs text-white/40">Toronto-built, taught live worldwide.</p>
+          <p className="text-xs text-white/40">
+            © {new Date().getFullYear()} Future Voices. Toronto built, taught live worldwide.
+          </p>
         </div>
       </div>
     </footer>

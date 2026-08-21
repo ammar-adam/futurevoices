@@ -38,7 +38,7 @@ export default async function DashboardPage() {
               </p>
               <p className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-ink bg-cream px-3 py-1.5 rounded-full">
                 <span className="h-2 w-2 rounded-full bg-gold" />
-                Enrolment pending — we&rsquo;ll be in touch
+                Enrolment pending. We will be in touch.
               </p>
             </div>
           ))}
@@ -67,15 +67,15 @@ export default async function DashboardPage() {
           <ul className="flex flex-col gap-2.5 text-sm text-ink-500">
             <li>
               <Link href="/curriculum" className="text-ink font-medium underline underline-offset-4 decoration-gold hover:decoration-ink">
-                Read the 4-week curriculum
-              </Link>{' '}
-              — what {user.children[0]?.name ?? 'your child'} will actually do each week.
+                Read the full curriculum
+              </Link>
+              : the six levels, and every week of Level 1.
             </li>
             <li>
               <Link href="/safeguarding" className="text-ink font-medium underline underline-offset-4 decoration-gold hover:decoration-ink">
                 Our safeguarding policy
-              </Link>{' '}
-              — how we run safe online sessions for kids.
+              </Link>
+              : how we run safe online sessions for kids.
             </li>
           </ul>
         </div>

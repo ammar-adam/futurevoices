@@ -51,7 +51,7 @@ const SECTIONS: { title: string; body?: string; points?: string[] }[] = [
   },
   {
     title: 'Raising a concern',
-    body: 'If anything about a session ever concerns you — something said, something seen, anything at all — email hello@futurevoices.co and it will be treated seriously, confidentially and quickly. If we ever observe signs that a child may be at risk, we will document the concern and report it to the appropriate local child protection authorities, as required by Ontario law.',
+    body: 'If anything about a session ever concerns you, something said or something seen, email hello@futurevoices.co and it will be treated seriously, confidentially and quickly. If we ever observe signs that a child may be at risk, we will document the concern and report it to the appropriate local child protection authorities, as required by Ontario law.',
   },
 ]
 

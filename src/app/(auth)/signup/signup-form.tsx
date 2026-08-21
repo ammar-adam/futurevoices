@@ -50,7 +50,7 @@ export default function SignupForm() {
     <AuthShell>
       <div className="mb-7">
         <h1 className="font-display text-3xl font-medium text-ink">Create your account</h1>
-        <p className="text-ink-500 mt-1.5">One account per family — you can add more children later.</p>
+        <p className="text-ink-500 mt-1.5">One account per family. You can add more children later.</p>
       </div>
 
       <div className="rounded-2xl bg-white shadow-[var(--shadow-soft)] border border-ink/[0.06] p-7">

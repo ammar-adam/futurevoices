@@ -30,7 +30,7 @@ export function ContactForm() {
     return (
       <div className="text-center py-12">
         <CheckCircle2 size={44} className="text-white/90 mx-auto mb-5" />
-        <h3 className="font-display text-2xl font-semibold text-white mb-2">Thank you — we have it.</h3>
+        <h3 className="font-display text-2xl font-medium text-white mb-2">Thank you, we have it.</h3>
         <p className="text-white/60 max-w-md mx-auto leading-relaxed">
           We read every note personally and will reply within a day to set up a time to talk.
         </p>
@@ -51,13 +51,13 @@ export function ContactForm() {
         <option value="" disabled>What are you interested in?</option>
         <option>Group coaching</option>
         <option>Private 1:1</option>
-        <option>Future Voices Pro (teens)</option>
+        <option>Competitive Prep (teens)</option>
         <option>Not sure yet</option>
       </select>
       <textarea
         name="message"
         rows={3}
-        placeholder="Anything you want us to know — goals, worries, timing."
+        placeholder="Anything you want us to know: goals, worries, timing."
         className={`${field} sm:col-span-2 resize-none`}
       />
       <div className="sm:col-span-2 flex flex-col sm:flex-row items-center gap-4 mt-1">
@@ -66,7 +66,7 @@ export function ContactForm() {
         </Button>
         {status === 'error' && (
           <p className="text-sm text-red-300">
-            Something went wrong — email us at{' '}
+            Something went wrong. Email us at{' '}
             <a href="mailto:hello@futurevoices.co" className="underline">hello@futurevoices.co</a>
           </p>
         )}

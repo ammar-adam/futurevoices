@@ -4,12 +4,13 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { NIDA_BOOKING_URL } from '@/lib/links'
 import { cn } from '@/lib/utils'
 
 const LINKS = [
-  { href: '/#programs', label: 'Programs' },
+  { href: '/#path', label: 'The Path' },
   { href: '/curriculum', label: 'Curriculum' },
-  { href: '/pro', label: 'Pro' },
+  { href: '/prep', label: 'Competitive Prep' },
   { href: '/#faq', label: 'FAQ' },
 ]
 
@@ -76,7 +77,7 @@ export function Navbar({ overHero = false }: { overHero?: boolean }) {
             Parent Portal
           </Link>
           <Button size="sm" variant={scrolled ? 'primary' : 'secondary'} asChild>
-            <Link href="/#contact">Book an Intro Call</Link>
+            <a href={NIDA_BOOKING_URL}>Book an Intro Call</a>
           </Button>
         </div>
 
@@ -98,7 +99,7 @@ export function Navbar({ overHero = false }: { overHero?: boolean }) {
           ))}
           <Link href="/login" onClick={() => setOpen(false)} className="text-sm font-medium text-ink">Parent Portal</Link>
           <Button size="sm" asChild>
-            <Link href="/#contact" onClick={() => setOpen(false)}>Book an Intro Call</Link>
+            <a href={NIDA_BOOKING_URL} onClick={() => setOpen(false)}>Book an Intro Call</a>
           </Button>
         </div>
       )}

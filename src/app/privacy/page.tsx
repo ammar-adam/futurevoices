@@ -18,9 +18,9 @@ export default function PrivacyPage() {
               <ul className="flex flex-col gap-2">
                 {[
                   'Parent name, email address, and password (for account access)',
-                  "Child's name and date of birth (to place them in the right program)",
+                  "Student's first name and age (to place them in the right cohort)",
                   'Session attendance records and coach notes (shared only with the parent)',
-                  'Payment information (processed by Stripe — we never store card details)',
+                  'Anything you choose to tell us in an enquiry or application form',
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#B68C2D] inline-block mt-1.5 shrink-0" />
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="text-lg font-bold text-[#14172B] mb-3">How we use it</h2>
-              <p>We use your information solely to deliver the Future Voices program — to schedule classes, send coach notes, and process payments. We do not sell, rent, or share your personal data with any third party for marketing purposes.</p>
+              <p>We use your information solely to deliver the Future Voices program: to schedule classes, send session recaps, and stay in touch about your child&rsquo;s progress. We do not sell, rent, or share your personal data with any third party for marketing purposes.</p>
             </section>
 
             <section>

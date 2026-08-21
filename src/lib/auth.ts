@@ -1,6 +1,6 @@
 import { scryptSync, timingSafeEqual, randomBytes, createHmac } from 'crypto'
 import { cookies } from 'next/headers'
-import { readDoc, USERS_DOC, type PortalUser } from './db'
+import { getUserByEmail, type PortalUser } from './db'
 
 const COOKIE = 'fv_session'
 const SESSION_DAYS = 30
@@ -54,6 +54,5 @@ export async function getCurrentUser(): Promise<PortalUser | null> {
   const jar = await cookies()
   const email = verifySessionToken(jar.get(COOKIE)?.value)
   if (!email) return null
-  const users = await readDoc<PortalUser[]>(USERS_DOC, [])
-  return users.find(u => u.email === email) ?? null
+  return getUserByEmail(email)
 }
