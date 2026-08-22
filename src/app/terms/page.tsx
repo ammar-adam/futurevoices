@@ -30,7 +30,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="text-lg font-bold text-[#14172B] mb-3">Recording policy</h2>
-              <p>Week 1 and week 8 performances are recorded so families can see a student&rsquo;s progress side by side. Written consent from the parent or guardian is obtained before any recording, recordings are shared only with that student&rsquo;s family, and consent can be withdrawn at any time. See our <Link href="/safeguarding" className="text-[#B68C2D] hover:underline">Safeguarding Policy</Link> for more.</p>
+              <p>Student performances are recorded through the level so families can see progress side by side. Written consent from the parent or guardian is obtained before any recording, recordings are shared privately with that student&rsquo;s own family and with nobody else, and consent can be withdrawn at any time. See our <Link href="/safeguarding" className="text-[#B68C2D] hover:underline">Safeguarding Policy</Link> for more.</p>
             </section>
 
             <section>

@@ -17,7 +17,7 @@ const COLUMNS = [
     links: [
       { href: NIDA_BOOKING_URL, label: 'Book an Intro Call' },
       { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL },
-      { href: '/login', label: 'Parent Portal' },
+      { href: '/prep/apply', label: 'Apply for Competitive Prep' },
     ],
   },
   {

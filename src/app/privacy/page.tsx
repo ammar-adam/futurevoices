@@ -20,6 +20,8 @@ export default function PrivacyPage() {
                   'Parent name, email address, and password (for account access)',
                   "Student's first name and age (to place them in the right cohort)",
                   'Session attendance records and coach notes (shared only with the parent)',
+                  'Performance recordings, where you have given written consent',
+                  'A phone number, if you join your cohort’s WhatsApp group',
                   'Anything you choose to tell us in an enquiry or application form',
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2">

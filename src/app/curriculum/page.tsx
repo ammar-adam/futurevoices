@@ -40,8 +40,8 @@ export default function CurriculumPage() {
             <p className="text-[0.98rem] text-ink-500 leading-relaxed">
               Every session, at every level, runs the same loop: learn one thing, perform it on the
               spot, receive specific feedback, and do it again. Every student speaks in every class.
-              Performances in week 1 and week 8 are recorded, with your consent, so progress is
-              something you watch, not something you take our word for.
+              Performances are recorded throughout the level, with your consent, so you can play
+              your child&rsquo;s first talk beside their most recent one and watch the change happen.
             </p>
           </div>
         </section>

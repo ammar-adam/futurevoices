@@ -9,10 +9,10 @@ import { NIDA_BOOKING_URL, CONTACT_EMAIL, NEXT_COHORT } from '@/lib/links'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 
 const STATS = [
-  ['Max 8', 'students per class'],
-  ['6 levels', 'from Confidence to Mastery'],
-  ['8 weeks', 'per level, ending in a live showcase'],
-  ['Every week', 'every student speaks'],
+  ['Classes of eight', 'Small enough that nobody can hide at the back.'],
+  ['Six levels', 'From the first nervous introduction to a full keynote.'],
+  ['Eight weeks a level', 'Each one ending in a live showcase for parents.'],
+  ['Every single class', 'Every student is on their feet and speaking.'],
 ]
 
 const PROGRAM_CARDS = [
@@ -23,9 +23,9 @@ const PROGRAM_CARDS = [
     core: true,
     body: 'The heart of the school. A weekly 60-minute live class, capped at eight students, working through the level path together. Every student speaks in every session.',
     points: [
-      'One level = 8 weeks',
-      'Recorded week 1 and week 8 performances',
-      'Live showcase for parents at each level’s end',
+      'One level runs eight weeks',
+      'Every performance recorded, first class to last',
+      'Live showcase for parents at the end of each level',
       'First class free, cancel any month',
     ],
   },
@@ -70,7 +70,7 @@ const FAQ = [
     a: 'The first session of a new cohort is an open house. Your child attends the full class free, with no payment details required. If it is a fit, you enroll for the month at the end of the session or within the following two days to hold the seat.',
   },
   {
-    q: 'What does it cost?',
+    q: 'How much does it cost?',
     a: 'Group coaching is $120 per month for a weekly live class. Private 1:1 coaching is $50 per session, or four sessions for $180. Competitive Prep for teens is $45 per session for DECA and Model UN, $60 per session for essay coaching, and $150 for a three-session interview prep bundle. All prices are in CAD. There are no registration fees, and you can stop any month.',
   },
   {
@@ -88,6 +88,10 @@ const FAQ = [
   {
     q: 'Can adults enroll?',
     a: 'Yes. Adults are placed in their own cohort and follow the same level path. Book an intro call and we will find the right fit.',
+  },
+  {
+    q: 'How do you keep parents updated?',
+    a: 'Each cohort has its own WhatsApp group. That is where Nida posts what was covered, what to practise, and reminders before each class, so you are never guessing what your child is working on. Your child\'s recordings are sent to you privately, never to the group.',
   },
   {
     q: 'What happens if we miss a class?',
@@ -124,9 +128,9 @@ export default function HomePage() {
             <span className="block">We teach it, week by week.</span>
           </h1>
           <p className="text-lg text-white/75 leading-relaxed max-w-2xl mb-9">
-            Future Voices is a school for young communicators. Students climb a six-level path,
-            from afraid to speak to able to command a room, in live classes of eight, taught
-            personally by our founder.
+            Future Voices is a school for young communicators. Students work through six levels,
+            starting with the fear of speaking and finishing able to hold a room. Classes are
+            live, capped at eight students, and taught by our founder.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button size="lg" variant="secondary" asChild>
@@ -153,10 +157,10 @@ export default function HomePage() {
       {/* ── Stats ────────────────────────────────── */}
       <section className="bg-white border-b border-ink/[0.08]">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4">
-          {STATS.map(([big, small], i) => (
-            <div key={big} className={`py-8 px-3 text-center ${i > 0 ? 'lg:border-l border-ink/[0.08]' : ''}`}>
-              <p className="font-display text-3xl font-medium text-ink">{big}</p>
-              <p className="text-[0.8rem] text-ink-500 mt-1 leading-snug">{small}</p>
+          {STATS.map(([label, line], i) => (
+            <div key={label} className={`py-9 px-6 ${i > 0 ? 'lg:border-l border-ink/[0.08]' : ''}`}>
+              <p className="font-display text-[1.35rem] font-medium text-ink mb-1.5">{label}</p>
+              <p className="text-[0.88rem] text-ink-500 leading-relaxed">{line}</p>
             </div>
           ))}
         </div>
@@ -169,13 +173,18 @@ export default function HomePage() {
           <h2 className="font-display text-3xl sm:text-[2.6rem] leading-tight font-medium text-ink mb-6">
             Nobody becomes a confident speaker by being told to be confident.
           </h2>
-          <p className="text-lg text-ink-500 leading-relaxed">
-            They become one by speaking, often, in a room where it is safe to get it wrong. Every
-            Future Voices class runs the same loop: learn one thing, stand up and perform it, get
-            specific feedback, then do it again. No child sits and watches for a week. That loop,
-            repeated for eight weeks, is how a nervous kid becomes a speaker, and it is the
-            foundation of everything we teach.
-          </p>
+          <div className="text-lg text-ink-500 leading-relaxed flex flex-col gap-5">
+            <p>
+              Confidence comes from evidence. A child who has stood up and spoken dozens of times
+              knows they can do it, because they already have. Everything we teach is built to
+              produce that evidence as quickly as possible.
+            </p>
+            <p>
+              So every class runs the same loop. Learn one skill. Get on your feet and use it.
+              Hear precisely what worked and what to change. Go again. Nobody watches from the
+              back, and nobody waits a week for their turn.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -207,12 +216,11 @@ export default function HomePage() {
 
           <div className="mt-14 border-t border-ink/[0.08] pt-8 flex flex-wrap items-center justify-between gap-6">
             <p className="text-[0.95rem] text-ink-500 leading-relaxed max-w-xl">
-              Every completed level earns a certificate, and every family watches the week 1
-              recording next to the week 8 recording. The progress is not something we claim.
-              It is something you see.
+              Finish a level and your child earns a certificate. Then you play their first
+              recording next to their last, and see the difference for yourself.
             </p>
             <Button asChild>
-              <Link href="/curriculum">Explore the full curriculum <ArrowRight size={16} /></Link>
+              <Link href="/curriculum">Read the full curriculum <ArrowRight size={16} /></Link>
             </Button>
           </div>
         </div>
@@ -291,47 +299,14 @@ export default function HomePage() {
             ))}
           </div>
 
-          <p className="mt-8 text-[0.95rem] font-semibold text-ink">
-            The first class is free. Come sit in, watch your child stand up, and decide afterward.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Leadership ───────────────────────────── */}
-      <section className="py-20 sm:py-24">
-        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.4fr_0.6fr] gap-12">
-          <div>
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">Leadership</p>
-            <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink">
-              One coach.<br />Every session.
-            </h2>
-          </div>
-          <div className="text-ink-500 leading-relaxed flex flex-col gap-5 text-[1.02rem]">
-            <p>
-              Every group cohort and every private speaking session at Future Voices is taught by
-              Nida herself. There is no rotating roster of instructors and no pre-recorded content.
-              She knows exactly where each student started and how far they have come, because she
-              was in the room for all of it.
-            </p>
-            <p>
-              That is a deliberate constraint: it keeps the school small, the standard consistent,
-              and the relationship between coach, student, and parent direct. Our Competitive Prep
-              track for teens runs separately, with dedicated one-on-one coaching.
-            </p>
-            <div className="pt-2">
-              <Button asChild>
-                <a href={NIDA_BOOKING_URL}>Speak with Nida <ArrowRight size={16} /></a>
-              </Button>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* ── Competitive Prep teaser ──────────────── */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-24 sm:py-32 mt-20 sm:mt-24">
         <Image
-          src="/images/pro-podium.jpg"
-          alt="A secondary student speaking from a podium"
+          src="/images/prep-stage.jpg"
+          alt="A speaker addressing a full auditorium"
           fill
           className="object-cover object-center"
           sizes="100vw"

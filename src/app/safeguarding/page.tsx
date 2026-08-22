@@ -28,9 +28,18 @@ const SECTIONS: { title: string; body?: string; points?: string[] }[] = [
   {
     title: 'Recording policy',
     points: [
-      'Sessions are not recorded by default.',
-      'If a recording would help (for example, reviewing a practice presentation), we ask for written parental consent first, explain exactly what will be recorded and why, and share the recording only with that student’s family.',
+      'Student performances are recorded through each level. This is a core part of the program: it is how a family sees a child’s first talk beside their most recent one.',
+      'We ask for written parental consent before recording anything, and explain exactly what will be captured and why. A student can take part without being recorded if you prefer.',
+      'A recording is shared privately with that student’s own family. It is not posted in the cohort WhatsApp group and it is not shared with other families.',
       'Recordings are never used for marketing without separate, explicit written consent, and consent can be withdrawn at any time.',
+    ],
+  },
+  {
+    title: 'Group messaging',
+    points: [
+      'Each cohort has a WhatsApp group used for class recaps, practice notes, and reminders. It is for parents and guardians, not students.',
+      'Members of a WhatsApp group can see each other’s phone numbers. If you would prefer not to share yours, tell us and we will send you the same updates by email instead.',
+      'Anything about your individual child, including recordings and feedback, is sent to you directly rather than to the group.',
     ],
   },
   {
@@ -44,7 +53,7 @@ const SECTIONS: { title: string; body?: string; points?: string[] }[] = [
   {
     title: 'Data and privacy',
     points: [
-      'We collect only what we need to run the program: parent contact details, the student’s first name and age, and session notes.',
+      'We collect only what we need to run the program: parent contact details, the student’s first name and age, session notes, and performance recordings you have consented to.',
       'Account data is stored encrypted. We do not sell or share personal information with third parties.',
       'You can request a copy or deletion of your family’s data at any time by emailing hello@futurevoices.co.',
     ],

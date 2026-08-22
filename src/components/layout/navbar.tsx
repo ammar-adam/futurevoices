@@ -67,15 +67,6 @@ export function Navbar({ overHero = false }: { overHero?: boolean }) {
               {l.label}
             </Link>
           ))}
-          <Link
-            href="/login"
-            className={cn(
-              'text-sm font-medium transition-colors',
-              scrolled ? 'text-ink-500 hover:text-ink' : 'text-white/75 hover:text-white'
-            )}
-          >
-            Parent Portal
-          </Link>
           <Button size="sm" variant={scrolled ? 'primary' : 'secondary'} asChild>
             <a href={NIDA_BOOKING_URL}>Book an Intro Call</a>
           </Button>
@@ -97,7 +88,6 @@ export function Navbar({ overHero = false }: { overHero?: boolean }) {
               {l.label}
             </Link>
           ))}
-          <Link href="/login" onClick={() => setOpen(false)} className="text-sm font-medium text-ink">Parent Portal</Link>
           <Button size="sm" asChild>
             <a href={NIDA_BOOKING_URL} onClick={() => setOpen(false)}>Book an Intro Call</a>
           </Button>
