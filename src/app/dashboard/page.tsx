@@ -48,7 +48,7 @@ export default async function DashboardPage() {
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold-300 mb-2">Next step</p>
               <h2 className="font-display text-2xl font-medium mb-3">Your intro call</h2>
               <p className="text-sm text-white/65 leading-relaxed">
-                We&rsquo;ve received your registration. Nida will reach out at{' '}
+                We&rsquo;ve received your registration. We will reach out at{' '}
                 <span className="text-white font-medium">{user.email}</span> within a day to set up a
                 15-minute call and place {user.children[0]?.name ?? 'your child'} in the right cohort.
               </p>

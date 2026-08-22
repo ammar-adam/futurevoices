@@ -11,7 +11,7 @@ const SECTIONS: { title: string; body?: string; points?: string[] }[] = [
   {
     title: 'Who teaches',
     points: [
-      'Every session is taught by Nida, the founder and sole coach. There are no rotating instructors and no subcontractors.',
+      'Every speaking session is taught by our founder, who is the school’s sole coach for group and private classes. There are no rotating instructors and no subcontractors.',
       'A police record check (vulnerable sector) is maintained and available for parents to view on request.',
       'Coaching follows a written code of conduct: professional language, no favouritism, no criticism of a child in front of the group.',
     ],
@@ -30,16 +30,8 @@ const SECTIONS: { title: string; body?: string; points?: string[] }[] = [
     points: [
       'Student performances are recorded through each level. This is a core part of the program: it is how a family sees a child’s first talk beside their most recent one.',
       'We ask for written parental consent before recording anything, and explain exactly what will be captured and why. A student can take part without being recorded if you prefer.',
-      'A recording is shared privately with that student’s own family. It is not posted in the cohort WhatsApp group and it is not shared with other families.',
+      'A recording is shared privately with that student’s own family and is not shared with other families.',
       'Recordings are never used for marketing without separate, explicit written consent, and consent can be withdrawn at any time.',
-    ],
-  },
-  {
-    title: 'Group messaging',
-    points: [
-      'Each cohort has a WhatsApp group used for class recaps, practice notes, and reminders. It is for parents and guardians, not students.',
-      'Members of a WhatsApp group can see each other’s phone numbers. If you would prefer not to share yours, tell us and we will send you the same updates by email instead.',
-      'Anything about your individual child, including recordings and feedback, is sent to you directly rather than to the group.',
     ],
   },
   {

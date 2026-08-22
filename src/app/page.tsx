@@ -83,7 +83,7 @@ const FAQ = [
   },
   {
     q: 'Who teaches the classes?',
-    a: 'Nida teaches every group cohort and every private speaking session herself. The Competitive Prep track is taught one-on-one by a coach with national and international competition results; you will meet your coach on your intro call.',
+    a: 'Our founder teaches every group cohort and every private speaking session herself. The Competitive Prep track is taught one-on-one by a coach with national and international competition results. You will meet your coach on your intro call.',
   },
   {
     q: 'Can adults enroll?',
@@ -91,7 +91,7 @@ const FAQ = [
   },
   {
     q: 'How do you keep parents updated?',
-    a: 'Each cohort has its own WhatsApp group. That is where Nida posts what was covered, what to practise, and reminders before each class, so you are never guessing what your child is working on. Your child\'s recordings are sent to you privately, never to the group.',
+    a: 'After every class you receive a short written recap: what was covered, what your child worked on, and what to practise before the next session. You are never guessing what is happening in the room.',
   },
   {
     q: 'What happens if we miss a class?',
@@ -366,7 +366,7 @@ export default function HomePage() {
               Start with a conversation.
             </h2>
             <p className="text-white/60 leading-relaxed mb-8">
-              Every family begins with a free 15-minute call with Nida. Tell us about your child and
+              Every family begins with a free 15-minute call with our founder. Tell us about your child and
               what you are hoping for, and we will point you to the right program, or tell you
               honestly if we are not the right fit.
             </p>
