@@ -232,10 +232,29 @@ export default function PrepPage() {
               ))}
             </div>
 
-            <p className="mt-8 text-sm text-white/50">
-              <span className="font-display text-xl text-gold-300 mr-2">18</span>
-              university offers in total. A selection is shown above.
-            </p>
+            {/* Student outcomes */}
+            <div className="mt-10 rounded-lg border border-white/15 p-7 sm:p-8">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-gold-300 mb-3">
+                Students supported
+              </p>
+              <div className="flex flex-col gap-5 max-w-3xl">
+                <div>
+                  <p className="text-white text-[1.02rem] mb-1.5">Admissions</p>
+                  <p className="text-white/60 leading-relaxed">
+                    Four applicants worked with on their admissions essays in this year&rsquo;s cycle.
+                    Their offers included Western Ivey AEO, Queen&rsquo;s Commerce, and Waterloo
+                    Computing and Financial Management.
+                  </p>
+                </div>
+                <div className="border-t border-white/10 pt-5">
+                  <p className="text-white text-[1.02rem] mb-1.5">DECA and Model UN</p>
+                  <p className="text-white/60 leading-relaxed">
+                    Competitors coached ahead of conferences and case events have gone on to take
+                    provincial awards of their own.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
