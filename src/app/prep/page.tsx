@@ -4,7 +4,7 @@ import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { PREP_BOOKING_URL } from '@/lib/links'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Gavel, Trophy, GraduationCap } from 'lucide-react'
 
 export const metadata = {
   title: 'Competitive Prep | Future Voices',
@@ -36,12 +36,14 @@ const PRINCIPLES = [
 const RECORD = [
   {
     track: 'Model UN',
+    icon: Gavel,
     items: [
       { n: '3', label: 'Best Delegate gavels', note: 'including Oxford x Berkeley MUN' },
     ],
   },
   {
     track: 'DECA',
+    icon: Trophy,
     items: [
       { n: '2', label: 'Regional Champion', note: 'award sweep' },
       { n: '2', label: 'Provincial Champion', note: 'two roleplay awards in Grade 11, roleplay and test in Grade 12' },
@@ -52,13 +54,13 @@ const RECORD = [
 ]
 
 const OFFERS = [
-  'Waterloo Computing and Financial Management',
-  'Western Ivey AEO',
-  'Queen’s Commerce',
-  'Toronto St. George, Computer Science',
-  'McGill Desautels',
-  'USC Marshall',
-  'UCSD Computer Science, Triton Scholar',
+  { school: 'Waterloo', program: 'Computing & Financial Management' },
+  { school: 'Western', program: 'Ivey AEO' },
+  { school: 'Queen’s', program: 'Commerce' },
+  { school: 'Toronto', program: 'St. George, Computer Science' },
+  { school: 'McGill', program: 'Desautels' },
+  { school: 'USC', program: 'Marshall' },
+  { school: 'UCSD', program: 'Computer Science, Triton Scholar' },
 ]
 
 const MODULES = [
@@ -159,55 +161,74 @@ export default function PrepPage() {
             <p className="text-sm text-white/50">The same events you are preparing for.</p>
           </div>
 
-          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-14 lg:gap-20">
-            {/* Competition results */}
-            <div className="flex flex-col gap-10">
-              {RECORD.map(group => (
+          {/* Competition results */}
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+            {RECORD.map(group => {
+              const Icon = group.icon
+              return (
                 <div key={group.track}>
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-gold-300 mb-5">
-                    {group.track}
-                  </p>
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full border border-gold-300/40 text-gold-300 shrink-0">
+                      <Icon size={17} />
+                    </span>
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-gold-300">
+                      {group.track}
+                    </p>
+                  </div>
                   <ul className="flex flex-col">
                     {group.items.map(item => (
                       <li
                         key={item.label}
-                        className="flex items-baseline gap-5 py-3.5 border-b border-white/10 last:border-0"
+                        className="flex items-baseline gap-5 py-4 border-b border-white/10 last:border-0"
                       >
-                        <span className="font-display text-3xl font-medium text-gold-300 w-12 shrink-0 tabular-nums">
+                        <span className="font-display text-[2rem] leading-none font-medium text-gold-300 w-14 shrink-0 tabular-nums">
                           {item.n}
-                          <span className="text-lg">&times;</span>
+                          <span className="text-base">&times;</span>
                         </span>
                         <span>
                           <span className="text-white text-[1.02rem]">{item.label}</span>
                           {item.note && (
-                            <span className="block text-sm text-white/45 mt-0.5 leading-relaxed">{item.note}</span>
+                            <span className="block text-sm text-white/45 mt-1 leading-relaxed">{item.note}</span>
                           )}
                         </span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              ))}
-            </div>
-
-            {/* Admissions offers */}
-            <div>
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-gold-300 mb-5">
-                University offers held
-              </p>
-              <ul className="flex flex-col">
-                {OFFERS.map(o => (
-                  <li key={o} className="text-white/80 text-[0.97rem] py-3 border-b border-white/10 last:border-0">
-                    {o}
-                  </li>
-                ))}
-              </ul>
-            </div>
+              )
+            })}
           </div>
 
-          <p className="mt-12 text-sm text-white/50">
-            You will meet your coach on your intro call.
-          </p>
+          {/* Admissions offers, set as a crest wall */}
+          <div className="mt-16">
+            <div className="flex items-center gap-3 mb-7">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-gold-300/40 text-gold-300 shrink-0">
+                <GraduationCap size={17} />
+              </span>
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-gold-300">
+                University offers held
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
+              {OFFERS.map(o => (
+                <div
+                  key={o.school}
+                  className="bg-ink px-5 py-8 text-center flex flex-col justify-center min-h-[7.5rem]"
+                >
+                  <p className="font-display text-[1.45rem] leading-tight text-white mb-1.5">{o.school}</p>
+                  <p className="text-[0.7rem] uppercase tracking-[0.14em] text-white/45 leading-relaxed">
+                    {o.program}
+                  </p>
+                </div>
+              ))}
+              <div className="bg-ink px-5 py-8 flex items-center justify-center">
+                <p className="text-sm text-white/35 leading-relaxed text-center">
+                  You will meet your coach on your intro call.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
