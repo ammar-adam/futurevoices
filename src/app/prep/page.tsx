@@ -61,6 +61,7 @@ const OFFERS = [
   { school: 'McGill', program: 'Desautels', logo: '/logos/mcgill.png' },
   { school: 'USC', program: 'Marshall', logo: '/logos/usc.png' },
   { school: 'UCSD', program: 'Computer Science, Triton Scholar', logo: '/logos/ucsd.png' },
+  { school: 'King’s College London', program: 'Computer Science', logo: '/logos/kcl.png' },
 ]
 
 const MODULES = [
@@ -229,12 +230,12 @@ export default function PrepPage() {
                   </div>
                 </div>
               ))}
-              <div className="rounded-lg border border-white/15 px-5 py-6 flex items-center justify-center">
-                <p className="text-sm text-white/40 leading-relaxed text-center">
-                  You will meet your coach on your intro call.
-                </p>
-              </div>
             </div>
+
+            <p className="mt-8 text-sm text-white/50">
+              <span className="font-display text-xl text-gold-300 mr-2">18</span>
+              university offers in total. A selection is shown above.
+            </p>
           </div>
         </div>
       </section>
