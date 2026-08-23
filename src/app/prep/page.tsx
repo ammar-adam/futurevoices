@@ -38,29 +38,29 @@ const RECORD = [
     track: 'Model UN',
     icon: Gavel,
     items: [
-      { n: '3', label: 'Best Delegate gavels', note: 'including Oxford x Berkeley MUN' },
+      { n: '3×', label: 'Best Delegate' },
+      { n: '', label: 'Including Oxford x Berkeley MUN' },
     ],
   },
   {
     track: 'DECA',
     icon: Trophy,
     items: [
-      { n: '2', label: 'Regional Champion', note: 'award sweep' },
-      { n: '2', label: 'Provincial Champion', note: 'two roleplay awards in Grade 11, roleplay and test in Grade 12' },
-      { n: '2', label: 'ICDC qualifier' },
-      { n: '1', label: 'ICDC finalist', note: 'test award, top 20 overall' },
+      { n: '2×', label: 'Regional Champion' },
+      { n: '2×', label: 'Provincial Champion and ICDC Qualifier' },
+      { n: '', label: 'ICDC Finalist, Top 10 Test' },
     ],
   },
 ]
 
 const OFFERS = [
-  { school: 'Waterloo', program: 'Computing & Financial Management' },
-  { school: 'Western', program: 'Ivey AEO' },
-  { school: 'Queen’s', program: 'Commerce' },
-  { school: 'Toronto', program: 'St. George, Computer Science' },
-  { school: 'McGill', program: 'Desautels' },
-  { school: 'USC', program: 'Marshall' },
-  { school: 'UCSD', program: 'Computer Science, Triton Scholar' },
+  { school: 'Waterloo', program: 'Computing & Financial Management', logo: '/logos/waterloo.png' },
+  { school: 'Western', program: 'Ivey AEO', logo: '/logos/western.jpg' },
+  { school: 'Queen’s', program: 'Commerce', logo: '/logos/queens.png' },
+  { school: 'Toronto', program: 'St. George, Computer Science', logo: '/logos/toronto.png' },
+  { school: 'McGill', program: 'Desautels', logo: '/logos/mcgill.png' },
+  { school: 'USC', program: 'Marshall', logo: '/logos/usc.png' },
+  { school: 'UCSD', program: 'Computer Science, Triton Scholar', logo: '/logos/ucsd.png' },
 ]
 
 const MODULES = [
@@ -179,17 +179,13 @@ export default function PrepPage() {
                     {group.items.map(item => (
                       <li
                         key={item.label}
-                        className="flex items-baseline gap-5 py-4 border-b border-white/10 last:border-0"
+                        className="flex items-baseline gap-4 py-3.5 border-b border-white/10 last:border-0"
                       >
-                        <span className="font-display text-[2rem] leading-none font-medium text-gold-300 w-14 shrink-0 tabular-nums">
+                        <span className="font-display text-xl font-medium text-gold-300 w-8 shrink-0">
                           {item.n}
-                          <span className="text-base">&times;</span>
                         </span>
-                        <span>
-                          <span className="text-white text-[1.02rem]">{item.label}</span>
-                          {item.note && (
-                            <span className="block text-sm text-white/45 mt-1 leading-relaxed">{item.note}</span>
-                          )}
+                        <span className={item.n ? 'text-white text-[1.05rem]' : 'text-white/50 text-[0.95rem]'}>
+                          {item.label}
                         </span>
                       </li>
                     ))}
@@ -210,20 +206,31 @@ export default function PrepPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {OFFERS.map(o => (
                 <div
                   key={o.school}
-                  className="bg-ink px-5 py-8 text-center flex flex-col justify-center min-h-[7.5rem]"
+                  className="bg-white rounded-lg px-4 py-6 text-center flex flex-col items-center justify-start gap-3"
                 >
-                  <p className="font-display text-[1.45rem] leading-tight text-white mb-1.5">{o.school}</p>
-                  <p className="text-[0.7rem] uppercase tracking-[0.14em] text-white/45 leading-relaxed">
-                    {o.program}
-                  </p>
+                  <div className="h-16 flex items-center justify-center">
+                    <Image
+                      src={o.logo}
+                      alt={`${o.school} crest`}
+                      width={120}
+                      height={120}
+                      className="h-16 w-auto object-contain"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-display text-[1.15rem] leading-tight text-ink">{o.school}</p>
+                    <p className="text-[0.68rem] uppercase tracking-[0.12em] text-ink-500 leading-relaxed mt-1">
+                      {o.program}
+                    </p>
+                  </div>
                 </div>
               ))}
-              <div className="bg-ink px-5 py-8 flex items-center justify-center">
-                <p className="text-sm text-white/35 leading-relaxed text-center">
+              <div className="rounded-lg border border-white/15 px-5 py-6 flex items-center justify-center">
+                <p className="text-sm text-white/40 leading-relaxed text-center">
                   You will meet your coach on your intro call.
                 </p>
               </div>
