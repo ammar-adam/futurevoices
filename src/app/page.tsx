@@ -15,25 +15,20 @@ const STATS = [
   ['Every single class', 'Every student is on their feet and speaking.'],
 ]
 
-const PROGRAM_CARDS = [
-  {
-    name: 'Group Coaching',
-    ages: 'Ages 6+, grouped by age',
-    price: '$120/month',
-    core: true,
-    body: 'The heart of the school. A weekly 60-minute live class, capped at eight students, working through the level path together. Every student speaks in every session.',
-    points: [
-      'One level runs eight weeks',
-      'Every performance recorded, first class to last',
-      'Live showcase for parents at the end of each level',
-      'First class free, cancel any month',
-    ],
-  },
+const GROUP_POINTS = [
+  'One level runs eight weeks',
+  'Weekly 60-minute live class, capped at eight students',
+  'Every performance recorded, first class to last',
+  'Live showcase for parents at the end of each level',
+  'Cancel any month',
+]
+
+const PRIVATE_CARDS = [
   {
     name: 'Private 1:1 Coaching',
     ages: 'Ages 6+',
-    price: '$50/session, or 4 sessions for $180',
-    core: false,
+    price: '$50/session',
+    priceNote: 'or four sessions for $180',
     body: 'The same level curriculum, taught one-on-one. Suited to shy starters, students preparing for a specific moment, or kids who want to move faster.',
     points: [
       'Personal pacing through the levels',
@@ -42,15 +37,15 @@ const PROGRAM_CARDS = [
     ],
   },
   {
-    name: 'Competitive Prep (teens)',
+    name: 'Competitive Prep',
     ages: 'Ages 13 to 19',
     price: 'From $45/session',
-    core: false,
-    body: 'Deadline-first 1:1 coaching for DECA, Model UN, and university applications. Pay per session, built backward from your competition or application date.',
+    priceNote: 'pay per session, no packages',
+    body: 'Deadline-first coaching for DECA, Model UN, and university applications. Built backward from your competition or application date.',
     points: [
       'DECA and Model UN: $45/session',
       'Essay coaching: $60/session',
-      'Interview prep: $150 for 3 mock interviews',
+      'Interview prep: $150 for three mock interviews',
     ],
     cta: { label: 'Explore Competitive Prep', href: '/prep' },
   },
@@ -120,17 +115,13 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25" />
         <div className="relative w-full max-w-6xl mx-auto px-6 pb-16 pt-44">
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-5">
-            Live online · Small groups · Taught by the founder
-          </p>
           <h1 className="font-display text-[2.6rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-3xl mb-6">
             Confidence is a skill.
             <span className="block">We teach it, week by week.</span>
           </h1>
           <p className="text-lg text-white/75 leading-relaxed max-w-2xl mb-9">
             Future Voices is a school for young communicators. Students work through six levels,
-            starting with the fear of speaking and finishing able to hold a room. Classes are
-            live, capped at eight students, and taught by our founder.
+            starting with the fear of speaking and finishing able to hold a room.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button size="lg" variant="secondary" asChild>
@@ -148,8 +139,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center">
           <span className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold-300">Next cohort</span>
           <span className="text-sm text-white/85">
-            {NEXT_COHORT.level} · {NEXT_COHORT.ages} · {NEXT_COHORT.starts} · {NEXT_COHORT.seats} ·{' '}
-            <span className="font-semibold text-white">{NEXT_COHORT.offer}</span>
+            {NEXT_COHORT.level} · {NEXT_COHORT.ages} · {NEXT_COHORT.starts} · {NEXT_COHORT.seats}
           </span>
         </div>
       </section>
@@ -226,33 +216,64 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Programs ─────────────────────────────── */}
+      {/* ── Group coaching ───────────────────────── */}
       <section id="programs" className="py-20 sm:py-24 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="border-b border-ink/10 pb-5 mb-10 flex flex-wrap items-baseline justify-between gap-4">
-            <h2 className="font-display text-3xl font-medium text-ink">Programs</h2>
-            <p className="text-sm text-ink-500">
-              Every family starts with a free 15-minute intro call. All prices in CAD.
-            </p>
+          <div className="border-b border-ink/10 pb-5 mb-12 flex flex-wrap items-baseline justify-between gap-4">
+            <h2 className="font-display text-3xl font-medium text-ink">Group coaching</h2>
+            <p className="text-sm text-ink-500">All prices in CAD.</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {PROGRAM_CARDS.map(p => (
+
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-start">
+            <div>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold mb-4">
+                Ages 6+, grouped by age
+              </p>
+              <p className="font-display text-4xl font-medium text-ink mb-1">$120<span className="text-2xl text-ink-500"> / month</span></p>
+              <p className="text-[1.02rem] text-ink-500 leading-relaxed mt-5">
+                The heart of the school. A weekly live class, capped at eight students, working
+                through the level path together. Every student speaks in every session, and each
+                level ends with a showcase you are invited to watch.
+              </p>
+              <div className="mt-7">
+                <Button asChild>
+                  <a href={NIDA_BOOKING_URL}>Book a free intro call <ArrowRight size={16} /></a>
+                </Button>
+              </div>
+            </div>
+
+            <ul className="flex flex-col border-t border-ink/[0.08]">
+              {GROUP_POINTS.map(pt => (
+                <li key={pt} className="flex items-start gap-3 py-4 border-b border-ink/[0.08] text-[0.95rem] text-ink">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold mt-2 shrink-0" />
+                  {pt}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Private coaching ─────────────────────── */}
+      <section id="private" className="pb-20 sm:pb-24 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="border-b border-ink/10 pb-5 mb-12 flex flex-wrap items-baseline justify-between gap-4">
+            <h2 className="font-display text-3xl font-medium text-ink">Private coaching</h2>
+            <p className="text-sm text-ink-500">One-to-one, billed per session.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {PRIVATE_CARDS.map(p => (
               <div
                 key={p.name}
-                className={`bg-white rounded-lg p-8 flex flex-col shadow-[var(--shadow-soft)] ${
-                  p.core ? 'border-2 border-ink' : 'border border-ink/[0.08]'
-                }`}
+                className="bg-white rounded-lg p-8 flex flex-col border border-ink/[0.08] shadow-[var(--shadow-soft)]"
               >
-                <div className="flex items-center justify-between gap-3 mb-3">
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold">{p.ages}</p>
-                  {p.core && (
-                    <span className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] bg-ink text-cream px-2 py-1 rounded-full">
-                      Core program
-                    </span>
-                  )}
-                </div>
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold mb-3">{p.ages}</p>
                 <h3 className="font-display text-[1.55rem] font-medium text-ink mb-2">{p.name}</h3>
-                <p className="text-ink font-semibold">{p.price}</p>
+                <p className="text-ink font-semibold">
+                  {p.price}
+                  <span className="text-ink-500 font-normal text-sm"> · {p.priceNote}</span>
+                </p>
                 <p className="text-[0.95rem] text-ink-500 leading-relaxed mt-3 mb-6">{p.body}</p>
                 <ul className="mt-auto flex flex-col gap-2 border-t border-ink/[0.08] pt-5">
                   {p.points.map(pt => (

@@ -21,7 +21,7 @@ export default function PrepApplyPage() {
 
             {/* Left column, context */}
             <div className="lg:sticky lg:top-28">
-              <Link href="/prep" className="text-sm font-semibold hover:underline mb-6 inline-block" style={{ color: '#1F6B5C' }}>
+              <Link href="/prep" className="text-sm font-semibold hover:underline mb-6 inline-block" style={{ color: 'var(--gold)' }}>
                 ← Back to Competitive Prep
               </Link>
               <h1 className="font-display text-4xl font-medium text-ink mb-4 leading-tight">
@@ -42,7 +42,7 @@ export default function PrepApplyPage() {
                   <div key={step} className="flex items-start gap-3">
                     <span
                       className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white shrink-0 mt-0.5"
-                      style={{ background: '#1F6B5C' }}
+                      style={{ background: 'var(--ink)' }}
                     >
                       {i + 1}
                     </span>
@@ -58,7 +58,7 @@ export default function PrepApplyPage() {
                   'Scheduling fits around school and activities',
                 ].map(note => (
                   <span key={note} className="flex items-center gap-2">
-                    <CheckCircle2 size={13} style={{ color: '#1F6B5C' }} />
+                    <CheckCircle2 size={13} style={{ color: 'var(--gold)' }} />
                     {note}
                   </span>
                 ))}

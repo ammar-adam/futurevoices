@@ -10,5 +10,4 @@ export const NEXT_COHORT = {
   ages: 'Ages 9 to 13',
   starts: 'Starts Saturday, September 12 at 10:00am ET',
   seats: '8 seats',
-  offer: 'First class free',
 }

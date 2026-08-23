@@ -108,7 +108,7 @@ export default function CurriculumPage() {
               The next Level 1 cohort starts Saturday, September 12.
             </h2>
             <p className="text-white/60 mb-8">
-              {NEXT_COHORT.ages}. {NEXT_COHORT.seats}. {NEXT_COHORT.offer}.
+              {NEXT_COHORT.ages}. {NEXT_COHORT.seats}.
             </p>
             <Button size="lg" variant="secondary" asChild>
               <a href={NIDA_BOOKING_URL}>Book a free intro call <ArrowRight size={17} /></a>

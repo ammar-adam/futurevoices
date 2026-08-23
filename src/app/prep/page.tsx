@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { PREP_BOOKING_URL } from '@/lib/links'
-import { CheckCircle2, Trophy, GraduationCap, FileText, ArrowRight, Clock, Users } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export const metadata = {
   title: 'Competitive Prep | Future Voices',
@@ -12,50 +13,62 @@ export const metadata = {
 }
 
 const PRICING = [
-  { label: 'DECA / Case Prep', price: '$45 per session' },
-  { label: 'Model UN Prep', price: '$45 per session' },
-  { label: 'University Essay Coaching', price: '$60 per session', note: 'includes written feedback on drafts between sessions' },
-  { label: 'Interview Prep', price: '$150 flat', note: 'for three mock-interview sessions' },
+  { label: 'DECA / Case Prep', price: '$45', unit: 'per session' },
+  { label: 'Model UN Prep', price: '$45', unit: 'per session' },
+  { label: 'University Essay Coaching', price: '$60', unit: 'per session', note: 'Includes written feedback on drafts between sessions.' },
+  { label: 'Interview Prep', price: '$150', unit: 'flat', note: 'Three mock-interview sessions.' },
+]
+
+const PRINCIPLES = [
+  {
+    title: '1:1 only',
+    body: 'No cohorts. Every session is entirely about you: your goal, your gaps, your competition or deadline.',
+  },
+  {
+    title: 'Deadline-first',
+    body: 'We work backward from your competition date or application deadline. Every session has a purpose.',
+  },
+  {
+    title: 'Pay per session',
+    body: 'Book one session at a time. No packages, no subscription, no commitment beyond the session.',
+  },
 ]
 
 const MODULES = [
   {
-    icon: Trophy,
     slug: 'deca',
-    title: 'DECA / Competitive Case Prep',
-    tag: 'Competition prep',
-    body: '1:1 coaching on reading a case fast, building a winning strategy, and presenting it with the command judges are actually looking for. Sessions are structured around your specific event type, whether that is Individual Series, Team Decision Making, or roleplay, and timed to your competition calendar.',
+    title: 'DECA and Case Prep',
+    tag: 'Competition',
+    body: 'Coaching on reading a case fast, building a defensible strategy, and presenting it with the command judges are looking for. Sessions are structured around your event type, whether that is Individual Series, Team Decision Making, or roleplay, and timed to your competition calendar.',
     outcomes: [
       'Read and break down a case in under 10 minutes',
       'Structure a clear, defensible strategy under pressure',
-      'Present with composure and command in the judging room',
+      'Present with composure in the judging room',
       'Field tough follow-up questions without losing confidence',
     ],
   },
   {
-    icon: GraduationCap,
     slug: 'mun',
-    title: 'Model UN Prep',
-    tag: 'Conference prep',
-    body: 'Position papers, parliamentary procedure, bloc negotiation, and delivery, built around your specific conference and committee. We cover both the substance and how to stand out when you are one voice in a room of 80 delegates.',
+    title: 'Model UN',
+    tag: 'Conference',
+    body: 'Position papers, parliamentary procedure, bloc negotiation, and delivery, built around your specific conference and committee. We cover both the substance and how to stand out when you are one voice in a room of eighty delegates.',
     outcomes: [
       'Write a position paper that stakes a clear, researched argument',
-      'Understand parliamentary procedure well enough to use it strategically',
+      'Use parliamentary procedure strategically, not just correctly',
       'Negotiate effectively in unmoderated caucuses',
       'Deliver speeches that get noticed, not just heard',
     ],
   },
   {
-    icon: FileText,
     slug: 'essays',
-    title: 'University Essay & Interview Prep',
+    title: 'University Essays and Interviews',
     tag: 'Admissions',
-    body: 'One-on-one work on supplemental essays and interview prep. The goal is finding an authentic voice, not a polished, generic-sounding one. We work on your specific schools and prompts, not a template that could apply to anyone.',
+    body: 'One-to-one work on supplemental essays and interview preparation. The goal is finding an authentic voice, not a polished, generic-sounding one. We work on your specific schools and prompts, never a template that could apply to anyone.',
     outcomes: [
       'Essays that sound like you, not like a counsellor wrote them',
       'Clear, specific answers to common interview questions',
       'Preparation for unexpected follow-ups and curveball prompts',
-      'Confidence walking into the room, knowing both what to say and how to say it',
+      'Confidence walking into the room, knowing what to say and how to say it',
     ],
   },
 ]
@@ -63,157 +76,150 @@ const MODULES = [
 export default function PrepPage() {
   return (
     <div className="flex flex-col min-h-screen bg-cream">
-      <Navbar />
+      <Navbar overHero />
 
-      <main className="pt-32 pb-24 px-6">
-        <div className="max-w-5xl mx-auto">
+      {/* ── Hero ─────────────────────────────────── */}
+      <section className="relative min-h-[70vh] flex items-end">
+        <Image
+          src="/images/prep-stage.jpg"
+          alt="A speaker addressing a full auditorium"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40" />
+        <div className="relative w-full max-w-6xl mx-auto px-6 pb-16 pt-40">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-5">
+            Competitive Prep
+          </p>
+          <h1 className="font-display text-[2.4rem] sm:text-[3.2rem] leading-[1.08] font-medium text-white max-w-2xl mb-6">
+            Built around your deadline.
+          </h1>
+          <p className="text-lg text-white/75 leading-relaxed max-w-2xl mb-9">
+            DECA, Model UN, and university application coaching for students working toward
+            something specific. One-to-one, paid per session, built backward from the date
+            that matters.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button size="lg" variant="secondary" asChild>
+              <a href={PREP_BOOKING_URL}>Book an intro call <ArrowRight size={18} /></a>
+            </Button>
+            <Button size="lg" asChild className="border border-white/30 bg-white/5 text-white hover:bg-white/15 rounded-full px-8 backdrop-blur-sm">
+              <Link href="/prep/apply">Send an application</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
 
-          {/* Hero */}
-          <div className="text-center mb-20">
-            <span
-              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold mb-6"
-              style={{ background: '#0d3d32', color: '#6ee7b7' }}
-            >
-              <Trophy size={12} />
-              Competitive Prep
-            </span>
-            <h1 className="font-display text-4xl sm:text-5xl font-medium text-ink mb-6 leading-tight">
-              Built around
-              <span className="italic" style={{ color: '#1F6B5C' }}> your deadline.</span>
-            </h1>
-            <p className="text-lg text-ink-500 max-w-2xl mx-auto leading-relaxed mb-8">
-              DECA, Model UN, and university application coaching for students working toward
-              something specific. 1:1 only, pay per session, no packages required. Built backward
-              from your competition or application date.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild style={{ background: '#1F6B5C', color: 'white' }}>
-                <a href={PREP_BOOKING_URL}>Book an intro call <ArrowRight size={18} /></a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/prep/apply">Send an application</Link>
-              </Button>
+      {/* ── Principles ───────────────────────────── */}
+      <section className="bg-white border-b border-ink/[0.08]">
+        <div className="max-w-6xl mx-auto px-6 grid sm:grid-cols-3">
+          {PRINCIPLES.map((p, i) => (
+            <div key={p.title} className={`py-9 px-6 ${i > 0 ? 'sm:border-l border-ink/[0.08]' : ''}`}>
+              <p className="font-display text-[1.35rem] font-medium text-ink mb-1.5">{p.title}</p>
+              <p className="text-[0.88rem] text-ink-500 leading-relaxed">{p.body}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Pricing ──────────────────────────────── */}
+      <section className="py-20 sm:py-24">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="border-b border-ink/10 pb-5 mb-10 flex flex-wrap items-baseline justify-between gap-4">
+            <h2 className="font-display text-3xl font-medium text-ink">Pricing</h2>
+            <p className="text-sm text-ink-500">All prices in CAD.</p>
           </div>
 
-          {/* How it's different */}
-          <div className="grid sm:grid-cols-3 gap-6 mb-20">
-            {[
-              { icon: Users, title: '1:1 only', body: 'No cohorts. Every session is entirely about you: your goal, your gaps, your competition or deadline.' },
-              { icon: Clock, title: 'Deadline-first', body: 'We work backward from your competition date or application deadline. Every session has a purpose.' },
-              { icon: CheckCircle2, title: 'Pay per session', body: 'Book one session at a time. No packages, no subscription, no commitment beyond the session.' },
-            ].map(({ icon: Icon, title, body }) => (
-              <div key={title} className="rounded-lg bg-white border border-ink/[0.08] p-6 text-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl mx-auto mb-4" style={{ background: '#e8f5f0', color: '#1F6B5C' }}>
-                  <Icon size={22} />
+          <div className="flex flex-col">
+            {PRICING.map((p, i) => (
+              <div
+                key={p.label}
+                className={`flex flex-wrap items-baseline justify-between gap-3 py-5 ${
+                  i > 0 ? 'border-t border-ink/[0.08]' : ''
+                }`}
+              >
+                <div className="max-w-md">
+                  <p className="font-semibold text-ink">{p.label}</p>
+                  {p.note && <p className="text-sm text-ink-500 mt-1 leading-relaxed">{p.note}</p>}
                 </div>
-                <h3 className="font-semibold text-ink mb-2">{title}</h3>
-                <p className="text-sm text-ink-500 leading-relaxed">{body}</p>
+                <p className="font-display text-2xl font-medium text-ink">
+                  {p.price}
+                  <span className="text-base text-ink-500"> {p.unit}</span>
+                </p>
               </div>
             ))}
           </div>
 
-          {/* Pricing */}
-          <div className="mb-20">
-            <h2 className="font-display text-3xl font-medium text-ink mb-3 text-center">Pricing</h2>
-            <p className="text-ink-500 text-center mb-8 text-sm">All prices in CAD.</p>
-            <div className="bg-white border border-ink/[0.08] rounded-lg overflow-hidden">
-              {PRICING.map((p, i) => (
-                <div
-                  key={p.label}
-                  className={`flex flex-wrap items-baseline justify-between gap-2 px-7 py-5 ${
-                    i > 0 ? 'border-t border-ink/[0.08]' : ''
-                  }`}
-                >
-                  <div>
-                    <p className="font-semibold text-ink">{p.label}</p>
-                    {p.note && <p className="text-sm text-ink-500 mt-0.5">{p.note}</p>}
-                  </div>
-                  <p className="font-display text-lg text-ink">{p.price}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-sm text-ink-500 mt-5 text-center max-w-xl mx-auto">
-              Most students book 3 to 5 sessions before a competition or deadline. Book one at a
-              time; no commitment beyond the session.
-            </p>
-          </div>
-
-          {/* Modules */}
-          <div id="modules" className="flex flex-col gap-8 mb-20">
-            <div className="text-center mb-4">
-              <h2 className="font-display text-3xl font-medium text-ink mb-3">Three tracks</h2>
-              <p className="text-ink-500">All 1:1, all built around you. Tell us which one fits when you apply.</p>
-            </div>
-            {MODULES.map((m, i) => {
-              const Icon = m.icon
-              return (
-                <div
-                  key={m.slug}
-                  className={`rounded-lg overflow-hidden border ${i === 0 ? 'border-[#1F6B5C]/30' : 'border-ink/[0.08]'} bg-white`}
-                >
-                  {i === 0 && <div className="h-1" style={{ background: '#1F6B5C' }} />}
-                  <div className="p-8 grid sm:grid-cols-[1fr_1fr] gap-8">
-                    <div>
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl shrink-0" style={{ background: '#e8f5f0', color: '#1F6B5C' }}>
-                          <Icon size={20} />
-                        </div>
-                        <div>
-                          <span className="text-[10px] font-semibold uppercase tracking-wider text-ink-500/70">{m.tag}</span>
-                          <h3 className="font-semibold text-ink text-lg leading-tight">{m.title}</h3>
-                        </div>
-                      </div>
-                      <p className="text-ink-500 text-sm leading-relaxed">{m.body}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-ink-500/70 mb-3">What you leave with</p>
-                      <ul className="flex flex-col gap-2.5">
-                        {m.outcomes.map(o => (
-                          <li key={o} className="flex items-start gap-2.5 text-sm text-ink-500">
-                            <CheckCircle2 size={14} className="mt-0.5 shrink-0" style={{ color: '#1F6B5C' }} />
-                            {o}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
-          {/* Coach */}
-          <div
-            className="rounded-lg p-8 sm:p-12 text-center mb-16"
-            style={{ background: 'linear-gradient(135deg, #0d3d32 0%, #1F6B5C 100%)' }}
-          >
-            <h2 className="font-display text-2xl sm:text-3xl font-medium text-white mb-4">Who you are working with</h2>
-            <p className="text-white/70 max-w-2xl mx-auto leading-relaxed text-lg">
-              Coaching is delivered 1:1 by a coach with national and international competition
-              results and hands-on admissions experience. You will meet your coach on your intro call.
-            </p>
-          </div>
-
-          {/* Final CTA */}
-          <div className="text-center">
-            <h2 className="font-display text-3xl font-medium text-ink mb-4">Ready to start?</h2>
-            <p className="text-ink-500 mb-8 max-w-md mx-auto">
-              Book an intro call, or send us your goal, timeline, and current experience and we will
-              be in touch.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild style={{ background: '#1F6B5C', color: 'white' }}>
-                <a href={PREP_BOOKING_URL}>Book an intro call <ArrowRight size={18} /></a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/prep/apply">Send an application</Link>
-              </Button>
-            </div>
-          </div>
-
+          <p className="text-[0.95rem] text-ink-500 mt-8 leading-relaxed">
+            Most students book three to five sessions before a competition or deadline. Book one
+            at a time; there is no commitment beyond the session.
+          </p>
         </div>
-      </main>
+      </section>
+
+      {/* ── Tracks ───────────────────────────────── */}
+      <section id="tracks" className="bg-white border-y border-ink/[0.08] py-20 sm:py-24 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="border-b border-ink/10 pb-5 mb-12">
+            <h2 className="font-display text-3xl font-medium text-ink">Three tracks</h2>
+          </div>
+
+          <div className="flex flex-col gap-14">
+            {MODULES.map(m => (
+              <div key={m.slug} className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14">
+                <div>
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold mb-3">{m.tag}</p>
+                  <h3 className="font-display text-2xl font-medium text-ink mb-4">{m.title}</h3>
+                  <p className="text-[0.95rem] text-ink-500 leading-relaxed">{m.body}</p>
+                </div>
+                <ul className="flex flex-col border-t border-ink/[0.08]">
+                  {m.outcomes.map(o => (
+                    <li key={o} className="flex items-start gap-3 py-3.5 border-b border-ink/[0.08] text-[0.93rem] text-ink">
+                      <span className="h-1.5 w-1.5 rounded-full bg-gold mt-2 shrink-0" />
+                      {o}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Coach ────────────────────────────────── */}
+      <section className="py-20 sm:py-24">
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.4fr_0.6fr] gap-12">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">Your coach</p>
+            <h2 className="font-display text-3xl font-medium text-ink">Who you work with</h2>
+          </div>
+          <p className="text-[1.02rem] text-ink-500 leading-relaxed">
+            Coaching is delivered one-to-one by a coach with national and international competition
+            results and hands-on admissions experience. You will meet your coach on your intro call.
+          </p>
+        </div>
+      </section>
+
+      {/* ── CTA ──────────────────────────────────── */}
+      <section className="bg-ink py-20 sm:py-24">
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-5">Ready to start?</h2>
+          <p className="text-white/60 leading-relaxed mb-9">
+            Book an intro call, or send us the goal, the timeline, and where you are starting from,
+            and we will be in touch.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button size="lg" variant="secondary" asChild>
+              <a href={PREP_BOOKING_URL}>Book an intro call <ArrowRight size={17} /></a>
+            </Button>
+            <Button size="lg" asChild className="border border-white/25 bg-transparent text-white hover:bg-white/10 rounded-full px-8">
+              <Link href="/prep/apply">Send an application</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
