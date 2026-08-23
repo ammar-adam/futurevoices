@@ -33,6 +33,34 @@ const PRINCIPLES = [
   },
 ]
 
+const RECORD = [
+  {
+    track: 'Model UN',
+    items: [
+      { n: '3', label: 'Best Delegate gavels', note: 'including Oxford x Berkeley MUN' },
+    ],
+  },
+  {
+    track: 'DECA',
+    items: [
+      { n: '2', label: 'Regional Champion', note: 'award sweep' },
+      { n: '2', label: 'Provincial Champion', note: 'two roleplay awards in Grade 11, roleplay and test in Grade 12' },
+      { n: '2', label: 'ICDC qualifier' },
+      { n: '1', label: 'ICDC finalist', note: 'test award, top 20 overall' },
+    ],
+  },
+]
+
+const OFFERS = [
+  'Waterloo Computing and Financial Management',
+  'Western Ivey AEO',
+  'Queen’s Commerce',
+  'Toronto St. George, Computer Science',
+  'McGill Desautels',
+  'USC Marshall',
+  'UCSD Computer Science, Triton Scholar',
+]
+
 const MODULES = [
   {
     slug: 'deca',
@@ -123,6 +151,66 @@ export default function PrepPage() {
         </div>
       </section>
 
+      {/* ── Coach record ─────────────────────────── */}
+      <section className="bg-ink py-20 sm:py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="border-b border-white/15 pb-5 mb-12 flex flex-wrap items-baseline justify-between gap-4">
+            <h2 className="font-display text-3xl font-medium text-white">Your coach&rsquo;s record</h2>
+            <p className="text-sm text-white/50">The same events you are preparing for.</p>
+          </div>
+
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-14 lg:gap-20">
+            {/* Competition results */}
+            <div className="flex flex-col gap-10">
+              {RECORD.map(group => (
+                <div key={group.track}>
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-gold-300 mb-5">
+                    {group.track}
+                  </p>
+                  <ul className="flex flex-col">
+                    {group.items.map(item => (
+                      <li
+                        key={item.label}
+                        className="flex items-baseline gap-5 py-3.5 border-b border-white/10 last:border-0"
+                      >
+                        <span className="font-display text-3xl font-medium text-gold-300 w-12 shrink-0 tabular-nums">
+                          {item.n}
+                          <span className="text-lg">&times;</span>
+                        </span>
+                        <span>
+                          <span className="text-white text-[1.02rem]">{item.label}</span>
+                          {item.note && (
+                            <span className="block text-sm text-white/45 mt-0.5 leading-relaxed">{item.note}</span>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {/* Admissions offers */}
+            <div>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-gold-300 mb-5">
+                University offers held
+              </p>
+              <ul className="flex flex-col">
+                {OFFERS.map(o => (
+                  <li key={o} className="text-white/80 text-[0.97rem] py-3 border-b border-white/10 last:border-0">
+                    {o}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <p className="mt-12 text-sm text-white/50">
+            You will meet your coach on your intro call.
+          </p>
+        </div>
+      </section>
+
       {/* ── Pricing ──────────────────────────────── */}
       <section className="py-20 sm:py-24">
         <div className="max-w-4xl mx-auto px-6">
@@ -184,20 +272,6 @@ export default function PrepPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Coach ────────────────────────────────── */}
-      <section className="py-20 sm:py-24">
-        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.4fr_0.6fr] gap-12">
-          <div>
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">Your coach</p>
-            <h2 className="font-display text-3xl font-medium text-ink">Who you work with</h2>
-          </div>
-          <p className="text-[1.02rem] text-ink-500 leading-relaxed">
-            Coaching is delivered one-to-one by a coach with national and international competition
-            results and hands-on admissions experience. You will meet your coach on your intro call.
-          </p>
         </div>
       </section>
 
