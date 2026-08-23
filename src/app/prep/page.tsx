@@ -9,14 +9,13 @@ import { ArrowRight } from 'lucide-react'
 export const metadata = {
   title: 'Competitive Prep | Future Voices',
   description:
-    'Deadline-first 1:1 coaching for DECA, Model UN, university essays, and interviews. Pay per session, no packages required.',
+    'Deadline-first 1:1 coaching for DECA, Model UN, and university admissions essays. Pay per session, no packages required.',
 }
 
 const PRICING = [
   { label: 'DECA / Case Prep', price: '$45', unit: 'per session' },
   { label: 'Model UN Prep', price: '$45', unit: 'per session' },
-  { label: 'University Essay Coaching', price: '$60', unit: 'per session', note: 'Includes written feedback on drafts between sessions.' },
-  { label: 'Interview Prep', price: '$150', unit: 'flat', note: 'Three mock-interview sessions.' },
+  { label: 'University Admissions Coaching', price: '$60', unit: 'per session', note: 'Essays and applications. Includes written feedback on drafts between sessions.' },
 ]
 
 const PRINCIPLES = [
@@ -60,15 +59,15 @@ const MODULES = [
     ],
   },
   {
-    slug: 'essays',
-    title: 'University Essays and Interviews',
+    slug: 'admissions',
+    title: 'University Admissions Coaching',
     tag: 'Admissions',
-    body: 'One-to-one work on supplemental essays and interview preparation. The goal is finding an authentic voice, not a polished, generic-sounding one. We work on your specific schools and prompts, never a template that could apply to anyone.',
+    body: 'One-to-one work on university applications and the essays that carry them. The goal is finding an authentic voice, not a polished, generic-sounding one. We work on your specific schools and prompts, never a template that could apply to anyone.',
     outcomes: [
       'Essays that sound like you, not like a counsellor wrote them',
-      'Clear, specific answers to common interview questions',
-      'Preparation for unexpected follow-ups and curveball prompts',
-      'Confidence walking into the room, knowing what to say and how to say it',
+      'A clear through-line across every part of the application',
+      'Drafts read and marked up between sessions, not just during them',
+      'A finished set of essays well before the deadline, not the night of it',
     ],
   },
 ]

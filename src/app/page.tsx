@@ -44,8 +44,8 @@ const PRIVATE_CARDS = [
     body: 'Deadline-first coaching for DECA, Model UN, and university applications. Built backward from your competition or application date.',
     points: [
       'DECA and Model UN: $45/session',
-      'Essay coaching: $60/session',
-      'Interview prep: $150 for three mock interviews',
+      'University admissions coaching: $60/session',
+      'Drafts read and marked up between sessions',
     ],
     cta: { label: 'Explore Competitive Prep', href: '/prep' },
   },
@@ -66,7 +66,7 @@ const FAQ = [
   },
   {
     q: 'How much does it cost?',
-    a: 'Group coaching is $120 per month for a weekly live class. Private 1:1 coaching is $50 per session, or four sessions for $180. Competitive Prep for teens is $45 per session for DECA and Model UN, $60 per session for essay coaching, and $150 for a three-session interview prep bundle. All prices are in CAD. There are no registration fees, and you can stop any month.',
+    a: 'Group coaching is $120 per month for a weekly live class. Private 1:1 coaching is $50 per session, or four sessions for $180. Competitive Prep for teens is $45 per session for DECA and Model UN, and $60 per session for university admissions coaching. All prices are in CAD. There are no registration fees, and you can stop any month.',
   },
   {
     q: 'Are there any discounts?',
@@ -340,7 +340,7 @@ export default function HomePage() {
               For teens with a date on the calendar.
             </h2>
             <p className="text-white/70 leading-relaxed mb-8">
-              DECA provincials. A Model UN conference. University interviews. Competitive Prep is
+              DECA provincials. A Model UN conference. A university application. Competitive Prep is
               private, deadline-first coaching that works backward from the day it matters.
               Sessions are $45 to $60, booked one at a time, no packages required.
             </p>

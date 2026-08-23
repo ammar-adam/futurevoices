@@ -6,8 +6,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 const TRACKS = [
   { value: 'deca', label: 'DECA / Case Prep' },
   { value: 'mun', label: 'Model UN Prep' },
-  { value: 'essays', label: 'University Essay Coaching' },
-  { value: 'interviews', label: 'Interview Prep' },
+  { value: 'admissions', label: 'University Admissions Coaching' },
   { value: 'unsure', label: 'Not sure yet, I would like guidance' },
 ]
 
