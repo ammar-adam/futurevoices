@@ -3,9 +3,9 @@ import Image from 'next/image'
 import { CheckCircle2 } from 'lucide-react'
 
 const POINTS = [
-  'Small groups, so every student speaks every week',
-  'The same coach every session, from start to finish',
-  'A curriculum that builds in order',
+  'Six levels, eight weeks each',
+  'Live classes capped at eight students',
+  'Every student speaks, every session',
 ]
 
 /**
@@ -23,7 +23,7 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
 
         <div className="relative max-w-md">
           <h2 className="font-display text-4xl font-medium leading-tight mb-6">
-            A small school for young speakers.
+            A school for young communicators.
           </h2>
           <ul className="flex flex-col gap-3">
             {POINTS.map(p => (
@@ -35,7 +35,7 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
         </div>
 
         <p className="relative text-xs text-white/40">
-          © {new Date().getFullYear()} Future Voices
+          © {new Date().getFullYear()} Future Voices · Toronto built, taught live worldwide
         </p>
       </div>
 

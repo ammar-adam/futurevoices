@@ -16,17 +16,15 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const TITLE = "Future Voices | Public speaking, taught properly";
-const DESCRIPTION =
-  "A small school for kids and teens who want to get better at speaking. Students meet weekly in a small group, speak in every class, and work through a curriculum that builds in order. The first class is free.";
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://futurevoices.co"),
-  title: TITLE,
-  description: DESCRIPTION,
+  title: "Future Voices | Public Speaking School for Kids and Teens, Live Online",
+  description:
+    "A six-level public speaking school for kids and teens. Live online classes of eight, taught by the founder. Next cohort starts September 12, first class free.",
   openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
+    title: "Future Voices | Public Speaking School for Kids and Teens, Live Online",
+    description:
+      "A six-level public speaking school for kids and teens. Live online classes of eight, taught by the founder. Next cohort starts September 12, first class free.",
     siteName: "Future Voices",
     locale: "en_CA",
     type: "website",

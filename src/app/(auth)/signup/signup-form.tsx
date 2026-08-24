@@ -73,6 +73,7 @@ export default function SignupForm() {
                 <button key={p.id} type="button" onClick={() => setSelectedProgram(p.id)}
                   className={`text-left p-3 rounded-xl border text-sm transition-colors ${selectedProgram === p.id ? 'border-gold bg-gold/5' : 'border-ink/10 hover:border-ink/25'}`}>
                   <p className="font-semibold text-ink text-[0.85rem] leading-tight">{p.name}</p>
+                  <p className="text-ink-500/70 text-xs mt-0.5">Ages {p.age_min}–{p.age_max === 99 ? 'adult' : p.age_max}</p>
                 </button>
               ))}
             </div>

@@ -39,23 +39,28 @@ create table if not exists public.programs (
   name             text not null,
   slug             text not null,
   description      text,
-  price_monthly    int,            -- null when billed per session
-  price_session    int,            -- set when billing_model = 'session'
-  billing_model    text not null check (billing_model in ('monthly','session')) default 'monthly',
+  age_min          int not null,
+  age_max          int not null,
+  price_monthly    int,            -- null = contact for pricing
+  billing_model    text not null check (billing_model in ('monthly','package')) default 'monthly',
+  package_sessions int,            -- set when billing_model = 'package'
+  capacity         int not null default 8,
+  duration_weeks   int not null default 4,
+  color            text not null default '#14172B',
   is_active        boolean not null default true
 );
 
 -- Seed programs
-insert into public.programs (id, name, slug, description, price_monthly, price_session, billing_model, is_active) values
-  ('speaking-group',   'Group classes',     'speaking-group',
-   'One class a week in a small group of students of similar age, working through the curriculum together.',
-   120, null, 'monthly', true),
-  ('speaking-private', 'Private coaching',  'speaking-private',
-   'The same curriculum taught one to one.',
-   null, 50, 'session', true),
-  ('prep',             'Competitive prep',  'prep',
-   'One to one coaching for students working towards a competition or an application deadline.',
-   null, 45, 'session', true)
+insert into public.programs (id, name, slug, description, age_min, age_max, price_monthly, billing_model, package_sessions, capacity, duration_weeks, color, is_active) values
+  ('speaking-group',   'Public Speaking — Group', 'speaking-group',
+   'Live group coaching for kids and adults building confident public speaking. Starts with a free 4-week pilot.',
+   6, 99, null, 'monthly', null, 8, 4, '#4F9BF7', true),
+  ('speaking-private', 'Public Speaking — 1:1',   'speaking-private',
+   'Private, individual public speaking coaching. Same core curriculum as the group program, one-on-one pacing.',
+   6, 99, null, 'monthly', null, 1, 4, '#7C5CFC', true),
+  ('fv-pro',           'Future Voices Pro',        'pro',
+   'DECA, Model UN, and university essay/interview coaching. 1:1 only, built around your deadline.',
+   13, 19, null, 'package', 4,  1, 4, '#1F6B5C', true)
 on conflict (id) do nothing;
 
 -- ─── Children ─────────────────────────────────────────────────

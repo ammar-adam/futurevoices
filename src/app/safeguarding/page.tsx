@@ -11,17 +11,27 @@ const SECTIONS: { title: string; body?: string; points?: string[] }[] = [
   {
     title: 'Who teaches',
     points: [
-      'The same coach teaches every group and private speaking session. There are no rotating instructors and no subcontractors.',
+      'Every speaking session is taught by our founder, who is the school’s sole coach for group and private classes. There are no rotating instructors and no subcontractors.',
       'A police record check (vulnerable sector) is maintained and available for parents to view on request.',
       'Coaching follows a written code of conduct: professional language, no favouritism, no criticism of a child in front of the group.',
     ],
   },
   {
-    title: 'How sessions are run',
+    title: 'How online sessions are run',
     points: [
-      'Only registered students take part in a class. A parent or guardian is welcome to sit in on any session, at any time, without notice.',
-      'For a private session with a student under 18, a parent or guardian must be contactable throughout and may observe at any point.',
-      'If a family has a concern about how a session is run, we agree on an arrangement together before the first class rather than afterwards.',
+      'All sessions run on Zoom with a waiting room enabled; only registered students are admitted.',
+      'Group sessions always include multiple families; a parent or guardian is welcome to sit in on any session, any time, without notice.',
+      'For private 1:1 sessions with a student under 18, a parent or guardian must be at home and reachable for the duration of the session, and may observe at any point.',
+      'Cameras stay on for students during sessions so the coach can see the room; if a family has a privacy concern, we agree on an alternative together before the first session.',
+    ],
+  },
+  {
+    title: 'Recording policy',
+    points: [
+      'Student performances are recorded through each level. This is a core part of the program: it is how a family sees a child’s first talk beside their most recent one.',
+      'We ask for written parental consent before recording anything, and explain exactly what will be captured and why. A student can take part without being recorded if you prefer.',
+      'A recording is shared privately with that student’s own family and is not shared with other families.',
+      'Recordings are never used for marketing without separate, explicit written consent, and consent can be withdrawn at any time.',
     ],
   },
   {
@@ -35,7 +45,7 @@ const SECTIONS: { title: string; body?: string; points?: string[] }[] = [
   {
     title: 'Data and privacy',
     points: [
-      'We collect only what we need to run the program: parent contact details, the student’s first name and age, and session notes.',
+      'We collect only what we need to run the program: parent contact details, the student’s first name and age, session notes, and performance recordings you have consented to.',
       'Account data is stored encrypted. We do not sell or share personal information with third parties.',
       'You can request a copy or deletion of your family’s data at any time by emailing hello@futurevoices.co.',
     ],

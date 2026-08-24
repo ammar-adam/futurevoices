@@ -1,30 +1,31 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { BOOKING_URL, CONTACT_EMAIL, LOCATION } from '@/lib/links'
+import { NIDA_BOOKING_URL, CONTACT_EMAIL } from '@/lib/links'
 
 const COLUMNS = [
   {
     title: 'Programs',
     links: [
-      { href: '/#programs', label: 'Group classes' },
-      { href: '/#programs', label: 'Private coaching' },
-      { href: '/prep', label: 'Competitive prep' },
+      { href: '/#programs', label: 'Group Coaching' },
+      { href: '/#programs', label: 'Private 1:1' },
+      { href: '/prep', label: 'Competitive Prep' },
       { href: '/curriculum', label: 'Curriculum' },
     ],
   },
   {
-    title: 'Get started',
+    title: 'Get Started',
     links: [
-      { href: BOOKING_URL, label: 'Book an intro call' },
+      { href: NIDA_BOOKING_URL, label: 'Book an Intro Call' },
       { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL },
+      { href: '/prep/apply', label: 'Apply for Competitive Prep' },
     ],
   },
   {
-    title: 'Trust and safety',
+    title: 'Trust & Safety',
     links: [
       { href: '/safeguarding', label: 'Safeguarding' },
-      { href: '/privacy', label: 'Privacy' },
-      { href: '/terms', label: 'Terms' },
+      { href: '/privacy', label: 'Privacy Policy' },
+      { href: '/terms', label: 'Terms of Service' },
     ],
   },
 ]
@@ -39,7 +40,7 @@ export function Footer() {
               <Image src="/brand/fv-wordmark-white.png" alt="Future Voices" width={190} height={70} />
             </Link>
             <p className="text-sm text-white/55 leading-relaxed max-w-xs">
-              A small school for young speakers, based in {LOCATION}.
+              A school for young communicators. Live online, taught from Toronto.
             </p>
           </div>
 
@@ -60,7 +61,9 @@ export function Footer() {
         </div>
 
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/40">© {new Date().getFullYear()} Future Voices</p>
+          <p className="text-xs text-white/40">
+            © {new Date().getFullYear()} Future Voices. Toronto built, taught live worldwide.
+          </p>
         </div>
       </div>
     </footer>

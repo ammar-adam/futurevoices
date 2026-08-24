@@ -15,12 +15,12 @@ export default function TermsPage() {
           <div className="bg-white rounded-2xl border border-gray-100 p-8 flex flex-col gap-8 text-sm text-gray-700 leading-relaxed">
             <section>
               <h2 className="text-lg font-bold text-[#14172B] mb-3">Enrollment and payment</h2>
-              <p>Group classes are billed monthly at the rate listed in our Programs section, in Canadian dollars. Private coaching and competitive prep are billed per session. Monthly enrolment may be cancelled at any time, and cancellation takes effect at the end of the current billing period.</p>
+              <p>Group coaching is billed monthly at the rate listed in our Programs section, in Canadian dollars. Private 1:1 coaching and Competitive Prep are billed per session. Monthly enrollment may be cancelled at any time, and cancellation takes effect at the end of the current billing period.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-bold text-[#14172B] mb-3">Free first class</h2>
-              <p>Your child&rsquo;s first class is free to attend and requires no payment information upfront. If you choose to continue, you enrol afterwards. If you choose not to continue, no action is required.</p>
+              <p>The first session of a new cohort is free to attend and requires no payment information upfront. If you choose to continue, you enroll for the month at the end of that session or within the following two days to hold the seat. If you choose not to continue, no action is required.</p>
             </section>
 
             <section>
@@ -29,8 +29,8 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-lg font-bold text-[#14172B] mb-3">Safeguarding</h2>
-              <p>How we keep sessions safe for children, including who teaches, who may observe, and how we handle a concern, is set out in our <Link href="/safeguarding" className="text-[#B68C2D] hover:underline">Safeguarding Policy</Link>.</p>
+              <h2 className="text-lg font-bold text-[#14172B] mb-3">Recording policy</h2>
+              <p>Student performances are recorded through the level so families can see progress side by side. Written consent from the parent or guardian is obtained before any recording, recordings are shared privately with that student&rsquo;s own family and with nobody else, and consent can be withdrawn at any time. See our <Link href="/safeguarding" className="text-[#B68C2D] hover:underline">Safeguarding Policy</Link> for more.</p>
             </section>
 
             <section>
