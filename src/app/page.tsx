@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
@@ -13,12 +14,7 @@ const SUMMARY = [
   'A curriculum that builds in order rather than a series of one-off workshops',
 ]
 
-const PROGRAMS = [
-  {
-    name: 'Group classes',
-    price: '$120 a month',
-    body: 'One class a week in a small group of students of similar age, working through the curriculum together. Everyone speaks in every session. The first class is free so your child can try it before you pay for anything, and you can stop at the end of any month.',
-  },
+const ONE_TO_ONE = [
   {
     name: 'Private coaching',
     price: '$50 a session, or four sessions for $180',
@@ -85,8 +81,16 @@ export default function HomePage() {
       <Navbar overHero />
 
       {/* ── Hero ─────────────────────────────────── */}
-      <section className="relative bg-ink min-h-[80vh] flex items-end">
-        <div className="glow" style={{ background: '#9c7c50', width: 520, height: 520, top: -160, right: -120, opacity: 0.16 }} />
+      <section className="relative min-h-[88vh] flex items-end">
+        <Image
+          src="/images/hero-class.jpg"
+          alt="A student presenting to her class while a classmate raises a hand"
+          fill
+          priority
+          className="object-cover object-[65%_35%]"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30" />
         <div className="relative w-full max-w-6xl mx-auto px-6 pb-20 pt-44">
           <h1 className="font-display text-[2.6rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-3xl mb-7">
             Public speaking, taught properly.
@@ -192,18 +196,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Programs ─────────────────────────────── */}
+      {/* ── Group classes ────────────────────────── */}
       <section id="programs" className="py-20 sm:py-24 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="border-b border-ink/10 pb-5 mb-10 flex flex-wrap items-baseline justify-between gap-4">
-            <h2 className="font-display text-3xl font-medium text-ink">Programs</h2>
+          <div className="border-b border-ink/10 pb-5 mb-12 flex flex-wrap items-baseline justify-between gap-4">
+            <h2 className="font-display text-3xl font-medium text-ink">Group classes</h2>
             <p className="text-sm text-ink-500">
               Every family starts with a free intro call. All prices in CAD.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {PROGRAMS.map(p => (
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-start">
+            <div>
+              <p className="font-display text-4xl font-medium text-ink mb-6">
+                $120<span className="text-2xl text-ink-500"> a month</span>
+              </p>
+              <Button asChild>
+                <a href={BOOKING_URL}>Book an intro call <ArrowRight size={16} /></a>
+              </Button>
+            </div>
+            <p className="text-[1.02rem] text-ink-500 leading-relaxed">
+              One class a week in a small group of students of similar age, working through the
+              curriculum together. Everyone speaks in every session. The first class is free so your
+              child can try it before you pay for anything, and you can stop at the end of any month.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── One to one ───────────────────────────── */}
+      <section id="private" className="pb-20 sm:pb-24 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="border-b border-ink/10 pb-5 mb-12 flex flex-wrap items-baseline justify-between gap-4">
+            <h2 className="font-display text-3xl font-medium text-ink">One to one</h2>
+            <p className="text-sm text-ink-500">Booked by the session.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {ONE_TO_ONE.map(p => (
               <div
                 key={p.name}
                 className="bg-white rounded-lg p-8 flex flex-col border border-ink/[0.08] shadow-[var(--shadow-soft)]"
@@ -227,24 +257,40 @@ export default function HomePage() {
 
       {/* ── What a class looks like ──────────────── */}
       <section className="bg-white border-y border-ink/[0.08] py-20 sm:py-24">
-        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.38fr_0.62fr] gap-12">
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-lg order-last lg:order-first">
+            <Image
+              src="/images/girl-laptop.jpg"
+              alt="A young student listening intently during a class"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 45vw, 100vw"
+            />
+          </div>
           <div>
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">
               Inside a session
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink">
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-7">
               What a class looks like
             </h2>
-          </div>
-          <div className="text-[1.02rem] text-ink-500 leading-relaxed flex flex-col gap-5">
-            {CLASS_SHAPE.map(p => <p key={p}>{p}</p>)}
+            <div className="text-[1.02rem] text-ink-500 leading-relaxed flex flex-col gap-5">
+              {CLASS_SHAPE.map(p => <p key={p}>{p}</p>)}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── Competitive prep ─────────────────────── */}
-      <section className="relative bg-ink py-24 sm:py-28">
-        <div className="glow" style={{ background: '#9c7c50', width: 420, height: 420, bottom: -180, left: -100, opacity: 0.14 }} />
+      <section className="relative py-24 sm:py-32">
+        <Image
+          src="/images/prep-stage.jpg"
+          alt="A speaker addressing a full auditorium"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-ink/85" />
         <div className="relative max-w-6xl mx-auto px-6">
           <div className="max-w-2xl">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-4">

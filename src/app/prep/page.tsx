@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
@@ -34,8 +35,16 @@ export default function PrepPage() {
       <Navbar overHero />
 
       {/* ── Hero ─────────────────────────────────── */}
-      <section className="relative bg-ink min-h-[58vh] flex items-end">
-        <div className="glow" style={{ background: '#9c7c50', width: 460, height: 460, top: -140, right: -120, opacity: 0.16 }} />
+      <section className="relative min-h-[70vh] flex items-end">
+        <Image
+          src="/images/prep-stage.jpg"
+          alt="A speaker addressing a full auditorium"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40" />
         <div className="relative w-full max-w-6xl mx-auto px-6 pb-16 pt-40">
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-5">
             Competitive prep
