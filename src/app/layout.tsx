@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 
 const TITLE = "Future Voices | Public speaking, taught properly";
 const DESCRIPTION =
-  "A small school for kids and teens who want to get better at speaking. Students meet weekly in a small group, they speak in every class, and they work through a curriculum that builds in order. The first class is free.";
+  "A small school for kids and teens who want to get better at speaking. Students meet weekly in a small group, they speak in every class, and they work through a curriculum that builds in order.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://futurevoices.co"),

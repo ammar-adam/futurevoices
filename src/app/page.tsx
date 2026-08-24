@@ -18,7 +18,6 @@ const GROUP_POINTS = [
   'One class a week in a small group of students of similar age',
   'Working through the curriculum together',
   'Everyone speaks in every session',
-  'The first class is free, so your child can try it before you pay for anything',
   'Stop at the end of any month',
 ]
 
@@ -62,10 +61,6 @@ const FAQ = [
     a: 'Group and private speaking classes are taught by a public speaker and educator who has been coaching children in speaking for years. Competitive prep is taught by a coach with national and international competition results. You will meet whoever would be teaching your child on the intro call, before committing to anything.',
   },
   {
-    q: 'How does the free first class work?',
-    a: 'Your child sits in on a full class at no cost, with no payment details taken and nothing to cancel. If it suits them, you enrol afterwards, and if it does not, that is a perfectly good outcome and we would rather find out that way than have a child in a class they do not want to be in.',
-  },
-  {
     q: 'What does it cost?',
     a: 'Group classes are $120 a month. Private coaching is $50 a session, or $180 for four sessions. Competitive prep is $45 a session for DECA and Model UN, and $60 a session for university application essays. There is no registration fee and you can stop at the end of any month.',
   },
@@ -91,7 +86,7 @@ const FAQ = [
   },
   {
     q: 'How do we start?',
-    a: 'Book a free intro call. We will ask about your child, you can ask us whatever you want to know, and if it seems like a good fit they can join the next group. If it does not, we will say so.',
+    a: 'Book an intro call. We will ask about your child, you can ask us whatever you want to know, and if it seems like a good fit they can join the next group. If it does not, we will say so.',
   },
 ]
 
@@ -129,16 +124,6 @@ export default function HomePage() {
               <Link href="/curriculum">See what we teach</Link>
             </Button>
           </div>
-        </div>
-      </section>
-
-      {/* ── Cohort banner ────────────────────────── */}
-      <section className="bg-ink-700 border-y border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center">
-          <span className="text-sm text-white/85">
-            A new group is forming for ages {NEXT_COHORT.ages}, starting {NEXT_COHORT.starts}. The
-            first class is free.
-          </span>
         </div>
       </section>
 
@@ -217,7 +202,7 @@ export default function HomePage() {
           <div className="border-b border-ink/10 pb-5 mb-12 flex flex-wrap items-baseline justify-between gap-4">
             <h2 className="font-display text-3xl font-medium text-ink">Group classes</h2>
             <p className="text-sm text-ink-500">
-              Every family starts with a free intro call. All prices in CAD.
+              Every family starts with an intro call. All prices in CAD.
             </p>
           </div>
 
@@ -226,9 +211,8 @@ export default function HomePage() {
               <p className="font-display text-4xl font-medium text-ink mb-1">$120<span className="text-2xl text-ink-500"> a month</span></p>
               <p className="text-[1.02rem] text-ink-500 leading-relaxed mt-5">
                 One class a week in a small group of students of similar age, working through the
-                curriculum together. Everyone speaks in every session. The first class is free so
-                your child can try it before you pay for anything, and you can stop at the end of
-                any month.
+                curriculum together. Everyone speaks in every session, and you can stop at the end
+                of any month.
               </p>
               <div className="mt-7">
                 <Button asChild>

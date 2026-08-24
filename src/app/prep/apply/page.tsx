@@ -36,7 +36,7 @@ export default function PrepApplyPage() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-ink-500/70">What happens next</p>
                 {[
                   'We review your application and confirm the right track',
-                  'We reach out to schedule a free intro call',
+                  'We reach out to schedule an intro call',
                   'If it is a fit, we book your first session and get started',
                 ].map((step, i) => (
                   <div key={step} className="flex items-start gap-3">

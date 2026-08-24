@@ -19,8 +19,8 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-lg font-bold text-[#14172B] mb-3">Free first class</h2>
-              <p>The first session of a new cohort is free to attend and requires no payment information upfront. If you choose to continue, you enroll for the month at the end of that session or within the following two days to hold the seat. If you choose not to continue, no action is required.</p>
+              <h2 className="text-lg font-bold text-[#14172B] mb-3">Starting and stopping</h2>
+              <p>Every family starts with an intro call before enrolling, so you can ask questions and we can confirm the right option for your child. Monthly enrolment may be cancelled at any time, and cancellation takes effect at the end of the current billing period.</p>
             </section>
 
             <section>

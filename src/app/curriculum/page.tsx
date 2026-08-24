@@ -2,7 +2,7 @@ import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { LEVELS, CLASS_SHAPE } from '@/types'
-import { NIDA_BOOKING_URL, NEXT_COHORT } from '@/lib/links'
+import { NIDA_BOOKING_URL } from '@/lib/links'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata = {
@@ -79,8 +79,8 @@ export default function CurriculumPage() {
         <section className="mt-20 px-6">
           <div className="max-w-4xl mx-auto bg-ink rounded-lg p-10 sm:p-12 text-center">
             <p className="text-white/80 leading-relaxed text-[1.05rem] mb-8">
-              A new group is forming for ages {NEXT_COHORT.ages}, starting {NEXT_COHORT.starts},
-              and the first class is free.
+              Every family starts with an intro call. Tell us about your child and we will point you
+              towards the right option.
             </p>
             <Button size="lg" variant="secondary" asChild>
               <a href={NIDA_BOOKING_URL}>Book an intro call <ArrowRight size={17} /></a>
