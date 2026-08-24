@@ -5,11 +5,6 @@ export const PREP_BOOKING_URL = 'mailto:hello@futurevoices.co'
 
 export const CONTACT_EMAIL = 'hello@futurevoices.co'
 
-// Values in square brackets are deliberate placeholders and must be filled in
-// before launch. Do not invent them.
-export const NEXT_GROUP = {
-  ages: '[AGE RANGE]',
-  starts: '[START DATE]',
-}
-
-export const LOCATION = '[MISSISSAUGA OR GTA]'
+// Deliberately non-specific until the group and location are confirmed.
+export const NEW_GROUP_LINE = 'A new group is forming now, and the first class is free.'
+export const LOCATION = 'the Greater Toronto Area'

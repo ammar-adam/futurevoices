@@ -4,7 +4,7 @@ import { Footer } from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { ContactForm } from '@/components/marketing/contact-form'
 import { STAGES, CLASS_SHAPE } from '@/lib/content'
-import { BOOKING_URL, CONTACT_EMAIL, NEXT_GROUP } from '@/lib/links'
+import { BOOKING_URL, CONTACT_EMAIL, NEW_GROUP_LINE } from '@/lib/links'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 
 const SUMMARY = [
@@ -71,7 +71,7 @@ const FAQ = [
   },
   {
     q: 'What ages do you teach?',
-    a: `The group forming at the moment is for ages ${NEXT_GROUP.ages}. If your child falls outside that, get in touch anyway and we will tell you honestly whether we can help now or whether it is worth waiting for a group that fits them better.`,
+    a: 'We teach children and teenagers, and groups are put together so that students are working alongside others of a similar age. Get in touch and we will tell you honestly whether the group forming at the moment suits your child, or whether it is worth waiting for one that fits them better.',
   },
   {
     q: 'How do we start?',
@@ -81,43 +81,47 @@ const FAQ = [
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-cream">
-      <Navbar />
+    <div className="flex flex-col min-h-screen overflow-x-clip bg-cream">
+      <Navbar overHero />
 
       {/* ── Hero ─────────────────────────────────── */}
-      <section className="pt-36 sm:pt-44 pb-16">
-        <div className="max-w-3xl mx-auto px-6">
-          <h1 className="font-display text-[2.6rem] sm:text-[3.4rem] leading-[1.08] font-medium text-ink mb-7">
+      <section className="relative bg-ink min-h-[80vh] flex items-end">
+        <div className="glow" style={{ background: '#9c7c50', width: 520, height: 520, top: -160, right: -120, opacity: 0.16 }} />
+        <div className="relative w-full max-w-6xl mx-auto px-6 pb-20 pt-44">
+          <h1 className="font-display text-[2.6rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-3xl mb-7">
             Public speaking, taught properly.
           </h1>
-          <p className="text-lg text-ink-500 leading-relaxed mb-9">
+          <p className="text-lg text-white/75 leading-relaxed max-w-2xl mb-9">
             Future Voices is a small school for kids and teens who want to get better at speaking.
             Students meet weekly in a small group, they speak in every class, and they work through
             a curriculum that starts with getting comfortable being heard and goes as far as
             speaking well under real pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button size="lg" asChild>
+            <Button size="lg" variant="secondary" asChild>
               <a href={BOOKING_URL}>Book an intro call <ArrowRight size={18} /></a>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" asChild className="border border-white/30 bg-white/5 text-white hover:bg-white/15 rounded-full px-8 backdrop-blur-sm">
               <Link href="/curriculum">See what we teach</Link>
             </Button>
           </div>
-          <p className="text-sm text-ink-500 mt-7">
-            A new group is forming for ages {NEXT_GROUP.ages}, starting {NEXT_GROUP.starts}. The
-            first class is free.
-          </p>
+        </div>
+      </section>
+
+      {/* ── New group strip ──────────────────────── */}
+      <section className="bg-ink-700 border-y border-white/10">
+        <div className="max-w-6xl mx-auto px-6 py-4 text-center">
+          <span className="text-sm text-white/85">{NEW_GROUP_LINE}</span>
         </div>
       </section>
 
       {/* ── Summary ──────────────────────────────── */}
-      <section className="bg-white border-y border-ink/[0.08]">
+      <section className="bg-white border-b border-ink/[0.08]">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3">
           {SUMMARY.map((line, i) => (
             <p
               key={line}
-              className={`py-8 px-6 text-[0.97rem] text-ink leading-relaxed ${
+              className={`py-9 px-6 text-[0.97rem] text-ink leading-relaxed ${
                 i > 0 ? 'md:border-l border-ink/[0.08]' : ''
               }`}
             >
@@ -130,10 +134,10 @@ export default function HomePage() {
       {/* ── Approach ─────────────────────────────── */}
       <section className="py-20 sm:py-24">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-7">
+          <h2 className="font-display text-3xl sm:text-[2.6rem] leading-tight font-medium text-ink mb-7">
             Most kids barely ever practise speaking.
           </h2>
-          <div className="text-[1.05rem] text-ink-500 leading-relaxed flex flex-col gap-5">
+          <div className="text-lg text-ink-500 leading-relaxed flex flex-col gap-5">
             <p>
               A presentation once a term, a few sentences read off a page, and that is usually the
               whole of it. It is nowhere near enough practice for anyone to get comfortable standing
@@ -152,57 +156,67 @@ export default function HomePage() {
 
       {/* ── What students learn ──────────────────── */}
       <section id="path" className="bg-white border-y border-ink/[0.08] py-20 sm:py-24 scroll-mt-20">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-6">
-            What students learn
-          </h2>
-          <p className="text-[1.05rem] text-ink-500 leading-relaxed mb-12">
-            The curriculum moves through six stages in order, because each one relies on the one
-            before it. There is no point working on persuading an audience before a student is
-            comfortable being looked at by one. Students move on when they are ready rather than on
-            a fixed schedule.
-          </p>
-
-          <div className="flex flex-col">
-            {STAGES.map((s, i) => (
-              <div key={s.name} className={`py-7 ${i > 0 ? 'border-t border-ink/[0.08]' : 'pt-0'}`}>
-                <h3 className="font-display text-2xl font-medium text-ink mb-3">{s.name}</h3>
-                <p className="text-[0.98rem] text-ink-500 leading-relaxed">{s.body}</p>
-              </div>
-            ))}
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="max-w-2xl mb-14">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">
+              The curriculum
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-5">
+              What students learn
+            </h2>
+            <p className="text-ink-500 leading-relaxed">
+              The curriculum moves through six stages in order, because each one relies on the one
+              before it. There is no point working on persuading an audience before a student is
+              comfortable being looked at by one. Students move on when they are ready rather than
+              on a fixed schedule.
+            </p>
           </div>
 
-          <Link
-            href="/curriculum"
-            className="inline-block mt-10 text-sm font-semibold text-ink underline underline-offset-4 decoration-gold hover:decoration-ink"
-          >
-            Read the curriculum in detail
-          </Link>
+          <ol className="relative border-l border-ink/15 ml-5 sm:ml-6">
+            {STAGES.map((s, i) => (
+              <li key={s.name} className="relative pl-8 sm:pl-10 pb-10 last:pb-0">
+                <span className="absolute -left-5 sm:-left-6 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-ink text-cream font-display text-lg">
+                  {i + 1}
+                </span>
+                <h3 className="font-display text-xl sm:text-2xl font-medium text-ink mb-3">{s.name}</h3>
+                <p className="text-[0.97rem] text-ink-500 leading-relaxed max-w-2xl">{s.body}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-14 border-t border-ink/[0.08] pt-8">
+            <Button asChild>
+              <Link href="/curriculum">Read the curriculum in detail <ArrowRight size={16} /></Link>
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* ── Programs ─────────────────────────────── */}
       <section id="programs" className="py-20 sm:py-24 scroll-mt-20">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="border-b border-ink/10 pb-5 mb-10">
-            <h2 className="font-display text-3xl font-medium text-ink mb-2">Programs</h2>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="border-b border-ink/10 pb-5 mb-10 flex flex-wrap items-baseline justify-between gap-4">
+            <h2 className="font-display text-3xl font-medium text-ink">Programs</h2>
             <p className="text-sm text-ink-500">
               Every family starts with a free intro call. All prices in CAD.
             </p>
           </div>
 
-          <div className="flex flex-col">
-            {PROGRAMS.map((p, i) => (
-              <div key={p.name} className={`py-8 ${i > 0 ? 'border-t border-ink/[0.08]' : 'pt-0'}`}>
-                <h3 className="font-display text-2xl font-medium text-ink mb-1">{p.name}</h3>
-                <p className="text-ink font-semibold mb-3">{p.price}</p>
-                <p className="text-[0.98rem] text-ink-500 leading-relaxed">{p.body}</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {PROGRAMS.map(p => (
+              <div
+                key={p.name}
+                className="bg-white rounded-lg p-8 flex flex-col border border-ink/[0.08] shadow-[var(--shadow-soft)]"
+              >
+                <h3 className="font-display text-[1.5rem] leading-tight font-medium text-ink mb-2">{p.name}</h3>
+                <p className="text-ink font-semibold">{p.price}</p>
+                <p className="text-[0.95rem] text-ink-500 leading-relaxed mt-4">{p.body}</p>
                 {p.link && (
                   <Link
                     href={p.link.href}
-                    className="inline-block mt-4 text-sm font-semibold text-ink underline underline-offset-4 decoration-gold hover:decoration-ink"
+                    className="mt-auto pt-6 text-sm font-semibold text-ink underline underline-offset-4 decoration-gold hover:decoration-ink"
                   >
-                    {p.link.label}
+                    {p.link.label} →
                   </Link>
                 )}
               </div>
@@ -213,51 +227,68 @@ export default function HomePage() {
 
       {/* ── What a class looks like ──────────────── */}
       <section className="bg-white border-y border-ink/[0.08] py-20 sm:py-24">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-7">
-            What a class looks like
-          </h2>
-          <div className="text-[1.05rem] text-ink-500 leading-relaxed flex flex-col gap-5">
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.38fr_0.62fr] gap-12">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">
+              Inside a session
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink">
+              What a class looks like
+            </h2>
+          </div>
+          <div className="text-[1.02rem] text-ink-500 leading-relaxed flex flex-col gap-5">
             {CLASS_SHAPE.map(p => <p key={p}>{p}</p>)}
           </div>
         </div>
       </section>
 
       {/* ── Competitive prep ─────────────────────── */}
-      <section className="py-20 sm:py-24">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-7">
-            For teens working towards a specific date
-          </h2>
-          <p className="text-[1.05rem] text-ink-500 leading-relaxed">
-            DECA provincials, a Model UN conference, or a university application due in six weeks.
-            Competitive prep is private coaching built backwards from the date that matters, taught
-            by a coach with national and international competition results in these events. Sessions
-            run from $45 to $60 and are booked one at a time.
-          </p>
-          <Link
-            href="/prep"
-            className="inline-block mt-6 text-sm font-semibold text-ink underline underline-offset-4 decoration-gold hover:decoration-ink"
-          >
-            More on competitive prep
-          </Link>
+      <section className="relative bg-ink py-24 sm:py-28">
+        <div className="glow" style={{ background: '#9c7c50', width: 420, height: 420, bottom: -180, left: -100, opacity: 0.14 }} />
+        <div className="relative max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-4">
+              Competitive prep
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-6">
+              For teens working towards a specific date
+            </h2>
+            <p className="text-white/70 leading-relaxed mb-8 text-[1.02rem]">
+              DECA provincials, a Model UN conference, or a university application due in six weeks.
+              Competitive prep is private coaching built backwards from the date that matters, taught
+              by a coach with national and international competition results in these events.
+              Sessions run from $45 to $60 and are booked one at a time.
+            </p>
+            <Button size="lg" variant="secondary" asChild>
+              <Link href="/prep">More on competitive prep <ArrowRight size={17} /></Link>
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* ── FAQ ──────────────────────────────────── */}
-      <section id="faq" className="bg-white border-y border-ink/[0.08] py-20 sm:py-24 scroll-mt-20">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-10">
-            Questions
-          </h2>
+      <section id="faq" className="py-20 sm:py-24 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.35fr_0.65fr] gap-12">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">
+              Questions
+            </p>
+            <h2 className="font-display text-3xl font-medium text-ink mb-4">Common questions</h2>
+            <p className="text-sm text-ink-500 leading-relaxed">
+              Anything else, write to{' '}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-ink font-medium underline underline-offset-4 decoration-gold">
+                {CONTACT_EMAIL}
+              </a>
+            </p>
+          </div>
           <div className="flex flex-col">
             {FAQ.map(f => (
               <details key={f.q} className="group border-b border-ink/10 last:border-0">
                 <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                  <span className="font-semibold text-ink text-[0.97rem] leading-snug">{f.q}</span>
+                  <span className="font-semibold text-ink text-[0.95rem] leading-snug">{f.q}</span>
                   <ChevronDown size={18} className="text-ink-500 shrink-0 transition-transform duration-200 group-open:rotate-180" />
                 </summary>
-                <p className="text-[0.95rem] text-ink-500 leading-relaxed pb-5">{f.a}</p>
+                <p className="text-sm text-ink-500 leading-relaxed pb-5 max-w-xl">{f.a}</p>
               </details>
             ))}
           </div>
@@ -266,27 +297,31 @@ export default function HomePage() {
 
       {/* ── Start a conversation ─────────────────── */}
       <section id="contact" className="bg-ink py-20 sm:py-24 scroll-mt-20">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-6">
-            Start with a conversation
-          </h2>
-          <p className="text-white/65 leading-relaxed text-[1.05rem] mb-9 max-w-2xl">
-            Every family starts with a short call before anything else happens. Tell us about your
-            child and what you are hoping will change, and we will point you towards the right
-            option or tell you plainly if we are not the right people for them.
-          </p>
-          <Button size="lg" variant="secondary" asChild>
-            <a href={BOOKING_URL}>Book an intro call <ArrowRight size={17} /></a>
-          </Button>
-          <p className="text-sm text-white/50 mt-4">
-            Or email{' '}
-            <a href={`mailto:${CONTACT_EMAIL}`} className="text-white/80 underline underline-offset-4">
-              {CONTACT_EMAIL}
-            </a>
-          </p>
-
-          <div className="mt-14 pt-10 border-t border-white/15">
-            <p className="text-white text-[1.02rem] mb-6">
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.42fr_0.58fr] gap-12">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-4">
+              Get started
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-5">
+              Start with a conversation
+            </h2>
+            <p className="text-white/60 leading-relaxed mb-8">
+              Every family starts with a short call before anything else happens. Tell us about your
+              child and what you are hoping will change, and we will point you towards the right
+              option or tell you plainly if we are not the right people for them.
+            </p>
+            <Button size="lg" variant="secondary" asChild>
+              <a href={BOOKING_URL}>Book an intro call <ArrowRight size={17} /></a>
+            </Button>
+            <p className="text-sm text-white/50 mt-4">
+              Or email{' '}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-white/80 underline underline-offset-4">
+                {CONTACT_EMAIL}
+              </a>
+            </p>
+          </div>
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white/40 mb-5">
               Or send us the details and we will get back to you
             </p>
             <ContactForm />
