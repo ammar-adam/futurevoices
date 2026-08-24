@@ -50,7 +50,7 @@ export default async function DashboardPage() {
               <p className="text-sm text-white/65 leading-relaxed">
                 We&rsquo;ve received your registration. We will reach out at{' '}
                 <span className="text-white font-medium">{user.email}</span> within a day to set up a
-                15-minute call and place {user.children[0]?.name ?? 'your child'} in the right cohort.
+                call and find the right option for {user.children[0]?.name ?? 'your child'}.
               </p>
             </div>
             <a
@@ -69,13 +69,13 @@ export default async function DashboardPage() {
               <Link href="/curriculum" className="text-ink font-medium underline underline-offset-4 decoration-gold hover:decoration-ink">
                 Read the full curriculum
               </Link>
-              : the six levels, and every week of Level 1.
+              : the six stages, and what a class looks like.
             </li>
             <li>
               <Link href="/safeguarding" className="text-ink font-medium underline underline-offset-4 decoration-gold hover:decoration-ink">
                 Our safeguarding policy
               </Link>
-              : how we run safe online sessions for kids.
+              : how we keep sessions safe for children.
             </li>
           </ul>
         </div>

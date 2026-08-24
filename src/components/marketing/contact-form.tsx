@@ -49,9 +49,9 @@ export function ContactForm() {
       <input name="student" placeholder="Student's name and age" className={field} />
       <select name="program" defaultValue="" className={`${field} sm:col-span-2 [&>option]:text-ink`}>
         <option value="" disabled>What are you interested in?</option>
-        <option>Group coaching</option>
-        <option>Private 1:1</option>
-        <option>Competitive Prep (teens)</option>
+        <option>Group classes</option>
+        <option>Private coaching</option>
+        <option>Competitive prep</option>
         <option>Not sure yet</option>
       </select>
       <textarea
