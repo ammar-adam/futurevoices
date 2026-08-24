@@ -20,16 +20,16 @@ const PRICING = [
 
 const PRINCIPLES = [
   {
-    title: 'One to one',
-    body: 'Every session is entirely about one student: their goal, their gaps, their competition or deadline.',
+    title: 'Taught one to one',
+    body: 'There is no group to keep pace with, so the whole session goes on whatever this particular student needs work on before their date.',
   },
   {
-    title: 'Planned backwards',
-    body: 'Sessions are planned backwards from the date that matters, so each one has a purpose.',
+    title: 'Planned backwards from the date',
+    body: 'We start from the competition or the deadline and work backwards, which means each session has a job to do rather than being general practice.',
   },
   {
-    title: 'Booked one at a time',
-    body: 'Students take as many or as few sessions as they need, with no packages and no minimum.',
+    title: 'Booked one session at a time',
+    body: 'Students take as many or as few sessions as they need, and there are no packages to commit to and no minimum number to buy.',
   },
 ]
 
@@ -71,10 +71,10 @@ const MODULES = [
     tag: 'Competition',
     body: 'Reading a case quickly and working out what judges are actually scoring, building a structure that holds up under time pressure, and presenting it with enough authority that the judges’ questions do not knock you off course. Most students book a handful of sessions in the weeks leading up to a competition.',
     outcomes: [
-      'Read and break down a case in under 10 minutes',
-      'Structure a clear, defensible strategy under pressure',
-      'Present with composure in the judging room',
-      'Field tough follow-up questions without losing confidence',
+      'Reading a case quickly and working out what is actually being scored',
+      'Building a strategy that holds together while the clock is running',
+      'Presenting with enough composure to hold the judging room',
+      'Handling follow-up questions without losing your footing',
     ],
   },
   {
@@ -83,10 +83,10 @@ const MODULES = [
     tag: 'Conference',
     body: 'Writing position papers and researching a country’s real position rather than the one you would prefer it had, using rules of procedure to your advantage instead of being tripped up by them, negotiating in unmoderated caucus, building a bloc, and getting your language into the final resolution.',
     outcomes: [
-      'Write a position paper that stakes a clear, researched argument',
-      'Use parliamentary procedure strategically, not just correctly',
-      'Negotiate effectively in unmoderated caucuses',
-      'Deliver speeches that get noticed, not just heard',
+      'Writing a position paper that stakes out a clear, researched argument',
+      'Using the rules of procedure to your advantage during a session',
+      'Negotiating once the committee moves into unmoderated caucus',
+      'Delivering speeches that the room actually remembers afterwards',
     ],
   },
   {
@@ -95,10 +95,10 @@ const MODULES = [
     tag: 'Admissions',
     body: 'Finding the material actually worth writing about, which is the part most students skip, then drafting it, cutting it, and cutting it again. These sessions cost more because drafts are read and marked up between them.',
     outcomes: [
-      'Essays that sound like you, not like a counsellor wrote them',
-      'A clear through-line across every part of the application',
-      'Drafts read and marked up between sessions, not just during them',
-      'A finished set of essays well before the deadline, not the night of it',
+      'Essays that sound like the student who actually wrote them',
+      'A clear through-line running across every part of the application',
+      'Drafts that get read and marked up in between the sessions',
+      'A finished set of essays with time to spare before the deadline',
     ],
   },
 ]
@@ -159,7 +159,9 @@ export default function PrepPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="border-b border-white/15 pb-5 mb-12 flex flex-wrap items-baseline justify-between gap-4">
             <h2 className="font-display text-3xl font-medium text-white">Your coach&rsquo;s record</h2>
-            <p className="text-sm text-white/50">The same events you are preparing for.</p>
+            <p className="text-sm text-white/50">
+              Earned in the same events your child would be preparing for.
+            </p>
           </div>
 
           {/* Competition results */}
@@ -241,16 +243,16 @@ export default function PrepPage() {
                 <div>
                   <p className="text-white text-[1.02rem] mb-1.5">Admissions</p>
                   <p className="text-white/60 leading-relaxed">
-                    Four applicants worked with on their admissions essays in this year&rsquo;s cycle.
-                    Their offers included Western Ivey AEO, Queen&rsquo;s Commerce, and Waterloo
-                    Computing and Financial Management.
+                    Four applicants were worked with on their admissions essays during this
+                    year&rsquo;s cycle, and between them they held offers from Western Ivey AEO,
+                    Queen&rsquo;s Commerce, and Waterloo Computing and Financial Management.
                   </p>
                 </div>
                 <div className="border-t border-white/10 pt-5">
                   <p className="text-white text-[1.02rem] mb-1.5">DECA and Model UN</p>
                   <p className="text-white/60 leading-relaxed">
-                    Competitors coached ahead of conferences and case events have gone on to take
-                    provincial awards of their own.
+                    Competitors who were coached ahead of conferences and case events have gone on
+                    to take provincial awards of their own.
                   </p>
                 </div>
               </div>

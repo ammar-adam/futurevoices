@@ -9,16 +9,16 @@ import { NIDA_BOOKING_URL, CONTACT_EMAIL, NEXT_COHORT } from '@/lib/links'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 
 const STATS = [
-  'Small groups, so every student speaks every week',
-  'The same coach every session, from start to finish',
+  'Small groups, so that every student is on their feet in every single class',
+  'The same coach teaching every session, from the first class to the last one',
   'A curriculum that builds in order rather than a series of one-off workshops',
 ]
 
 const GROUP_POINTS = [
-  'One class a week in a small group of students of similar age',
-  'Working through the curriculum together',
-  'Everyone speaks in every session',
-  'Stop at the end of any month',
+  'One class a week, in a small group of students of a similar age',
+  'The whole group working through the same curriculum together',
+  'Everyone speaking in every session, rather than a few volunteers',
+  'Monthly, so you can stop at the end of any month you choose',
 ]
 
 const PRIVATE_CARDS = [
@@ -28,9 +28,9 @@ const PRIVATE_CARDS = [
     priceNote: 'or four sessions for $180',
     body: 'The same curriculum taught one to one. This suits a child who would find a group too much to begin with, one who is preparing for something specific, or one who wants to work faster than a class allows.',
     points: [
-      'Taught one to one',
-      'Booked by the session',
-      'Moves at your child’s pace',
+      'Taught one to one, at whatever pace suits your child',
+      'Booked by the session, so you are never committing far ahead',
+      'Useful for a shy starter or a student with a date coming up',
     ],
   },
   {
@@ -176,14 +176,19 @@ export default function HomePage() {
             </p>
           </div>
 
-          <ol className="relative border-l border-ink/15 ml-5 sm:ml-6">
+          <ol className="flex flex-col border-t border-ink/[0.08]">
             {LEVELS.map(l => (
-              <li key={l.n} className="relative pl-8 sm:pl-10 pb-9 last:pb-0">
-                <span className="absolute -left-5 sm:-left-6 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-ink text-cream font-display text-lg">
-                  {l.n}
-                </span>
-                <h3 className="font-display text-xl sm:text-2xl font-medium text-ink mb-1.5">{l.name}</h3>
-                <p className="text-[0.95rem] text-ink-500 leading-relaxed max-w-2xl">{l.line}</p>
+              <li
+                key={l.n}
+                className="grid md:grid-cols-[0.3fr_0.7fr] gap-2 md:gap-12 py-8 border-b border-ink/[0.08]"
+              >
+                <div className="flex items-baseline gap-4">
+                  <span className="font-display text-xl text-gold leading-none">{l.n}</span>
+                  <h3 className="font-display text-xl sm:text-2xl font-medium text-ink leading-tight">
+                    {l.name}
+                  </h3>
+                </div>
+                <p className="text-[0.97rem] text-ink-500 leading-relaxed">{l.line}</p>
               </li>
             ))}
           </ol>
