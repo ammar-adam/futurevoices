@@ -52,14 +52,14 @@ create table if not exists public.programs (
 
 -- Seed programs
 insert into public.programs (id, name, slug, description, age_min, age_max, price_monthly, billing_model, package_sessions, capacity, duration_weeks, color, is_active) values
-  ('speaking-group',   'Public Speaking — Group', 'speaking-group',
-   'Live group coaching for kids and adults building confident public speaking. Starts with a free 4-week pilot.',
+  ('speaking-group',   'Group classes', 'speaking-group',
+   'One class a week in a small group of students of similar age, working through the curriculum together.',
    6, 99, null, 'monthly', null, 8, 4, '#4F9BF7', true),
-  ('speaking-private', 'Public Speaking — 1:1',   'speaking-private',
-   'Private, individual public speaking coaching. Same core curriculum as the group program, one-on-one pacing.',
+  ('speaking-private', 'Private coaching',   'speaking-private',
+   'The same curriculum taught one to one.',
    6, 99, null, 'monthly', null, 1, 4, '#7C5CFC', true),
-  ('fv-pro',           'Future Voices Pro',        'pro',
-   'DECA, Model UN, and university essay/interview coaching. 1:1 only, built around your deadline.',
+  ('fv-pro',           'Competitive prep',        'pro',
+   'One to one coaching for students working towards a competition or an application deadline.',
    13, 19, null, 'package', 4,  1, 4, '#1F6B5C', true)
 on conflict (id) do nothing;
 

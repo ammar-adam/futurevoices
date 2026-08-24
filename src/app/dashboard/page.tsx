@@ -75,7 +75,7 @@ export default async function DashboardPage() {
               <Link href="/safeguarding" className="text-ink font-medium underline underline-offset-4 decoration-gold hover:decoration-ink">
                 Our safeguarding policy
               </Link>
-              : how we run safe online sessions for kids.
+              : how we keep sessions safe for children.
             </li>
           </ul>
         </div>

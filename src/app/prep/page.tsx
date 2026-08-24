@@ -7,29 +7,29 @@ import { PREP_BOOKING_URL } from '@/lib/links'
 import { ArrowRight, Gavel, Trophy, GraduationCap } from 'lucide-react'
 
 export const metadata = {
-  title: 'Competitive Prep | Future Voices',
+  title: 'Competitive prep | Future Voices',
   description:
-    'Deadline-first 1:1 coaching for DECA, Model UN, and university admissions essays. Pay per session, no packages required.',
+    'Private coaching for teenagers working towards a specific competition or deadline. Sessions are planned backwards from the date and booked one at a time.',
 }
 
 const PRICING = [
-  { label: 'DECA / Case Prep', price: '$45', unit: 'per session' },
-  { label: 'Model UN Prep', price: '$45', unit: 'per session' },
-  { label: 'University Admissions Coaching', price: '$60', unit: 'per session', note: 'Essays and applications. Includes written feedback on drafts between sessions.' },
+  { label: 'DECA and case competitions', price: '$45', unit: 'a session' },
+  { label: 'Model UN', price: '$45', unit: 'a session' },
+  { label: 'University application essays', price: '$60', unit: 'a session', note: 'These sessions cost more because drafts are read and marked up between them.' },
 ]
 
 const PRINCIPLES = [
   {
-    title: '1:1 only',
-    body: 'No cohorts. Every session is entirely about you: your goal, your gaps, your competition or deadline.',
+    title: 'One to one',
+    body: 'Every session is entirely about one student: their goal, their gaps, their competition or deadline.',
   },
   {
-    title: 'Deadline-first',
-    body: 'We work backward from your competition date or application deadline. Every session has a purpose.',
+    title: 'Planned backwards',
+    body: 'Sessions are planned backwards from the date that matters, so each one has a purpose.',
   },
   {
-    title: 'Pay per session',
-    body: 'Book one session at a time. No packages, no subscription, no commitment beyond the session.',
+    title: 'Booked one at a time',
+    body: 'Students take as many or as few sessions as they need, with no packages and no minimum.',
   },
 ]
 
@@ -67,9 +67,9 @@ const OFFERS = [
 const MODULES = [
   {
     slug: 'deca',
-    title: 'DECA and Case Prep',
+    title: 'DECA and case competitions, $45 a session',
     tag: 'Competition',
-    body: 'Coaching on reading a case fast, building a defensible strategy, and presenting it with the command judges are looking for. Sessions are structured around your event type, whether that is Individual Series, Team Decision Making, or roleplay, and timed to your competition calendar.',
+    body: 'Reading a case quickly and working out what judges are actually scoring, building a structure that holds up under time pressure, and presenting it with enough authority that the judges’ questions do not knock you off course. Most students book a handful of sessions in the weeks leading up to a competition.',
     outcomes: [
       'Read and break down a case in under 10 minutes',
       'Structure a clear, defensible strategy under pressure',
@@ -79,9 +79,9 @@ const MODULES = [
   },
   {
     slug: 'mun',
-    title: 'Model UN',
+    title: 'Model UN, $45 a session',
     tag: 'Conference',
-    body: 'Position papers, parliamentary procedure, bloc negotiation, and delivery, built around your specific conference and committee. We cover both the substance and how to stand out when you are one voice in a room of eighty delegates.',
+    body: 'Writing position papers and researching a country’s real position rather than the one you would prefer it had, using rules of procedure to your advantage instead of being tripped up by them, negotiating in unmoderated caucus, building a bloc, and getting your language into the final resolution.',
     outcomes: [
       'Write a position paper that stakes a clear, researched argument',
       'Use parliamentary procedure strategically, not just correctly',
@@ -91,9 +91,9 @@ const MODULES = [
   },
   {
     slug: 'admissions',
-    title: 'University Admissions Coaching',
+    title: 'University application essays, $60 a session',
     tag: 'Admissions',
-    body: 'One-to-one work on university applications and the essays that carry them. The goal is finding an authentic voice, not a polished, generic-sounding one. We work on your specific schools and prompts, never a template that could apply to anyone.',
+    body: 'Finding the material actually worth writing about, which is the part most students skip, then drafting it, cutting it, and cutting it again. These sessions cost more because drafts are read and marked up between them.',
     outcomes: [
       'Essays that sound like you, not like a counsellor wrote them',
       'A clear through-line across every part of the application',
@@ -121,15 +121,15 @@ export default function PrepPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40" />
         <div className="relative w-full max-w-6xl mx-auto px-6 pb-16 pt-40">
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-5">
-            Competitive Prep
+            Competitive prep
           </p>
           <h1 className="font-display text-[2.4rem] sm:text-[3.2rem] leading-[1.08] font-medium text-white max-w-2xl mb-6">
-            Built around your deadline.
+            Competitive prep
           </h1>
           <p className="text-lg text-white/75 leading-relaxed max-w-2xl mb-9">
-            DECA, Model UN, and university application coaching for students working toward
-            something specific. One-to-one, paid per session, built backward from the date
-            that matters.
+            Private coaching for teenagers working towards a specific competition or deadline.
+            Sessions are planned backwards from the date and booked one at a time, so students
+            take as many or as few as they need.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button size="lg" variant="secondary" asChild>
@@ -298,7 +298,7 @@ export default function PrepPage() {
       <section id="tracks" className="bg-white border-y border-ink/[0.08] py-20 sm:py-24 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="border-b border-ink/10 pb-5 mb-12">
-            <h2 className="font-display text-3xl font-medium text-ink">Three tracks</h2>
+            <h2 className="font-display text-3xl font-medium text-ink">What we coach</h2>
           </div>
 
           <div className="flex flex-col gap-14">
@@ -326,10 +326,11 @@ export default function PrepPage() {
       {/* ── CTA ──────────────────────────────────── */}
       <section className="bg-ink py-20 sm:py-24">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-5">Ready to start?</h2>
+          <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-5">Who teaches this</h2>
           <p className="text-white/60 leading-relaxed mb-9">
-            Book an intro call, or send us the goal, the timeline, and where you are starting from,
-            and we will be in touch.
+            Coaching is one to one, from a coach with national and international competition results
+            in these events and direct experience of the application process. You will meet them on
+            the intro call.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button size="lg" variant="secondary" asChild>

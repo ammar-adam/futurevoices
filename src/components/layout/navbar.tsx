@@ -8,9 +8,9 @@ import { NIDA_BOOKING_URL } from '@/lib/links'
 import { cn } from '@/lib/utils'
 
 const LINKS = [
-  { href: '/#path', label: 'The Path' },
-  { href: '/curriculum', label: 'Curriculum' },
-  { href: '/prep', label: 'Competitive Prep' },
+  { href: '/curriculum', label: 'What we teach' },
+  { href: '/#programs', label: 'Programs' },
+  { href: '/prep', label: 'Competitive prep' },
   { href: '/#faq', label: 'FAQ' },
 ]
 
@@ -68,7 +68,7 @@ export function Navbar({ overHero = false }: { overHero?: boolean }) {
             </Link>
           ))}
           <Button size="sm" variant={scrolled ? 'primary' : 'secondary'} asChild>
-            <a href={NIDA_BOOKING_URL}>Book an Intro Call</a>
+            <a href={NIDA_BOOKING_URL}>Book an intro call</a>
           </Button>
         </div>
 
@@ -89,7 +89,7 @@ export function Navbar({ overHero = false }: { overHero?: boolean }) {
             </Link>
           ))}
           <Button size="sm" asChild>
-            <a href={NIDA_BOOKING_URL} onClick={() => setOpen(false)}>Book an Intro Call</a>
+            <a href={NIDA_BOOKING_URL} onClick={() => setOpen(false)}>Book an intro call</a>
           </Button>
         </div>
       )}

@@ -29,8 +29,8 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 className="text-lg font-bold text-[#14172B] mb-3">Recording policy</h2>
-              <p>Student performances are recorded through the level so families can see progress side by side. Written consent from the parent or guardian is obtained before any recording, recordings are shared privately with that student&rsquo;s own family and with nobody else, and consent can be withdrawn at any time. See our <Link href="/safeguarding" className="text-[#B68C2D] hover:underline">Safeguarding Policy</Link> for more.</p>
+              <h2 className="text-lg font-bold text-[#14172B] mb-3">Safeguarding</h2>
+              <p>How we keep sessions safe for children, including who teaches, who may observe, and how we handle a concern, is set out in our <Link href="/safeguarding" className="text-[#B68C2D] hover:underline">Safeguarding Policy</Link>.</p>
             </section>
 
             <section>

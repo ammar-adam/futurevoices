@@ -4,97 +4,94 @@ import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { Button } from '@/components/ui/button'
 import { ContactForm } from '@/components/marketing/contact-form'
-import { LEVELS, LEVEL_ONE_WEEKS } from '@/types'
+import { LEVELS, CLASS_SHAPE } from '@/types'
 import { NIDA_BOOKING_URL, CONTACT_EMAIL, NEXT_COHORT } from '@/lib/links'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 
 const STATS = [
-  ['Classes of eight', 'Small enough that nobody can hide at the back.'],
-  ['Six levels', 'From the first nervous introduction to a full keynote.'],
-  ['Eight weeks a level', 'Each one ending in a live showcase for parents.'],
-  ['Every single class', 'Every student is on their feet and speaking.'],
+  'Small groups, so every student speaks every week',
+  'The same coach every session, from start to finish',
+  'A curriculum that builds in order rather than a series of one-off workshops',
 ]
 
 const GROUP_POINTS = [
-  'One level runs eight weeks',
-  'Weekly 60-minute live class, capped at eight students',
-  'Every performance recorded, first class to last',
-  'Live showcase for parents at the end of each level',
-  'Cancel any month',
+  'One class a week in a small group of students of similar age',
+  'Working through the curriculum together',
+  'Everyone speaks in every session',
+  'The first class is free, so your child can try it before you pay for anything',
+  'Stop at the end of any month',
 ]
 
 const PRIVATE_CARDS = [
   {
-    name: 'Private 1:1 Coaching',
-    ages: 'Ages 6+',
-    price: '$50/session',
+    name: 'Private coaching',
+    price: '$50 a session',
     priceNote: 'or four sessions for $180',
-    body: 'The same level curriculum, taught one-on-one. Suited to shy starters, students preparing for a specific moment, or kids who want to move faster.',
+    body: 'The same curriculum taught one to one. This suits a child who would find a group too much to begin with, one who is preparing for something specific, or one who wants to work faster than a class allows.',
     points: [
-      'Personal pacing through the levels',
-      'Flexible scheduling',
-      'Session recaps for parents',
+      'Taught one to one',
+      'Booked by the session',
+      'Moves at your child’s pace',
     ],
   },
   {
-    name: 'Competitive Prep',
-    ages: 'Ages 13 to 19',
-    price: 'From $45/session',
-    priceNote: 'pay per session, no packages',
-    body: 'Deadline-first coaching for DECA, Model UN, and university applications. Built backward from your competition or application date.',
+    name: 'Competitive prep, for teens',
+    price: 'From $45 a session',
+    priceNote: 'booked one at a time',
+    body: 'One to one coaching for students working towards a competition or an application deadline. Sessions are booked one at a time, with no packages and no minimum.',
     points: [
-      'DECA and Model UN: $45/session',
-      'University admissions coaching: $60/session',
-      'Drafts read and marked up between sessions',
+      'DECA and case competitions, $45 a session',
+      'Model UN, $45 a session',
+      'University application essays, $60 a session',
     ],
-    cta: { label: 'Explore Competitive Prep', href: '/prep' },
+    cta: { label: 'More on competitive prep', href: '/prep' },
   },
 ]
 
 const FAQ = [
   {
     q: 'My child is shy. Is this right for them?',
-    a: 'Especially for them. Classes are structured so the quietest student speaks early, in low-stakes ways, well before anything feels like a performance. Confidence is built through repetition, not pep talks, and Level 1 is designed for exactly this child.',
+    a: 'Usually yes, and it is the most common reason families get in touch. Classes are built so that a quiet student speaks early and in small ways, long before anything feels like a performance. Shy children often make the most visible progress, simply because the distance between where they start and where they end up is the greatest.',
   },
   {
-    q: 'How do the levels work?',
-    a: 'Students progress through six levels, from Confidence to Mastery. Each level is an eight-week cycle: one live 60-minute class per week, a specific skill focus, and a final performance in week 8 delivered to the cohort and parents. Completing the performance completes the level, and each completed level earns a certificate.',
+    q: 'How are classes taught?',
+    a: 'Students meet once a week in a small group, and the same coach teaches every session. Nobody is handed between instructors partway through, and nobody has to explain themselves to someone new.',
+  },
+  {
+    q: 'Who teaches?',
+    a: 'Group and private speaking classes are taught by a public speaker and educator who has been coaching children in speaking for years. Competitive prep is taught by a coach with national and international competition results. You will meet whoever would be teaching your child on the intro call, before committing to anything.',
   },
   {
     q: 'How does the free first class work?',
-    a: 'The first session of a new cohort is an open house. Your child attends the full class free, with no payment details required. If it is a fit, you enroll for the month at the end of the session or within the following two days to hold the seat.',
+    a: 'Your child sits in on a full class at no cost, with no payment details taken and nothing to cancel. If it suits them, you enrol afterwards, and if it does not, that is a perfectly good outcome and we would rather find out that way than have a child in a class they do not want to be in.',
   },
   {
-    q: 'How much does it cost?',
-    a: 'Group coaching is $120 per month for a weekly live class. Private 1:1 coaching is $50 per session, or four sessions for $180. Competitive Prep for teens is $45 per session for DECA and Model UN, and $60 per session for university admissions coaching. All prices are in CAD. There are no registration fees, and you can stop any month.',
+    q: 'What does it cost?',
+    a: 'Group classes are $120 a month. Private coaching is $50 a session, or $180 for four sessions. Competitive prep is $45 a session for DECA and Model UN, and $60 a session for university application essays. There is no registration fee and you can stop at the end of any month.',
   },
   {
-    q: 'Are there any discounts?',
-    a: 'Two. Siblings get 20% off a second enrollment, and any family that refers a family who enrolls receives a $25 credit toward their next month.',
+    q: 'Are there discounts?',
+    a: 'Two. A second child from the same family gets 20 per cent off, and if you refer a family who enrols, you get $25 off your next month.',
   },
   {
-    q: 'What is the weekly time commitment?',
-    a: 'One 60-minute live class, plus roughly 10 to 15 minutes of practice between sessions.',
+    q: 'How much work is there outside class?',
+    a: 'Usually ten or fifteen minutes of practice between sessions, though students tend to spend longer than that when they are working on a talk they care about.',
   },
   {
-    q: 'Who teaches the classes?',
-    a: 'Our founder teaches every group cohort and every private speaking session herself. The Competitive Prep track is taught one-on-one by a coach with national and international competition results. You will meet your coach on your intro call.',
+    q: 'What does my child need?',
+    a: 'Somewhere they can speak out loud without feeling overheard by the whole house, and a willingness to be slightly uncomfortable for the first couple of sessions.',
   },
   {
-    q: 'Can adults enroll?',
-    a: 'Yes. Adults are placed in their own cohort and follow the same level path. Book an intro call and we will find the right fit.',
+    q: 'What if we miss a class?',
+    a: 'Let us know and we will send a short note on what was covered and what to practise, so your child is not lost the following week.',
   },
   {
-    q: 'How do you keep parents updated?',
-    a: 'After every class you receive a short written recap: what was covered, what your child worked on, and what to practise before the next session. You are never guessing what is happening in the room.',
+    q: 'What ages do you teach?',
+    a: `The group forming at the moment is for ages ${NEXT_COHORT.ages}. If your child falls outside that, get in touch anyway and we will tell you honestly whether we can help now or whether it is worth waiting for a group that fits them better.`,
   },
   {
-    q: 'What happens if we miss a class?',
-    a: 'You receive a written recap of what was covered and what to practice, so no one falls behind.',
-  },
-  {
-    q: 'How do we get started?',
-    a: 'Book a free 15-minute intro call below. We talk about your child, answer your questions, and if it is a fit, your child joins the next cohort. The next cohort is Level 1, ages 9 to 13, starting Saturday, September 12.',
+    q: 'How do we start?',
+    a: 'Book a free intro call. We will ask about your child, you can ask us whatever you want to know, and if it seems like a good fit they can join the next group. If it does not, we will say so.',
   },
 ]
 
@@ -116,19 +113,20 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25" />
         <div className="relative w-full max-w-6xl mx-auto px-6 pb-16 pt-44">
           <h1 className="font-display text-[2.6rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-3xl mb-6">
-            Confidence is a skill.
-            <span className="block">We teach it, week by week.</span>
+            Public speaking, taught properly.
           </h1>
           <p className="text-lg text-white/75 leading-relaxed max-w-2xl mb-9">
-            Future Voices is a school for young communicators. Students work through six levels,
-            starting with the fear of speaking and finishing able to hold a room.
+            Future Voices is a small school for kids and teens who want to get better at speaking.
+            Students meet weekly in a small group, they speak in every class, and they work through
+            a curriculum that starts with getting comfortable being heard and goes as far as
+            speaking well under real pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button size="lg" variant="secondary" asChild>
-              <a href={NIDA_BOOKING_URL}>Book a free intro call <ArrowRight size={18} /></a>
+              <a href={NIDA_BOOKING_URL}>Book an intro call <ArrowRight size={18} /></a>
             </Button>
             <Button size="lg" asChild className="border border-white/30 bg-white/5 text-white hover:bg-white/15 rounded-full px-8 backdrop-blur-sm">
-              <Link href="/#path">See the path</Link>
+              <Link href="/curriculum">See what we teach</Link>
             </Button>
           </div>
         </div>
@@ -137,20 +135,19 @@ export default function HomePage() {
       {/* ── Cohort banner ────────────────────────── */}
       <section className="bg-ink-700 border-y border-white/10">
         <div className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center">
-          <span className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold-300">Next cohort</span>
           <span className="text-sm text-white/85">
-            {NEXT_COHORT.level} · {NEXT_COHORT.ages} · {NEXT_COHORT.starts} · {NEXT_COHORT.seats}
+            A new group is forming for ages {NEXT_COHORT.ages}, starting {NEXT_COHORT.starts}. The
+            first class is free.
           </span>
         </div>
       </section>
 
       {/* ── Stats ────────────────────────────────── */}
       <section className="bg-white border-b border-ink/[0.08]">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4">
-          {STATS.map(([label, line], i) => (
-            <div key={label} className={`py-9 px-6 ${i > 0 ? 'lg:border-l border-ink/[0.08]' : ''}`}>
-              <p className="font-display text-[1.35rem] font-medium text-ink mb-1.5">{label}</p>
-              <p className="text-[0.88rem] text-ink-500 leading-relaxed">{line}</p>
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3">
+          {STATS.map((line, i) => (
+            <div key={line} className={`py-9 px-6 ${i > 0 ? 'md:border-l border-ink/[0.08]' : ''}`}>
+              <p className="font-display text-[1.35rem] font-medium text-ink leading-snug">{line}</p>
             </div>
           ))}
         </div>
@@ -161,18 +158,20 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-5">Our approach</p>
           <h2 className="font-display text-3xl sm:text-[2.6rem] leading-tight font-medium text-ink mb-6">
-            Nobody becomes a confident speaker by being told to be confident.
+            Most kids barely ever practise speaking.
           </h2>
           <div className="text-lg text-ink-500 leading-relaxed flex flex-col gap-5">
             <p>
-              Confidence comes from evidence. A child who has stood up and spoken dozens of times
-              knows they can do it, because they already have. Everything we teach is built to
-              produce that evidence as quickly as possible.
+              A presentation once a term, a few sentences read off a page, and that is usually the
+              whole of it. It is nowhere near enough practice for anyone to get comfortable standing
+              in front of a room, which is why so many capable students dread it well into adulthood.
             </p>
             <p>
-              So every class runs the same loop. Learn one skill. Get on your feet and use it.
-              Hear precisely what worked and what to change. Go again. Nobody watches from the
-              back, and nobody waits a week for their turn.
+              Our classes are built around the opposite habit. Each week covers one specific skill,
+              every student gets up and uses it while the class is still going, and each of them
+              hears what worked and what to change before they try it again. Confidence comes out of
+              that repetition rather than out of encouragement, and it tends to show up faster than
+              parents expect.
             </p>
           </div>
         </div>
@@ -183,12 +182,12 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="max-w-2xl mb-14">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">The path</p>
-            <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-5">One path. Six levels.</h2>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-5">What students learn</h2>
             <p className="text-ink-500 leading-relaxed">
-              Students don&rsquo;t take a class at Future Voices. They climb a path. Each level is an
-              eight-week cycle with one live class per week, and ends with a recorded final
-              performance in front of the cohort and parents. You complete a level by performing,
-              not by attending.
+              The curriculum moves through six stages in order, because each one relies on the one
+              before it. There is no point working on persuading an audience before a student is
+              comfortable being looked at by one. Students move on when they are ready rather than
+              on a fixed schedule.
             </p>
           </div>
 
@@ -204,13 +203,9 @@ export default function HomePage() {
             ))}
           </ol>
 
-          <div className="mt-14 border-t border-ink/[0.08] pt-8 flex flex-wrap items-center justify-between gap-6">
-            <p className="text-[0.95rem] text-ink-500 leading-relaxed max-w-xl">
-              Finish a level and your child earns a certificate. Then you play their first
-              recording next to their last, and see the difference for yourself.
-            </p>
+          <div className="mt-14 border-t border-ink/[0.08] pt-8">
             <Button asChild>
-              <Link href="/curriculum">Read the full curriculum <ArrowRight size={16} /></Link>
+              <Link href="/curriculum">Read the curriculum in detail <ArrowRight size={16} /></Link>
             </Button>
           </div>
         </div>
@@ -220,24 +215,24 @@ export default function HomePage() {
       <section id="programs" className="py-20 sm:py-24 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="border-b border-ink/10 pb-5 mb-12 flex flex-wrap items-baseline justify-between gap-4">
-            <h2 className="font-display text-3xl font-medium text-ink">Group coaching</h2>
-            <p className="text-sm text-ink-500">All prices in CAD.</p>
+            <h2 className="font-display text-3xl font-medium text-ink">Group classes</h2>
+            <p className="text-sm text-ink-500">
+              Every family starts with a free intro call. All prices in CAD.
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-start">
             <div>
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold mb-4">
-                Ages 6+, grouped by age
-              </p>
-              <p className="font-display text-4xl font-medium text-ink mb-1">$120<span className="text-2xl text-ink-500"> / month</span></p>
+              <p className="font-display text-4xl font-medium text-ink mb-1">$120<span className="text-2xl text-ink-500"> a month</span></p>
               <p className="text-[1.02rem] text-ink-500 leading-relaxed mt-5">
-                The heart of the school. A weekly live class, capped at eight students, working
-                through the level path together. Every student speaks in every session, and each
-                level ends with a showcase you are invited to watch.
+                One class a week in a small group of students of similar age, working through the
+                curriculum together. Everyone speaks in every session. The first class is free so
+                your child can try it before you pay for anything, and you can stop at the end of
+                any month.
               </p>
               <div className="mt-7">
                 <Button asChild>
-                  <a href={NIDA_BOOKING_URL}>Book a free intro call <ArrowRight size={16} /></a>
+                  <a href={NIDA_BOOKING_URL}>Book an intro call <ArrowRight size={16} /></a>
                 </Button>
               </div>
             </div>
@@ -258,8 +253,8 @@ export default function HomePage() {
       <section id="private" className="pb-20 sm:pb-24 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="border-b border-ink/10 pb-5 mb-12 flex flex-wrap items-baseline justify-between gap-4">
-            <h2 className="font-display text-3xl font-medium text-ink">Private coaching</h2>
-            <p className="text-sm text-ink-500">One-to-one, billed per session.</p>
+            <h2 className="font-display text-3xl font-medium text-ink">One to one</h2>
+            <p className="text-sm text-ink-500">Booked by the session. All prices in CAD.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -268,7 +263,6 @@ export default function HomePage() {
                 key={p.name}
                 className="bg-white rounded-lg p-8 flex flex-col border border-ink/[0.08] shadow-[var(--shadow-soft)]"
               >
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold mb-3">{p.ages}</p>
                 <h3 className="font-display text-[1.55rem] font-medium text-ink mb-2">{p.name}</h3>
                 <p className="text-ink font-semibold">
                   {p.price}
@@ -301,21 +295,16 @@ export default function HomePage() {
       <section id="level-one" className="bg-white border-y border-ink/[0.08] py-20 sm:py-24 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-12">
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">Where everyone starts</p>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">Inside a session</p>
             <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-4">
-              Level 1: Confidence. The first eight weeks.
+              What a class looks like
             </h2>
-            <p className="text-ink-500 leading-relaxed">
-              Here is exactly what a new student&rsquo;s first level looks like.
-            </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-ink/10 border border-ink/10">
-            {LEVEL_ONE_WEEKS.map(w => (
-              <div key={w.n} className="bg-white p-6">
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold mb-2">Week {w.n}</p>
-                <h3 className="font-semibold text-ink mb-2 leading-snug">{w.title}</h3>
-                <p className="text-sm text-ink-500 leading-relaxed">{w.short}</p>
+          <div className="grid md:grid-cols-3 gap-px bg-ink/10 border border-ink/10">
+            {CLASS_SHAPE.map((para, i) => (
+              <div key={i} className="bg-white p-7">
+                <p className="text-[0.95rem] text-ink-500 leading-relaxed">{para}</p>
               </div>
             ))}
           </div>
@@ -335,17 +324,18 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-ink/80" />
         <div className="relative max-w-6xl mx-auto px-6">
           <div className="max-w-xl">
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-4">Competitive Prep</p>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-4">Competitive prep</p>
             <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-5">
-              For teens with a date on the calendar.
+              For teens working towards a specific date
             </h2>
             <p className="text-white/70 leading-relaxed mb-8">
-              DECA provincials. A Model UN conference. A university application. Competitive Prep is
-              private, deadline-first coaching that works backward from the day it matters.
-              Sessions are $45 to $60, booked one at a time, no packages required.
+              DECA provincials, a Model UN conference, or a university application due in six weeks.
+              Competitive prep is private coaching built backwards from the date that matters, taught
+              by a coach with national and international competition results in these events.
+              Sessions run from $45 to $60 and are booked one at a time.
             </p>
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/prep">Explore Competitive Prep <ArrowRight size={17} /></Link>
+              <Link href="/prep">More on competitive prep <ArrowRight size={17} /></Link>
             </Button>
           </div>
         </div>
@@ -384,15 +374,15 @@ export default function HomePage() {
           <div>
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-4">Admissions</p>
             <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-5">
-              Start with a conversation.
+              Start with a conversation
             </h2>
             <p className="text-white/60 leading-relaxed mb-8">
-              Every family begins with a free 15-minute call with our founder. Tell us about your child and
-              what you are hoping for, and we will point you to the right program, or tell you
-              honestly if we are not the right fit.
+              Every family starts with a short call before anything else happens. Tell us about your
+              child and what you are hoping will change, and we will point you towards the right
+              option or tell you plainly if we are not the right people for them.
             </p>
             <Button size="lg" variant="secondary" asChild>
-              <a href={NIDA_BOOKING_URL}>Book a free intro call <ArrowRight size={17} /></a>
+              <a href={NIDA_BOOKING_URL}>Book an intro call <ArrowRight size={17} /></a>
             </Button>
             <p className="text-sm text-white/50 mt-4">
               Prefer email? Write to{' '}

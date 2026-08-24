@@ -95,9 +95,9 @@ export interface Consent {
 export const PROGRAMS: Program[] = [
   {
     id: 'speaking-group',
-    name: 'Group Coaching',
+    name: 'Group classes',
     slug: 'speaking-group',
-    description: 'A weekly 60-minute live class, capped at eight students, working through the six-level path together. Every student speaks in every session.',
+    description: 'One class a week in a small group of students of similar age, working through the curriculum together. Everyone speaks in every session.',
     age_min: 6,
     age_max: 99,
     price_monthly: 120,
@@ -108,9 +108,9 @@ export const PROGRAMS: Program[] = [
   },
   {
     id: 'speaking-private',
-    name: 'Private 1:1 Coaching',
+    name: 'Private coaching',
     slug: 'speaking-private',
-    description: 'The same level curriculum, taught one-on-one. Suited to shy starters, students preparing for a specific moment, or kids who want to move faster.',
+    description: 'The same curriculum taught one to one, for a student preparing for something specific or working faster than a class allows.',
     age_min: 6,
     age_max: 99,
     price_session: 50,
@@ -122,9 +122,9 @@ export const PROGRAMS: Program[] = [
   },
   {
     id: 'prep',
-    name: 'Competitive Prep',
+    name: 'Competitive prep',
     slug: 'prep',
-    description: 'Deadline-first 1:1 coaching for DECA, Model UN, and university applications. Pay per session, built backward from your competition or application date.',
+    description: 'One to one coaching for students working towards a competition or an application deadline.',
     age_min: 13,
     age_max: 19,
     price_session: 45,
@@ -136,14 +136,45 @@ export const PROGRAMS: Program[] = [
   },
 ]
 
-/** The six-level path. Used by the homepage and the curriculum page. */
+/** The six stages. Used by the homepage and the curriculum page. */
 export const LEVELS = [
-  { n: 1, name: 'Confidence', line: 'Overcoming fear, voice, posture, and eye contact. Standing up and being heard.' },
-  { n: 2, name: 'Clarity', line: 'Organizing ideas, cutting filler words, and explaining complicated things simply.' },
-  { n: 3, name: 'Storytelling', line: 'Narrative, emotion, memorable openings, and humor. Speeches people remember.' },
-  { n: 4, name: 'Persuasion', line: 'Argument, rhetoric, reading an audience, and calls to action. Speaking to change minds.' },
-  { n: 5, name: 'Performance', line: 'Stage presence, vocal dynamics, physicality, and handling difficult rooms.' },
-  { n: 6, name: 'Mastery', line: 'Keynotes, impromptu speaking, debate, and interviews. High-stakes speaking, handled.' },
+  {
+    n: 1,
+    name: 'Confidence',
+    line: 'This is where almost everyone starts. Students learn what nerves physically are and why they are not evidence of being bad at this, and they work on the mechanics of standing up, staying still, knowing where to look, and speaking loudly enough to be heard comfortably. Everyone speaks in the first session, because putting it off only makes it harder.',
+  },
+  {
+    n: 2,
+    name: 'Clarity',
+    line: 'Most people are hard to follow because they started talking before they knew what they wanted to say. This stage is about organising a thought before opening your mouth, saying the important part first, cutting the filler that creeps in when you are nervous, and being able to explain something complicated to someone who knows nothing about it.',
+  },
+  {
+    n: 3,
+    name: 'Storytelling',
+    line: 'Students work on why some talks stay with an audience and most do not. That covers openings that make people look up, choosing the details that carry weight and leaving out the ones that do not, timing, and humour, which is mostly a question of rhythm and can be practised like anything else.',
+  },
+  {
+    n: 4,
+    name: 'Persuasion',
+    line: 'This stage covers building an argument that holds together, anticipating what an audience already believes, using evidence without burying people in it, and finishing with a clear idea of what you want listeners to do or think differently about.',
+  },
+  {
+    n: 5,
+    name: 'Performance',
+    line: 'The physical side of speaking. Students work on using their voice deliberately, varying pace, letting a pause do the work instead of filling it, and holding the attention of a room that is distracted or unconvinced. Recovering from a mistake mid-sentence is rehearsed here on purpose rather than left to chance.',
+  },
+  {
+    n: 6,
+    name: 'Mastery',
+    line: 'Speaking with little or no preparation, handling questions nobody warned you about, and performing in interviews, debates, and other situations where enough is riding on it that the nerves come back. This is the stage where students stop preparing for classes and start preparing for real occasions.',
+  },
+]
+
+/** The shape of a class. Used on the homepage and the curriculum page. */
+export const CLASS_SHAPE = [
+  'Every class follows the same shape. It opens with teaching, one skill at a time and with examples, and then everyone speaks. Depending on where the group is, that might be thirty seconds on the spot, a short prepared piece, or a full talk once students have been building towards one.',
+  'Feedback happens immediately and it is specific. Rather than telling a student they did well, we tell them which sentence lost the room and what to do differently, and then they go again, because hearing a note and applying it are two different skills.',
+  'By the end of a stretch of work, every student has written and delivered a talk of their own on a subject they chose because they actually care about it.',
 ]
 
 /** Level 1 week-by-week. Short form on the homepage, full detail on /curriculum. */

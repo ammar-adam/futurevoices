@@ -5,9 +5,10 @@ export const PREP_BOOKING_URL = 'mailto:hello@futurevoices.co'
 
 export const CONTACT_EMAIL = 'hello@futurevoices.co'
 
+// Square-bracket values are deliberate placeholders. Fill them in before launch.
 export const NEXT_COHORT = {
-  level: 'Level 1, Confidence',
-  ages: 'Ages 9 to 13',
-  starts: 'Starts Saturday, September 12 at 10:00am ET',
-  seats: '8 seats',
+  ages: '[AGE RANGE]',
+  starts: '[START DATE]',
 }
+
+export const LOCATION = '[MISSISSAUGA OR GTA]'
