@@ -206,29 +206,26 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-20 items-start">
             <div>
-              <p className="font-display text-4xl font-medium text-ink mb-1">$120<span className="text-2xl text-ink-500"> a month</span></p>
-              <p className="text-[1.02rem] text-ink-500 leading-relaxed mt-5">
+              <p className="font-display text-[4.5rem] sm:text-[6rem] leading-[0.85] font-medium text-ink tabular-nums">
+                $120
+              </p>
+              <p className="text-lg text-ink-500 mt-3">a month</p>
+              <div className="w-12 h-px bg-gold mt-8" />
+            </div>
+
+            <div>
+              <p className="text-[1.05rem] text-ink-500 leading-relaxed">
                 One class a week in a small group of students of similar age, working through the
                 curriculum together. Everyone speaks in every session, and you can stop at the end
                 of any month.
               </p>
-              <div className="mt-7">
+              <div className="mt-8">
                 <Button asChild>
                   <a href={NIDA_BOOKING_URL}>Book an intro call <ArrowRight size={16} /></a>
                 </Button>
               </div>
-            </div>
-
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-              <Image
-                src="/images/student-mic.jpg"
-                alt="A student speaking into a microphone"
-                fill
-                className="object-cover object-center"
-                sizes="(min-width: 1024px) 45vw, 100vw"
-              />
             </div>
           </div>
         </div>
