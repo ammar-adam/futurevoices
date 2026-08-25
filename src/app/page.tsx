@@ -14,24 +14,12 @@ const STATS = [
   'A curriculum that builds in order rather than a series of one-off workshops',
 ]
 
-const GROUP_POINTS = [
-  'One class a week, in a small group of students of a similar age',
-  'The whole group working through the same curriculum together',
-  'Everyone speaking in every session, rather than a few volunteers',
-  'Monthly, so you can stop at the end of any month you choose',
-]
-
 const PRIVATE_CARDS = [
   {
     name: 'Private coaching',
     price: '$50 a session',
     priceNote: 'or four sessions for $180',
     body: 'The same curriculum taught one to one. This suits a child who would find a group too much to begin with, one who is preparing for something specific, or one who wants to work faster than a class allows.',
-    points: [
-      'Taught one to one, at whatever pace suits your child',
-      'Booked by the session, so you are never committing far ahead',
-      'Useful for a shy starter or a student with a date coming up',
-    ],
   },
   {
     name: 'Competitive prep, for teens',
@@ -233,14 +221,15 @@ export default function HomePage() {
               </div>
             </div>
 
-            <ul className="flex flex-col border-t border-ink/[0.08]">
-              {GROUP_POINTS.map(pt => (
-                <li key={pt} className="flex items-start gap-3 py-4 border-b border-ink/[0.08] text-[0.95rem] text-ink">
-                  <span className="h-1.5 w-1.5 rounded-full bg-gold mt-2 shrink-0" />
-                  {pt}
-                </li>
-              ))}
-            </ul>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              <Image
+                src="/images/student-mic.jpg"
+                alt="A student speaking into a microphone"
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 45vw, 100vw"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -265,14 +254,16 @@ export default function HomePage() {
                   <span className="text-ink-500 font-normal text-sm"> · {p.priceNote}</span>
                 </p>
                 <p className="text-[0.95rem] text-ink-500 leading-relaxed mt-3 mb-6">{p.body}</p>
-                <ul className="mt-auto flex flex-col gap-2 border-t border-ink/[0.08] pt-5">
-                  {p.points.map(pt => (
-                    <li key={pt} className="text-sm text-ink flex items-start gap-2.5">
-                      <span className="h-1 w-1 rounded-full bg-gold mt-2 shrink-0" />
-                      {pt}
-                    </li>
-                  ))}
-                </ul>
+                {p.points && (
+                  <ul className="mt-auto flex flex-col gap-2 border-t border-ink/[0.08] pt-5">
+                    {p.points.map(pt => (
+                      <li key={pt} className="text-sm text-ink flex items-start gap-2.5">
+                        <span className="h-1 w-1 rounded-full bg-gold mt-2 shrink-0" />
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 {p.cta && (
                   <Link
                     href={p.cta.href}
