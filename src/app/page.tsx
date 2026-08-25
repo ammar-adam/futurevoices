@@ -96,7 +96,7 @@ export default function HomePage() {
       <Navbar overHero />
 
       {/* ── Hero ─────────────────────────────────── */}
-      <section className="relative min-h-[92vh] flex items-end">
+      <section className="relative min-h-screen flex items-end">
         <Image
           src="/images/hero-class.jpg"
           alt="A student presenting to her class while a classmate raises a hand"
@@ -176,19 +176,16 @@ export default function HomePage() {
             </p>
           </div>
 
-          <ol className="flex flex-col border-t border-ink/[0.08]">
+          <ol className="grid md:grid-cols-2 gap-x-14 gap-y-10 border-t border-ink/[0.08] pt-10">
             {LEVELS.map(l => (
-              <li
-                key={l.n}
-                className="grid md:grid-cols-[0.3fr_0.7fr] gap-2 md:gap-12 py-8 border-b border-ink/[0.08]"
-              >
-                <div className="flex items-baseline gap-4">
-                  <span className="font-display text-xl text-gold leading-none">{l.n}</span>
-                  <h3 className="font-display text-xl sm:text-2xl font-medium text-ink leading-tight">
+              <li key={l.n}>
+                <div className="flex items-baseline gap-3 mb-3">
+                  <span className="font-display text-lg text-gold leading-none">{l.n}</span>
+                  <h3 className="font-display text-xl font-medium text-ink leading-tight">
                     {l.name}
                   </h3>
                 </div>
-                <p className="text-[0.97rem] text-ink-500 leading-relaxed">{l.line}</p>
+                <p className="text-[0.95rem] text-ink-500 leading-relaxed">{l.line}</p>
               </li>
             ))}
           </ol>
