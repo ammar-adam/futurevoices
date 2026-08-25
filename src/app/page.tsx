@@ -176,16 +176,26 @@ export default function HomePage() {
             </p>
           </div>
 
-          <ol className="grid md:grid-cols-2 gap-x-14 gap-y-10 border-t border-ink/[0.08] pt-10">
+          <ol className="flex flex-col border-t border-ink/[0.08]">
             {LEVELS.map(l => (
-              <li key={l.n}>
-                <div className="flex items-baseline gap-3 mb-3">
-                  <span className="font-display text-lg text-gold leading-none">{l.n}</span>
-                  <h3 className="font-display text-xl font-medium text-ink leading-tight">
-                    {l.name}
-                  </h3>
-                </div>
-                <p className="text-[0.95rem] text-ink-500 leading-relaxed">{l.line}</p>
+              <li key={l.n} className="border-b border-ink/[0.08]">
+                <details className="group">
+                  <summary className="flex items-center gap-5 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                    <span className="font-display text-3xl sm:text-4xl text-gold/40 leading-none w-10 shrink-0 tabular-nums group-hover:text-gold transition-colors">
+                      {l.n}
+                    </span>
+                    <h3 className="font-display text-xl sm:text-2xl font-medium text-ink leading-tight flex-1">
+                      {l.name}
+                    </h3>
+                    <ChevronDown
+                      size={20}
+                      className="text-ink-500 shrink-0 transition-transform duration-200 group-open:rotate-180"
+                    />
+                  </summary>
+                  <p className="text-[0.97rem] text-ink-500 leading-relaxed pb-6 pl-[3.75rem] max-w-2xl">
+                    {l.line}
+                  </p>
+                </details>
               </li>
             ))}
           </ol>
@@ -278,28 +288,32 @@ export default function HomePage() {
       </section>
 
       {/* ── Level 1 preview ──────────────────────── */}
-      <section id="level-one" className="bg-white border-y border-ink/[0.08] py-20 sm:py-24 scroll-mt-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-2xl mb-12">
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">Inside a session</p>
-            <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-4">
+      <section id="level-one" className="relative bg-ink py-20 sm:py-28 scroll-mt-20 overflow-hidden">
+        <div className="glow" style={{ background: '#9c7c50', width: 520, height: 520, top: -200, right: -160, opacity: 0.14 }} />
+        <div className="relative max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl mb-14">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-4">Inside a session</p>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-white">
               What a class looks like
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-px bg-ink/10 border border-ink/10">
+          <div className="grid md:grid-cols-3 gap-10 lg:gap-14">
             {CLASS_SHAPE.map((para, i) => (
-              <div key={i} className="bg-white p-7">
-                <p className="text-[0.95rem] text-ink-500 leading-relaxed">{para}</p>
+              <div key={i}>
+                <p className="font-display text-5xl sm:text-6xl text-gold-300/35 leading-none mb-5 tabular-nums">
+                  {String(i + 1).padStart(2, '0')}
+                </p>
+                <div className="w-8 h-px bg-gold-300/40 mb-5" />
+                <p className="text-[0.95rem] text-white/65 leading-relaxed">{para}</p>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
       {/* ── Competitive Prep teaser ──────────────── */}
-      <section className="relative py-24 sm:py-32 mt-20 sm:mt-24">
+      <section className="relative py-24 sm:py-32">
         <Image
           src="/images/prep-stage.jpg"
           alt="A speaker addressing a full auditorium"
