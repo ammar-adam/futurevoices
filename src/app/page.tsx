@@ -206,13 +206,13 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-16 items-start">
             <div>
-              <p className="font-display text-[4.5rem] sm:text-[6rem] leading-[0.85] font-medium text-ink tabular-nums">
+              <p className="font-display text-[2.75rem] leading-none font-medium text-ink tabular-nums">
                 $120
+                <span className="text-xl text-ink-500 font-normal"> a month</span>
               </p>
-              <p className="text-lg text-ink-500 mt-3">a month</p>
-              <div className="w-12 h-px bg-gold mt-8" />
+              <div className="w-10 h-px bg-gold mt-6" />
             </div>
 
             <div>
