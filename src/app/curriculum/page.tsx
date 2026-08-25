@@ -42,10 +42,10 @@ export default function CurriculumPage() {
           </div>
         </section>
 
-        {/* Level 1 detail */}
-        <section className="mt-20 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="border-b border-ink/10 pb-6 mb-10">
+        {/* The six stages */}
+        <section className="mt-20 bg-white border-y border-ink/[0.08] py-20 sm:py-24">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="border-b border-ink/10 pb-6 mb-12">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-3">In order</p>
               <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-4">The six stages</h2>
               <p className="text-ink-500 leading-relaxed max-w-2xl">
@@ -54,20 +54,15 @@ export default function CurriculumPage() {
               </p>
             </div>
 
-            <ol className="flex flex-col">
-              {LEVELS.map((l, i) => (
-                <li
-                  key={l.n}
-                  className={`flex flex-col sm:flex-row gap-3 sm:gap-8 py-6 ${
-                    i > 0 ? 'border-t border-ink/[0.08]' : 'pt-0'
-                  }`}
-                >
-                  <p className="font-display text-2xl text-gold sm:w-24 shrink-0 sm:pt-0.5 leading-none">
-                    {l.n}
+            <ol className="flex flex-col gap-14">
+              {LEVELS.map(l => (
+                <li key={l.n} className="grid sm:grid-cols-[5rem_1fr] gap-3 sm:gap-8">
+                  <p className="font-display text-4xl sm:text-5xl text-gold/30 leading-none tabular-nums">
+                    {String(l.n).padStart(2, '0')}
                   </p>
                   <div>
-                    <h3 className="font-display text-xl font-medium text-ink mb-2">{l.name}</h3>
-                    <p className="text-[0.95rem] text-ink-500 leading-relaxed">{l.line}</p>
+                    <h3 className="font-display text-2xl font-medium text-ink mb-3">{l.name}</h3>
+                    <p className="text-[0.97rem] text-ink-500 leading-relaxed">{l.line}</p>
                   </div>
                 </li>
               ))}

@@ -124,7 +124,7 @@ export default function PrepPage() {
             Competitive prep
           </p>
           <h1 className="font-display text-[2.4rem] sm:text-[3.2rem] leading-[1.08] font-medium text-white max-w-2xl mb-6">
-            Competitive prep
+            Coaching built backwards from the date.
           </h1>
           <p className="text-lg text-white/75 leading-relaxed max-w-2xl mb-9">
             Private coaching for teenagers working towards a specific competition or deadline.
