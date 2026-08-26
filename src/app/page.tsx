@@ -8,6 +8,13 @@ import { LEVELS, CLASS_SHAPE } from '@/types'
 import { NIDA_BOOKING_URL, CONTACT_EMAIL, NEXT_COHORT } from '@/lib/links'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 
+const LOOP = [
+  'Learn one skill',
+  'Use it on your feet',
+  'Hear exactly what to fix',
+  'Go again',
+]
+
 const PRIVATE_CARDS = [
   {
     name: 'Private coaching',
@@ -112,25 +119,46 @@ export default function HomePage() {
 
       {/* ── Approach ─────────────────────────────── */}
       <section className="py-14 sm:py-24">
-        <div className="max-w-3xl mx-auto px-6 text-left sm:text-center">
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-5">Our approach</p>
-          <h2 className="font-display text-3xl sm:text-[2.6rem] leading-tight font-medium text-ink mb-6">
-            Most kids barely ever practise speaking.
-          </h2>
-          <div className="text-base sm:text-lg text-ink-500 leading-relaxed flex flex-col gap-5">
-            <p>
-              A presentation once a term, a few sentences read off a page, and that is usually the
-              whole of it. It is nowhere near enough practice for anyone to get comfortable standing
-              in front of a room, which is why so many capable students dread it well into adulthood.
-            </p>
-            <p>
-              Our classes are built around the opposite habit. Each week covers one specific skill,
-              every student gets up and uses it while the class is still going, and each of them
-              hears what worked and what to change before they try it again. Confidence comes out of
-              that repetition rather than out of encouragement, and it tends to show up faster than
-              parents expect.
-            </p>
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="max-w-2xl mx-auto text-left sm:text-center">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-5">Our approach</p>
+            <h2 className="font-display text-3xl sm:text-[2.6rem] leading-[1.12] font-medium text-ink mb-6 text-balance">
+              Confidence isn’t a pep talk. It’s evidence.
+            </h2>
+            <div className="text-base sm:text-lg text-ink-500 leading-relaxed text-pretty flex flex-col gap-4">
+              <p>
+                Most kids speak in front of a room twice a year, if that. Nowhere near enough to get
+                comfortable, which is why so many capable students still dread it well into adulthood.
+              </p>
+              <p>
+                A child who has stood up and spoken dozens of times knows they can, because they
+                already have. Every class is built to stack that proof up as fast as possible.
+              </p>
+            </div>
           </div>
+
+          <div className="mt-11 sm:mt-14 rounded-2xl bg-white border border-ink/[0.08] shadow-soft px-6 py-9 sm:px-10 sm:py-10">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-8 text-left sm:text-center">
+              Every class, on repeat
+            </p>
+            <ol className="grid gap-7 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
+              {LOOP.map((step, i) => (
+                <li key={step} className="relative">
+                  <span className="font-display text-2xl text-gold/45 tabular-nums leading-none">
+                    0{i + 1}
+                  </span>
+                  <p className="mt-2.5 font-display text-lg text-ink leading-snug">{step}</p>
+                  {i < LOOP.length - 1 && (
+                    <ArrowRight size={16} className="hidden md:block absolute top-1.5 -right-6 text-gold/35" />
+                  )}
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <p className="mt-8 sm:mt-10 max-w-2xl mx-auto font-display text-xl sm:text-2xl leading-snug text-ink text-left sm:text-center text-balance">
+            No one watches from the back. No one waits a week for a turn.
+          </p>
         </div>
       </section>
 
