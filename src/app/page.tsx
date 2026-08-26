@@ -96,13 +96,14 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25" />
         <div className="relative w-full max-w-6xl mx-auto px-6 pb-16 pt-44">
           <h1 className="font-display text-[2.6rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-3xl mb-6">
-            Public speaking, taught properly.
+            Speak, Inspire,
+            <br />
+            Empower
           </h1>
           <p className="text-lg text-white/75 leading-relaxed max-w-2xl mb-9">
-            Future Voices is a small school for kids and teens who want to get better at speaking.
-            Students meet weekly in a small group, they speak in every class, and they work through
-            a curriculum that starts with getting comfortable being heard and goes as far as
-            speaking well under real pressure.
+            Welcome to Future Voices, where we empower children and adults to master the art of
+            confident communication, unlocking new opportunities for personal and professional
+            growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button size="lg" variant="secondary" asChild>
