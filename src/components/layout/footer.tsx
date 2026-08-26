@@ -32,8 +32,8 @@ const COLUMNS = [
 export function Footer() {
   return (
     <footer className="bg-ink text-white">
-      <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div className="max-w-6xl mx-auto px-6 pt-12 pb-8 sm:pt-16 sm:pb-10">
+        <div className="grid gap-10 sm:grid-cols-2 md:gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="inline-block mb-5">
               <Image src="/brand/fv-wordmark-white.png" alt="Future Voices" width={190} height={70} />
@@ -59,7 +59,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="mt-10 sm:mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/40">© {new Date().getFullYear()} Future Voices</p>
         </div>
       </div>

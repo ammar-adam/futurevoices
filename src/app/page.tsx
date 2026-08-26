@@ -2,17 +2,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
-import { Button } from '@/components/ui/button'
+import { buttonClasses } from '@/components/ui/button'
 import { ContactForm } from '@/components/marketing/contact-form'
 import { LEVELS, CLASS_SHAPE } from '@/types'
 import { NIDA_BOOKING_URL, CONTACT_EMAIL, NEXT_COHORT } from '@/lib/links'
 import { ArrowRight, ChevronDown } from 'lucide-react'
-
-const STATS = [
-  'Small groups, so that every student is on their feet in every single class',
-  'The same coach teaching every session, from the first class to the last one',
-  'A curriculum that builds in order rather than a series of one-off workshops',
-]
 
 const PRIVATE_CARDS = [
   {
@@ -84,7 +78,7 @@ export default function HomePage() {
       <Navbar overHero />
 
       {/* ── Hero ─────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-end">
+      <section className="relative min-h-[100svh] flex items-end">
         <Image
           src="/images/hero-class.jpg"
           alt="A student presenting to her class while a classmate raises a hand"
@@ -93,48 +87,37 @@ export default function HomePage() {
           className="object-cover object-[65%_35%]"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25" />
-        <div className="relative w-full max-w-6xl mx-auto px-6 pb-16 pt-44">
-          <h1 className="font-display text-[2.6rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-3xl mb-6">
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/35 sm:via-ink/55 sm:to-ink/25" />
+        <div className="relative w-full max-w-6xl mx-auto px-6 pb-14 pt-32 sm:pb-16 sm:pt-44">
+          <h1 className="font-display text-[2.5rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-3xl mb-5 sm:mb-6">
             Speak, Inspire,
             <br />
             Empower
           </h1>
-          <p className="text-lg text-white/75 leading-relaxed max-w-2xl mb-9">
+          <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl mb-8 sm:mb-9">
             Welcome to Future Voices, where we empower children and adults to master the art of
             confident communication, unlocking new opportunities for personal and professional
             growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button size="lg" variant="secondary" asChild>
-              <a href={NIDA_BOOKING_URL}>Book an intro call <ArrowRight size={18} /></a>
-            </Button>
-            <Button size="lg" asChild className="border border-white/30 bg-white/5 text-white hover:bg-white/15 rounded-full px-8 backdrop-blur-sm">
-              <Link href="/curriculum">See what we teach</Link>
-            </Button>
+            <a href={NIDA_BOOKING_URL} className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
+              Book an intro call <ArrowRight size={18} />
+            </a>
+            <Link href="/curriculum" className={buttonClasses({ size: 'lg', className: 'border border-white/30 bg-white/5 text-white hover:bg-white/15 rounded-full px-8 backdrop-blur-sm' })}>
+              See what we teach
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Stats ────────────────────────────────── */}
-      <section className="bg-white border-b border-ink/[0.08]">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3">
-          {STATS.map((line, i) => (
-            <div key={line} className={`py-9 px-6 ${i > 0 ? 'md:border-l border-ink/[0.08]' : ''}`}>
-              <p className="font-display text-[1.35rem] font-medium text-ink leading-snug">{line}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ── Approach ─────────────────────────────── */}
-      <section className="py-20 sm:py-24">
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      <section className="py-14 sm:py-24">
+        <div className="max-w-3xl mx-auto px-6 text-left sm:text-center">
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-5">Our approach</p>
           <h2 className="font-display text-3xl sm:text-[2.6rem] leading-tight font-medium text-ink mb-6">
             Most kids barely ever practise speaking.
           </h2>
-          <div className="text-lg text-ink-500 leading-relaxed flex flex-col gap-5">
+          <div className="text-base sm:text-lg text-ink-500 leading-relaxed flex flex-col gap-5">
             <p>
               A presentation once a term, a few sentences read off a page, and that is usually the
               whole of it. It is nowhere near enough practice for anyone to get comfortable standing
@@ -152,7 +135,7 @@ export default function HomePage() {
       </section>
 
       {/* ── The Path ─────────────────────────────── */}
-      <section id="path" className="bg-white border-y border-ink/[0.08] py-20 sm:py-24 scroll-mt-20">
+      <section id="path" className="bg-white border-y border-ink/[0.08] py-14 sm:py-24 scroll-mt-20">
         <div className="max-w-5xl mx-auto px-6">
           <div className="max-w-2xl mb-14">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">The path</p>
@@ -189,16 +172,16 @@ export default function HomePage() {
             ))}
           </ol>
 
-          <div className="mt-14 border-t border-ink/[0.08] pt-8">
-            <Button asChild>
-              <Link href="/curriculum">Read the curriculum in detail <ArrowRight size={16} /></Link>
-            </Button>
+          <div className="mt-8 sm:mt-10">
+            <Link href="/curriculum" className={buttonClasses()}>
+              Read the curriculum in detail <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ── Group coaching ───────────────────────── */}
-      <section id="programs" className="py-20 sm:py-24 scroll-mt-20">
+      <section id="programs" className="py-14 sm:py-24 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="border-b border-ink/10 pb-5 mb-12 flex flex-wrap items-baseline justify-between gap-4">
             <h2 className="font-display text-3xl font-medium text-ink">Group classes</h2>
@@ -223,9 +206,9 @@ export default function HomePage() {
                 of any month.
               </p>
               <div className="mt-8">
-                <Button asChild>
-                  <a href={NIDA_BOOKING_URL}>Book an intro call <ArrowRight size={16} /></a>
-                </Button>
+                <a href={NIDA_BOOKING_URL} className={buttonClasses()}>
+                  Book an intro call <ArrowRight size={16} />
+                </a>
               </div>
             </div>
           </div>
@@ -323,15 +306,15 @@ export default function HomePage() {
               by a coach with national and international competition results in these events.
               Sessions run from $45 to $60 and are booked one at a time.
             </p>
-            <Button size="lg" variant="secondary" asChild>
-              <Link href="/prep">More on competitive prep <ArrowRight size={17} /></Link>
-            </Button>
+            <Link href="/prep" className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
+              More on competitive prep <ArrowRight size={17} />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ── FAQ ──────────────────────────────────── */}
-      <section id="faq" className="py-20 sm:py-24 scroll-mt-20">
+      <section id="faq" className="py-14 sm:py-24 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.35fr_0.65fr] gap-12">
           <div>
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">FAQ</p>
@@ -358,7 +341,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Admissions ───────────────────────────── */}
-      <section id="contact" className="bg-ink py-20 sm:py-24 scroll-mt-20">
+      <section id="contact" className="bg-ink py-14 sm:py-24 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.42fr_0.58fr] gap-12">
           <div>
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-4">Admissions</p>
@@ -370,9 +353,9 @@ export default function HomePage() {
               child and what you are hoping will change, and we will point you towards the right
               option or tell you plainly if we are not the right people for them.
             </p>
-            <Button size="lg" variant="secondary" asChild>
-              <a href={NIDA_BOOKING_URL}>Book an intro call <ArrowRight size={17} /></a>
-            </Button>
+            <a href={NIDA_BOOKING_URL} className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
+              Book an intro call <ArrowRight size={17} />
+            </a>
             <p className="text-sm text-white/50 mt-4">
               Prefer email? Write to{' '}
               <a href={`mailto:${CONTACT_EMAIL}`} className="text-white/80 underline underline-offset-4">

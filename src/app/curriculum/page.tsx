@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
-import { Button } from '@/components/ui/button'
+import { buttonClasses } from '@/components/ui/button'
 import { LEVELS, CLASS_SHAPE } from '@/types'
 import { NIDA_BOOKING_URL } from '@/lib/links'
 import { ArrowRight } from 'lucide-react'
@@ -43,7 +43,7 @@ export default function CurriculumPage() {
         </section>
 
         {/* The six stages */}
-        <section className="mt-20 bg-white border-y border-ink/[0.08] py-20 sm:py-24">
+        <section className="mt-14 sm:mt-20 bg-white border-y border-ink/[0.08] py-14 sm:py-24">
           <div className="max-w-4xl mx-auto px-6">
             <div className="border-b border-ink/10 pb-6 mb-12">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-3">In order</p>
@@ -72,14 +72,14 @@ export default function CurriculumPage() {
 
         {/* Closing CTA */}
         <section className="mt-20 px-6">
-          <div className="max-w-4xl mx-auto bg-ink rounded-lg p-10 sm:p-12 text-center">
+          <div className="max-w-4xl mx-auto bg-ink rounded-lg p-7 sm:p-12 text-center">
             <p className="text-white/80 leading-relaxed text-[1.05rem] mb-8">
               Every family starts with an intro call. Tell us about your child and we will point you
               towards the right option.
             </p>
-            <Button size="lg" variant="secondary" asChild>
-              <a href={NIDA_BOOKING_URL}>Book an intro call <ArrowRight size={17} /></a>
-            </Button>
+            <a href={NIDA_BOOKING_URL} className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
+              Book an intro call <ArrowRight size={17} />
+            </a>
           </div>
         </section>
       </main>

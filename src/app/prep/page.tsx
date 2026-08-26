@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
-import { Button } from '@/components/ui/button'
+import { buttonClasses } from '@/components/ui/button'
 import { PREP_BOOKING_URL } from '@/lib/links'
 import { ArrowRight, Gavel, Trophy, GraduationCap } from 'lucide-react'
 
@@ -132,12 +132,12 @@ export default function PrepPage() {
             take as many or as few as they need.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button size="lg" variant="secondary" asChild>
-              <a href={PREP_BOOKING_URL}>Book an intro call <ArrowRight size={18} /></a>
-            </Button>
-            <Button size="lg" asChild className="border border-white/30 bg-white/5 text-white hover:bg-white/15 rounded-full px-8 backdrop-blur-sm">
-              <Link href="/prep/apply">Send an application</Link>
-            </Button>
+            <a href={PREP_BOOKING_URL} className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
+              Book an intro call <ArrowRight size={18} />
+            </a>
+            <Link href="/prep/apply" className={buttonClasses({ size: 'lg', className: 'border border-white/30 bg-white/5 text-white hover:bg-white/15 rounded-full px-8 backdrop-blur-sm' })}>
+              Send an application
+            </Link>
           </div>
         </div>
       </section>
@@ -155,7 +155,7 @@ export default function PrepPage() {
       </section>
 
       {/* ── Coach record ─────────────────────────── */}
-      <section className="bg-ink py-20 sm:py-24">
+      <section className="bg-ink py-14 sm:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="border-b border-white/15 pb-5 mb-12 flex flex-wrap items-baseline justify-between gap-4">
             <h2 className="font-display text-3xl font-medium text-white">Your coach&rsquo;s record</h2>
@@ -262,7 +262,7 @@ export default function PrepPage() {
       </section>
 
       {/* ── Pricing ──────────────────────────────── */}
-      <section className="py-20 sm:py-24">
+      <section className="py-14 sm:py-24">
         <div className="max-w-4xl mx-auto px-6">
           <div className="border-b border-ink/10 pb-5 mb-10 flex flex-wrap items-baseline justify-between gap-4">
             <h2 className="font-display text-3xl font-medium text-ink">Pricing</h2>
@@ -297,7 +297,7 @@ export default function PrepPage() {
       </section>
 
       {/* ── Tracks ───────────────────────────────── */}
-      <section id="tracks" className="bg-white border-y border-ink/[0.08] py-20 sm:py-24 scroll-mt-20">
+      <section id="tracks" className="bg-white border-y border-ink/[0.08] py-14 sm:py-24 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="border-b border-ink/10 pb-5 mb-12">
             <h2 className="font-display text-3xl font-medium text-ink">What we coach</h2>
@@ -326,7 +326,7 @@ export default function PrepPage() {
       </section>
 
       {/* ── CTA ──────────────────────────────────── */}
-      <section className="bg-ink py-20 sm:py-24">
+      <section className="bg-ink py-14 sm:py-24">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-5">Who teaches this</h2>
           <p className="text-white/60 leading-relaxed mb-9">
@@ -335,12 +335,12 @@ export default function PrepPage() {
             the intro call.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button size="lg" variant="secondary" asChild>
-              <a href={PREP_BOOKING_URL}>Book an intro call <ArrowRight size={17} /></a>
-            </Button>
-            <Button size="lg" asChild className="border border-white/25 bg-transparent text-white hover:bg-white/10 rounded-full px-8">
-              <Link href="/prep/apply">Send an application</Link>
-            </Button>
+            <a href={PREP_BOOKING_URL} className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
+              Book an intro call <ArrowRight size={17} />
+            </a>
+            <Link href="/prep/apply" className={buttonClasses({ size: 'lg', className: 'border border-white/25 bg-transparent text-white hover:bg-white/10 rounded-full px-8' })}>
+              Send an application
+            </Link>
           </div>
         </div>
       </section>

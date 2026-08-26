@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { buttonClasses } from '@/components/ui/button'
 import { NIDA_BOOKING_URL } from '@/lib/links'
 import { cn } from '@/lib/utils'
 
@@ -67,9 +67,12 @@ export function Navbar({ overHero = false }: { overHero?: boolean }) {
               {l.label}
             </Link>
           ))}
-          <Button size="sm" variant={scrolled ? 'primary' : 'secondary'} asChild>
-            <a href={NIDA_BOOKING_URL}>Book an intro call</a>
-          </Button>
+          <a
+            href={NIDA_BOOKING_URL}
+            className={buttonClasses({ size: 'sm', variant: scrolled ? 'primary' : 'secondary' })}
+          >
+            Book an intro call
+          </a>
         </div>
 
         <button
@@ -88,9 +91,9 @@ export function Navbar({ overHero = false }: { overHero?: boolean }) {
               {l.label}
             </Link>
           ))}
-          <Button size="sm" asChild>
-            <a href={NIDA_BOOKING_URL} onClick={() => setOpen(false)}>Book an intro call</a>
-          </Button>
+          <a href={NIDA_BOOKING_URL} onClick={() => setOpen(false)} className={buttonClasses({ size: 'sm' })}>
+            Book an intro call
+          </a>
         </div>
       )}
     </nav>
