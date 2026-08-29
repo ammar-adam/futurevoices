@@ -95,9 +95,9 @@ export default function HomePage() {
             Empower
           </h1>
           <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl mb-8 sm:mb-9">
-            Welcome to Future Voices, where we empower children and adults to master the art of
-            confident communication, unlocking new opportunities for personal and professional
-            growth.
+            Welcome to Future Voices, where we empower kids and teens to master the art of
+            confident communication, unlocking new opportunities in the classroom and well
+            beyond it.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a href={NIDA_BOOKING_URL} className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
