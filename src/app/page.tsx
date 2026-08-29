@@ -20,13 +20,13 @@ const PRIVATE_CARDS = [
     name: 'Private coaching',
     price: '$50 a session',
     priceNote: 'or four sessions for $180',
-    body: 'The same curriculum taught one to one. This suits a child who would find a group too much to begin with, one who is preparing for something specific, or one who wants to work faster than a class allows.',
+    body: 'The same curriculum, taught one to one and paced entirely around your child. This suits a student who would find a group daunting at first, one preparing for something specific, or one ready to move faster than a class allows.',
   },
   {
     name: 'Competitive prep, for teens',
     price: 'From $45 a session',
     priceNote: 'booked one at a time',
-    body: 'One to one coaching for students working towards a competition or an application deadline. Sessions are booked one at a time, with no packages and no minimum.',
+    body: 'Focused one to one coaching for students working towards a competition or an application deadline. Sessions are booked individually, so families take exactly as many as they need, with no packages and no minimum commitment.',
     points: [
       'DECA and case competitions, $45 a session',
       'Model UN, $45 a session',
@@ -39,15 +39,15 @@ const PRIVATE_CARDS = [
 const FAQ = [
   {
     q: 'My child is shy. Is this right for them?',
-    a: 'Usually yes, and it is the most common reason families get in touch. Classes are built so a quiet student speaks early and in small ways, long before anything feels like a performance. Shy children often make the most visible progress, because the distance between where they start and where they finish is the greatest.',
+    a: 'Usually yes, and it is the most common reason families get in touch. Classes are structured so that a quieter student speaks early and in small, manageable ways, long before anything resembles a performance. Shy students often show the most visible growth, precisely because the distance between where they start and where they finish is the greatest.',
   },
   {
     q: 'How are classes taught?',
-    a: 'Live and online, once a week, in a small group. Nida teaches every session herself, so nobody is handed between instructors and nobody has to explain themselves to someone new.',
+    a: 'Classes are live and online, once a week, in a small group. Nida teaches every session herself, so students build a relationship with one coach rather than being handed between instructors or having to explain themselves to someone new.',
   },
   {
     q: 'How does the free first class work?',
-    a: 'Your child sits in on a full class at no cost, with no payment details taken and nothing to cancel. If it suits them, you enrol afterwards. If it does not, that is a perfectly good outcome and we would rather find out that way.',
+    a: 'Your child joins a full class at no cost, with no payment details taken and nothing to cancel afterwards. If it suits them, you enrol from there. If it does not, that is a perfectly good outcome, and we would far rather a family find that out before committing.',
   },
   {
     q: 'What does it cost?',
@@ -59,15 +59,15 @@ const FAQ = [
   },
   {
     q: 'How much practice is there between classes?',
-    a: 'Ten or fifteen minutes, though students tend to spend longer when they are working on something they care about.',
+    a: 'Ten or fifteen minutes is usually enough, though students often spend longer once they are working on a talk that means something to them.',
   },
   {
     q: 'What does my child need?',
-    a: 'A device with a working camera and microphone, and somewhere quiet enough to speak out loud without feeling overheard by the whole house.',
+    a: 'A device with a working camera and microphone, and a space quiet enough that your child can speak out loud without feeling overheard by the whole house.',
   },
   {
     q: 'What if we miss a class?',
-    a: 'Let us know and we will send a short note on what was covered and what to practise, so your child is not lost the following week.',
+    a: 'Let us know and we will send a short summary of what was covered and what to practise, so your child returns the following week without having lost ground.',
   },
   {
     q: 'What ages do you teach?',
@@ -75,7 +75,7 @@ const FAQ = [
   },
   {
     q: 'How do we start?',
-    a: 'Book a free intro call. We will ask about your child, you can ask us whatever you want to know, and if it seems like a fit they join the next group.',
+    a: 'Book a free intro call. We will ask about your child, you can ask us anything you would like to know, and if it feels like the right fit they join the next group.',
   },
 ]
 
@@ -119,20 +119,18 @@ export default function HomePage() {
           <div className="max-w-2xl mx-auto text-left sm:text-center">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-5">Our approach</p>
             <h2 className="font-display text-3xl sm:text-[2.6rem] leading-[1.12] font-medium text-ink mb-6 text-balance">
-              Most kids barely ever practise speaking.
+              Confidence is built, not born.
             </h2>
             <div className="text-base sm:text-lg text-ink-500 leading-relaxed text-pretty flex flex-col gap-4">
               <p>
-                A presentation once a term, a few sentences read off a page, and that is usually the
-                whole of it. It is nowhere near enough practice for anyone to get comfortable
-                standing up in front of a room, which is why so many capable students dread it well
-                into adulthood.
+                At Future Voices, students develop the skills that carry them far beyond the
+                classroom: the ability to organise a thought, hold a room, and speak with conviction
+                when it matters. Every session is designed around practice rather than theory,
+                because confidence grows through doing.
               </p>
               <p>
-                Our classes work the other way around. Each week covers one skill, every student
-                gets up and uses it while the class is still running, and each of them hears what
-                worked and what to change before trying again. Confidence comes out of that
-                repetition rather than out of encouragement.
+                Each week focuses on a single skill, every student puts it to use while the class is
+                running, and each of them leaves knowing exactly what to build on next.
               </p>
             </div>
           </div>
@@ -169,10 +167,10 @@ export default function HomePage() {
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">The path</p>
             <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-5">What students learn</h2>
             <p className="text-ink-500 leading-relaxed">
-              The curriculum moves through six stages in order, because each one relies on the one
-              before it. There is no point working on persuading an audience before a student is
-              comfortable being looked at by one. Students move on when they are ready rather than
-              on a fixed schedule.
+              Students progress through six stages, each one building on the last. Persuading an
+              audience means little until a student is comfortable being looked at by one, so the
+              order matters. Progress is paced by readiness rather than by a schedule, and every
+              student moves forward when they are genuinely ready.
             </p>
           </div>
 
@@ -229,9 +227,10 @@ export default function HomePage() {
 
             <div>
               <p className="text-[1.05rem] text-ink-500 leading-relaxed">
-                One class a week in a small group of students of similar age, working through the
-                curriculum together. Everyone speaks in every session, and you can stop at the end
-                of any month.
+                Students meet weekly in a small group of a similar age, working through the curriculum
+                together and building on each other’s progress. Everyone speaks in every session, so
+                nobody drifts to the back of the room. Enrolment is monthly, and you can stop at the
+                end of any month.
               </p>
               <div className="mt-8">
                 <a href={NIDA_BOOKING_URL} className={buttonClasses()}>
@@ -346,9 +345,9 @@ export default function HomePage() {
               For teens working towards a specific date
             </h2>
             <p className="text-white/70 leading-relaxed mb-8">
-              DECA provincials, a Model UN conference, or a university application due in six weeks.
-              This is private coaching planned backwards from the date that matters, taught by a
-              coach with national and international competition results in these events. Sessions
+              DECA provincials, a Model UN conference, a university application due in six weeks.
+              Competitive prep is private coaching planned backwards from the date that matters,
+              delivered by a coach with national and international results in these events. Sessions
               run from $45 to $60 and are booked one at a time.
             </p>
             <Link href="/prep" className={buttonClasses({ size: 'lg', variant: 'secondary' })}>

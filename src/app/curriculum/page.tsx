@@ -25,9 +25,9 @@ export default function CurriculumPage() {
               What we teach
             </h1>
             <p className="text-lg text-ink-500 leading-relaxed">
-              This is the whole curriculum, set out in the open. Students start wherever they are
-              and work through it in order, moving on when they are ready rather than when a
-              schedule says they should.
+              This is the entire Future Voices curriculum, set out in the open. Students begin wherever
+              they are and progress through it in order, moving forward when they are genuinely
+              ready rather than when a schedule says they should be.
             </p>
           </div>
         </section>
@@ -49,8 +49,9 @@ export default function CurriculumPage() {
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-3">In order</p>
               <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink mb-4">The six stages</h2>
               <p className="text-ink-500 leading-relaxed max-w-2xl">
-                The curriculum moves through six stages in order, because each one relies on the one
-                before it. Students move on when they are ready rather than on a fixed schedule.
+                The curriculum moves through six stages, each one building on the last. Students progress
+                when they are ready rather than on a fixed schedule, so nobody is carried past a
+                skill they have not yet secured.
               </p>
             </div>
 
@@ -74,8 +75,8 @@ export default function CurriculumPage() {
         <section className="mt-20 px-6">
           <div className="max-w-4xl mx-auto bg-ink rounded-lg p-7 sm:p-12 text-center">
             <p className="text-white/80 leading-relaxed text-[1.05rem] mb-8">
-              Every family starts with an intro call. Tell us about your child and we will point you
-              towards the right option.
+              Every family begins with an intro call. Tell us about your child and what you are hoping
+              will change, and we will point you towards the option that fits.
             </p>
             <a href={NIDA_BOOKING_URL} className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
               Book an intro call <ArrowRight size={17} />

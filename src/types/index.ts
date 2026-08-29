@@ -141,38 +141,38 @@ export const LEVELS = [
   {
     n: 1,
     name: 'Confidence',
-    line: 'This is where almost everyone starts. Students learn what nerves physically are and why they are not evidence of being bad at this, and they work on the mechanics of standing up, staying still, knowing where to look, and speaking loudly enough to be heard comfortably. Everyone speaks in the first session, because putting it off only makes it harder.',
+    line: 'Every student begins here. They learn what nerves actually are and why feeling them is normal rather than disqualifying, then build the physical foundations of speaking well: standing with purpose, holding still, knowing where to look, and projecting enough to fill a room comfortably. Everyone speaks in the very first session, because confidence starts the moment a student begins.',
   },
   {
     n: 2,
     name: 'Clarity',
-    line: 'Most people are hard to follow because they started talking before they knew what they wanted to say. This stage is about organising a thought before opening your mouth, saying the important part first, cutting the filler that creeps in when you are nervous, and being able to explain something complicated to someone who knows nothing about it.',
+    line: 'Clear speakers think before they speak. Students learn to shape an idea before opening their mouth, lead with what matters most, strip out the filler that creeps in under pressure, and explain something complicated to someone who knows nothing about it. It is the skill that makes every presentation afterwards easier.',
   },
   {
     n: 3,
     name: 'Storytelling',
-    line: 'Students work on why some talks stay with an audience and most do not. That covers openings that make people look up, choosing the details that carry weight and leaving out the ones that do not, timing, and humour, which is mostly a question of rhythm and can be practised like anything else.',
+    line: 'Some talks stay with an audience long after they end, and there are reasons why. Students work on openings that make a room look up, choosing the details that carry weight, shaping a story that holds attention, and using timing and humour with intent. These are the tools that turn information into something worth listening to.',
   },
   {
     n: 4,
     name: 'Persuasion',
-    line: 'This stage covers building an argument that holds together, anticipating what an audience already believes, using evidence without burying people in it, and finishing with a clear idea of what you want listeners to do or think differently about.',
+    line: 'Speaking to inform is one thing, and speaking to move people is another. Students learn to build an argument that holds together, anticipate what an audience already believes, use evidence without overwhelming anyone, and close with a clear sense of what they want their listeners to do or reconsider.',
   },
   {
     n: 5,
     name: 'Performance',
-    line: 'The physical side of speaking. Students work on using their voice deliberately, varying pace, letting a pause do the work instead of filling it, and holding the attention of a room that is distracted or unconvinced. Recovering from a mistake mid-sentence is rehearsed here on purpose rather than left to chance.',
+    line: 'This stage develops the physical craft of speaking. Students learn to use their voice deliberately, vary pace for effect, let a pause carry weight instead of rushing to fill it, and hold a room that is distracted or unconvinced. Recovering from a stumble mid-sentence is rehearsed on purpose, so it becomes routine rather than alarming.',
   },
   {
     n: 6,
     name: 'Mastery',
-    line: 'Speaking with little or no preparation, handling questions nobody warned you about, and performing in interviews, debates, and other situations where enough is riding on it that the nerves come back. This is the stage where students stop preparing for classes and start preparing for real occasions.',
+    line: 'The finishing stage prepares students for the moments that count: speaking with little or no preparation, handling questions nobody warned them about, and performing in interviews, debates, and other settings where enough is riding on it that the nerves return. By this point students are no longer preparing for class, they are preparing for the real thing.',
   },
 ]
 
 /** The shape of a class. Used on the homepage and the curriculum page. */
 export const CLASS_SHAPE = [
-  'Every class follows the same shape. It opens with teaching, one skill at a time and with examples, and then everyone speaks. Depending on where the group is, that might be thirty seconds on the spot, a short prepared piece, or a full talk once students have been building towards one.',
-  'Feedback happens immediately and it is specific. Rather than telling a student they did well, we tell them which sentence lost the room and what to do differently, and then they go again, because hearing a note and applying it are two different skills.',
-  'By the end of a stretch of work, every student has written and delivered a talk of their own on a subject they chose because they actually care about it.',
+  'Every class follows a rhythm students come to know well. It opens with teaching, one skill at a time and grounded in examples, and then everyone speaks. Depending on where the group is, that might be thirty seconds on the spot, a short prepared piece, or a full talk they have been building towards.',
+  'Feedback comes straight away, and it is specific. Rather than a general well done, students hear exactly which sentence lost the room and what to try instead, then go again immediately, because hearing a note and applying it are two different skills.',
+  'By the end of a stretch of work, every student has written and delivered a talk of their own, on a subject they chose because they genuinely care about it.',
 ]

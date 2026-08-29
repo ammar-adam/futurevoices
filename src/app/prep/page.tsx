@@ -21,15 +21,15 @@ const PRICING = [
 const PRINCIPLES = [
   {
     title: 'Taught one to one',
-    body: 'There is no group to keep pace with, so the whole session goes on whatever this particular student needs work on before their date.',
+    body: 'With no group to keep pace with, the entire session goes on whatever this particular student needs before their date, whether that is structure, delivery, or nerves.',
   },
   {
     title: 'Planned backwards from the date',
-    body: 'We start from the competition or the deadline and work backwards, which means each session has a job to do rather than being general practice.',
+    body: 'We start from the competition or the deadline and work backwards, so every session has a defined job to do rather than being general practice.',
   },
   {
     title: 'Booked one session at a time',
-    body: 'Students take as many or as few sessions as they need, and there are no packages to commit to and no minimum number to buy.',
+    body: 'Students take as many or as few sessions as they need, with no packages to commit to and no minimum number to buy.',
   },
 ]
 
@@ -119,9 +119,9 @@ export default function PrepPage() {
             Coaching built backwards from the date.
           </h1>
           <p className="text-lg text-white/75 leading-relaxed max-w-2xl mb-9">
-            Private coaching for teenagers working towards a specific competition or deadline.
-            Sessions are planned backwards from the date and booked one at a time, so students
-            take as many or as few as they need.
+            Focused private coaching for teenagers working towards a specific competition or
+            deadline. Every session is planned backwards from the date that matters and booked
+            individually, so students take exactly as many as they need.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a href={PREP_BOOKING_URL} className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
@@ -322,8 +322,8 @@ export default function PrepPage() {
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="font-display text-3xl sm:text-4xl font-medium text-white mb-5">Who teaches this</h2>
           <p className="text-white/60 leading-relaxed mb-9">
-            Coaching is one to one, from a coach with national and international competition results
-            in these events and direct experience of the application process. You will meet them on
+            Coaching is delivered one to one by a coach with national and international results in
+            these events, and direct experience of the application process. You will meet them on
             the intro call.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
