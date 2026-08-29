@@ -16,9 +16,9 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const TITLE = "Future Voices | Public speaking, taught properly";
+const TITLE = "Future Voices | Live online public speaking classes for kids and teens";
 const DESCRIPTION =
-  "A small school for kids and teens who want to get better at speaking. Students meet weekly in a small group, they speak in every class, and they work through a curriculum that builds in order.";
+  "Future Voices helps kids and teens think clearly, speak confidently, and connect with people. Live online classes in small groups, taught by our founder Nida, plus private and competitive coaching.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://futurevoices.co"),

@@ -14,7 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * Button styling as plain classes, so links can be styled as buttons without
  * cloning an element. Cloning used to happen inside a client component, and a
  * child handed across the server/client boundary is not always a resolved
- * element by the time the client renders — which silently produced a <button>
+ * element by the time the client renders, which silently produced a <button>
  * on one side and an <a> on the other, and broke hydration.
  */
 export function buttonClasses({

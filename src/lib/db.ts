@@ -94,7 +94,7 @@ export interface PortalUser {
 
 export interface Lead {
   id: string
-  kind: 'intro-call' | 'pro' | 'signup'
+  kind: 'intro-call' | 'pro' | 'signup' | 'newsletter'
   created_at: string
   name: string
   email: string

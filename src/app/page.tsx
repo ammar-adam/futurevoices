@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { buttonClasses } from '@/components/ui/button'
 import { ContactForm } from '@/components/marketing/contact-form'
+import { NewsletterModal } from '@/components/marketing/newsletter-modal'
 import { LEVELS, CLASS_SHAPE } from '@/types'
 import { NIDA_BOOKING_URL, CONTACT_EMAIL, NEXT_COHORT } from '@/lib/links'
 import { ArrowRight, ChevronDown } from 'lucide-react'
@@ -39,15 +39,15 @@ const PRIVATE_CARDS = [
 const FAQ = [
   {
     q: 'My child is shy. Is this right for them?',
-    a: 'Usually yes, and it is the most common reason families get in touch. Classes are built so that a quiet student speaks early and in small ways, long before anything feels like a performance. Shy children often make the most visible progress, simply because the distance between where they start and where they end up is the greatest.',
+    a: 'Usually yes, and it is the most common reason families get in touch. Classes are built so a quiet student speaks early and in small ways, long before anything feels like a performance. Shy children often make the most visible progress, because the distance between where they start and where they finish is the greatest.',
   },
   {
     q: 'How are classes taught?',
-    a: 'Students meet once a week in a small group, and the same coach teaches every session. Nobody is handed between instructors partway through, and nobody has to explain themselves to someone new.',
+    a: 'Live and online, once a week, in a small group. Nida teaches every session herself, so nobody is handed between instructors and nobody has to explain themselves to someone new.',
   },
   {
-    q: 'Who teaches?',
-    a: 'Group and private speaking classes are taught by a public speaker and educator who has been coaching children in speaking for years. Competitive prep is taught by a coach with national and international competition results. You will meet whoever would be teaching your child on the intro call, before committing to anything.',
+    q: 'How does the free first class work?',
+    a: 'Your child sits in on a full class at no cost, with no payment details taken and nothing to cancel. If it suits them, you enrol afterwards. If it does not, that is a perfectly good outcome and we would rather find out that way.',
   },
   {
     q: 'What does it cost?',
@@ -58,12 +58,12 @@ const FAQ = [
     a: 'Two. A second child from the same family gets 20 per cent off, and if you refer a family who enrols, you get $25 off your next month.',
   },
   {
-    q: 'How much work is there outside class?',
-    a: 'Usually ten or fifteen minutes of practice between sessions, though students tend to spend longer than that when they are working on a talk they care about.',
+    q: 'How much practice is there between classes?',
+    a: 'Ten or fifteen minutes, though students tend to spend longer when they are working on something they care about.',
   },
   {
     q: 'What does my child need?',
-    a: 'Somewhere they can speak out loud without feeling overheard by the whole house, and a willingness to be slightly uncomfortable for the first couple of sessions.',
+    a: 'A device with a working camera and microphone, and somewhere quiet enough to speak out loud without feeling overheard by the whole house.',
   },
   {
     q: 'What if we miss a class?',
@@ -71,11 +71,11 @@ const FAQ = [
   },
   {
     q: 'What ages do you teach?',
-    a: `The group forming at the moment is for ages ${NEXT_COHORT.ages}. If your child falls outside that, get in touch anyway and we will tell you honestly whether we can help now or whether it is worth waiting for a group that fits them better.`,
+    a: `The group forming at the moment is for ages ${NEXT_COHORT.ages}. If your child falls outside that, get in touch anyway and we will tell you honestly whether we can help now or whether it is worth waiting.`,
   },
   {
     q: 'How do we start?',
-    a: 'Book an intro call. We will ask about your child, you can ask us whatever you want to know, and if it seems like a good fit they can join the next group. If it does not, we will say so.',
+    a: 'Book a free intro call. We will ask about your child, you can ask us whatever you want to know, and if it seems like a fit they join the next group.',
   },
 ]
 
@@ -85,35 +85,32 @@ export default function HomePage() {
       <Navbar overHero />
 
       {/* ── Hero ─────────────────────────────────── */}
-      <section className="relative min-h-[100svh] flex items-end">
-        <Image
-          src="/images/hero-class.jpg"
-          alt="A student presenting to her class while a classmate raises a hand"
-          fill
-          priority
-          className="object-cover object-[65%_35%]"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/35 sm:via-ink/55 sm:to-ink/25" />
+      <section className="relative bg-ink min-h-[100svh] flex items-end overflow-hidden">
+        <div className="glow" style={{ background: '#9c7c50', width: 620, height: 620, top: -200, right: -180, opacity: 0.18 }} />
+        <div className="glow" style={{ background: '#9c7c50', width: 420, height: 420, bottom: -220, left: -160, opacity: 0.1 }} />
         <div className="relative w-full max-w-6xl mx-auto px-6 pb-14 pt-32 sm:pb-16 sm:pt-44">
-          <h1 className="font-display text-[2.5rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-3xl mb-5 sm:mb-6">
-            Speak, Inspire,
-            <br />
-            Empower
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-gold-300 mb-6">
+            Speak. Inspire. Empower.
+          </p>
+          <h1 className="font-display text-[2.5rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-4xl mb-5 sm:mb-6">
+            Give your child the tools to speak with confidence and clarity.
           </h1>
           <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl mb-8 sm:mb-9">
-            Welcome to Future Voices, where we empower children and adults to master the art of
-            confident communication, unlocking new opportunities for personal and professional
-            growth.
+            Future Voices helps kids and teens think clearly, speak confidently, and connect with
+            people, on stage and in everyday life. Classes are live and online, in small groups,
+            taught by our founder Nida.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a href={NIDA_BOOKING_URL} className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
-              Book an intro call <ArrowRight size={18} />
+              Book a free intro call <ArrowRight size={18} />
             </a>
             <Link href="/curriculum" className={buttonClasses({ size: 'lg', className: 'border border-white/30 bg-white/5 text-white hover:bg-white/15 rounded-full px-8 backdrop-blur-sm' })}>
               See what we teach
             </Link>
           </div>
+          <p className="text-sm text-white/50 mt-8">
+            A new group starts {NEXT_COHORT.starts}, for ages {NEXT_COHORT.ages}. The first class is free.
+          </p>
         </div>
       </section>
 
@@ -123,16 +120,20 @@ export default function HomePage() {
           <div className="max-w-2xl mx-auto text-left sm:text-center">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-5">Our approach</p>
             <h2 className="font-display text-3xl sm:text-[2.6rem] leading-[1.12] font-medium text-ink mb-6 text-balance">
-              Confidence isn’t a pep talk. It’s evidence.
+              Most kids barely ever practise speaking.
             </h2>
             <div className="text-base sm:text-lg text-ink-500 leading-relaxed text-pretty flex flex-col gap-4">
               <p>
-                Most kids speak in front of a room twice a year, if that. Nowhere near enough to get
-                comfortable, which is why so many capable students still dread it well into adulthood.
+                A presentation once a term, a few sentences read off a page, and that is usually the
+                whole of it. It is nowhere near enough practice for anyone to get comfortable
+                standing up in front of a room, which is why so many capable students dread it well
+                into adulthood.
               </p>
               <p>
-                A child who has stood up and spoken dozens of times knows they can, because they
-                already have. Every class is built to stack that proof up as fast as possible.
+                Our classes work the other way around. Each week covers one skill, every student
+                gets up and uses it while the class is still running, and each of them hears what
+                worked and what to change before trying again. Confidence comes out of that
+                repetition rather than out of encouragement.
               </p>
             </div>
           </div>
@@ -312,16 +313,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Meet Nida ────────────────────────────── */}
+      <section id="founder" className="py-14 sm:py-24 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.35fr_0.65fr] gap-8 lg:gap-16">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold mb-4">
+              Your coach
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-ink">Meet Nida</h2>
+          </div>
+          <div className="text-base sm:text-[1.05rem] text-ink-500 leading-relaxed flex flex-col gap-5">
+            <p>
+              Nida is a public speaker and educator who has spent years teaching both children and
+              adults to find their voice. As a mother of three, she watched her own children change
+              through public speaking, not only in what they were able to say but in how they
+              carried themselves in a room. That is what Future Voices is built on.
+            </p>
+            <p>
+              She teaches every group and every private session herself, so nobody is handed between
+              instructors partway through.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── Competitive Prep teaser ──────────────── */}
-      <section className="relative py-24 sm:py-32">
-        <Image
-          src="/images/prep-stage.jpg"
-          alt="A speaker addressing a full auditorium"
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-ink/80" />
+      <section className="relative bg-ink py-20 sm:py-28 overflow-hidden">
+        <div className="glow" style={{ background: '#9c7c50', width: 460, height: 460, bottom: -200, right: -140, opacity: 0.14 }} />
         <div className="relative max-w-6xl mx-auto px-6">
           <div className="max-w-xl">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold-300 mb-4">Competitive prep</p>
@@ -330,9 +348,9 @@ export default function HomePage() {
             </h2>
             <p className="text-white/70 leading-relaxed mb-8">
               DECA provincials, a Model UN conference, or a university application due in six weeks.
-              Competitive prep is private coaching built backwards from the date that matters, taught
-              by a coach with national and international competition results in these events.
-              Sessions run from $45 to $60 and are booked one at a time.
+              This is private coaching planned backwards from the date that matters, taught by a
+              coach with national and international competition results in these events. Sessions
+              run from $45 to $60 and are booked one at a time.
             </p>
             <Link href="/prep" className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
               More on competitive prep <ArrowRight size={17} />
@@ -401,6 +419,8 @@ export default function HomePage() {
       </section>
 
       <Footer />
+
+      <NewsletterModal />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { NIDA_BOOKING_URL, CONTACT_EMAIL, LOCATION } from '@/lib/links'
+import { NewsletterForm } from '@/components/marketing/newsletter-form'
 
 const COLUMNS = [
   {
@@ -20,8 +21,10 @@ const COLUMNS = [
     ],
   },
   {
-    title: 'Trust and safety',
+    title: 'More',
     links: [
+      { href: '/blog', label: 'Blog' },
+      { href: '/challenges', label: 'Ten speaking challenges' },
       { href: '/safeguarding', label: 'Safeguarding' },
       { href: '/privacy', label: 'Privacy' },
       { href: '/terms', label: 'Terms' },
@@ -59,7 +62,15 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-10 sm:mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="mt-10 sm:mt-14 pt-8 sm:pt-10 border-t border-white/10 grid lg:grid-cols-[1fr_1fr] gap-6 lg:gap-16 items-start">
+          <p className="text-sm text-white/60 leading-relaxed max-w-sm">
+            Tips, stories, and news about new sessions. Sign up and get ten speaking challenges to
+            try at home.
+          </p>
+          <NewsletterForm source="footer" tone="dark" />
+        </div>
+
+        <div className="mt-10 pt-6 border-t border-white/10">
           <p className="text-xs text-white/40">© {new Date().getFullYear()} Future Voices</p>
         </div>
       </div>
