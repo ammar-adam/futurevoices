@@ -18,10 +18,34 @@ function markDismissed() {
 export function NewsletterModal() {
   const [open, setOpen] = useState(false)
 
+  /**
+   * Opens on whichever comes first: the visitor scrolling past the hero, which
+   * is the clearest signal they are actually reading, or a short fallback timer
+   * for anyone who stays put.
+   */
   useEffect(() => {
     if (alreadyDismissed()) return
-    const timer = setTimeout(() => setOpen(true), 12000)
-    return () => clearTimeout(timer)
+
+    let done = false
+    const fire = () => {
+      if (done) return
+      done = true
+      setOpen(true)
+    }
+
+    const timer = setTimeout(fire, 6000)
+    const onScroll = () => {
+      // Floor guards the degenerate case where innerHeight reads 0, which would
+      // otherwise collapse the threshold and fire on the first pixel of scroll.
+      const threshold = Math.max(320, window.innerHeight * 0.6)
+      if (window.scrollY > threshold) fire()
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('scroll', onScroll)
+    }
   }, [])
 
   useEffect(() => {
