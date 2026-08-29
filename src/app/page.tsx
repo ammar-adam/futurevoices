@@ -89,16 +89,15 @@ export default function HomePage() {
         <div className="glow" style={{ background: '#9c7c50', width: 620, height: 620, top: -200, right: -180, opacity: 0.18 }} />
         <div className="glow" style={{ background: '#9c7c50', width: 420, height: 420, bottom: -220, left: -160, opacity: 0.1 }} />
         <div className="relative w-full max-w-6xl mx-auto px-6 pb-14 pt-32 sm:pb-16 sm:pt-44">
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-gold-300 mb-6">
-            Speak. Inspire. Empower.
-          </p>
-          <h1 className="font-display text-[2.5rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-4xl mb-5 sm:mb-6">
-            Give your child the tools to speak with confidence and clarity.
+          <h1 className="font-display text-[2.5rem] sm:text-[3.6rem] leading-[1.07] font-medium text-white max-w-3xl mb-5 sm:mb-6">
+            Speak, Inspire,
+            <br />
+            Empower
           </h1>
           <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl mb-8 sm:mb-9">
-            Future Voices helps kids and teens think clearly, speak confidently, and connect with
-            people, on stage and in everyday life. Classes are live and online, in small groups,
-            taught by our founder Nida.
+            Welcome to Future Voices, where we empower children and adults to master the art of
+            confident communication, unlocking new opportunities for personal and professional
+            growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a href={NIDA_BOOKING_URL} className={buttonClasses({ size: 'lg', variant: 'secondary' })}>
